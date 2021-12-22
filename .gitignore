@@ -1,0 +1,11 @@
+bin/
+etc/
+reports
+
+.qmake.stash
+Makefile
+Skyscraper
+*.o
+config.ini
+moc_*.cpp
+moc_*.h
