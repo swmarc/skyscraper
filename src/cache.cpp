@@ -885,9 +885,8 @@ void Cache::assembleReport(const Settings &config, const QString filter)
     return;
   }
 
-  QString dateTime = QDateTime::currentDateTime().toString("yyyyMMdd");
   for(const auto &resType: resTypeList) {
-    QFile reportFile(reportsDir.absolutePath() + "/report-" + config.platform + "-missing_" + resType + "-" + dateTime + ".txt");
+    QFile reportFile(reportsDir.absolutePath() + "/report-" + config.platform + "-missing_" + resType + ".txt");
     printf("Report filename: '\033[1;32m%s\033[0m'\nAssembling report, please wait...", reportFile.fileName().toStdString().c_str());
     if(reportFile.open(QIODevice::WriteOnly)) {
       int missing = 0;
