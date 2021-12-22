@@ -859,7 +859,7 @@ void Cache::assembleReport(const Settings &config, const QString filter)
   }
 
   // Create the reports folder
-  QDir reportsDir(QDir::currentPath() + "/reports");
+  QDir reportsDir(config.reportsFolder + "/reports");
   if(!reportsDir.exists()) {
     if(!reportsDir.mkpath(".")) {
       printf("Couldn't create reports folder '%s'. Please check permissions then try again...\n", reportsDir.absolutePath().toStdString().c_str());
@@ -917,7 +917,7 @@ void Cache::assembleReport(const Settings &config, const QString filter)
       reportFile.close();
       printf("\033[1;32m Done!\033[0m\n\033[1;33m%d file(s) is/are missing the '%s' resource.\033[0m\n\n", missing, resType.toStdString().c_str());
     } else {
-      printf("Report file could not be opened for writing, please check permissions of folder '/home/USER/.skyscraper', then try again...\n");
+      printf("Report file could not be opened for writing, please check permissions of folder '%s', then try again...\n", reportsDir.absolutePath().toStdString().c_str());
       return;
     }
   }

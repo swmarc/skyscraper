@@ -37,6 +37,7 @@
 ;cacheWheels="true"
 ;cacheMarquees="true"
 ;importFolder="/home/pi/.skyscraper/import"
+;reportsFolder="/home/pi/.skyscraper/reports"
 ;unpack="false"
 ;frontend="emulationstation"
 ;emulator=""

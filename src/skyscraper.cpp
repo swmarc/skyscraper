@@ -84,6 +84,7 @@ void Skyscraper::run()
     }
   }
   printf("Input folder:       '\033[1;32m%s\033[0m'\n", config.inputFolder.toStdString().c_str());
+  printf("Reports folder:     '\033[1;32m%s\033[0m'\n", config.reportsFolder.toStdString().c_str());
   printf("Game list folder:   '\033[1;32m%s\033[0m'\n", config.gameListFolder.toStdString().c_str());
   printf("Covers folder:      '\033[1;32m%s\033[0m'\n", config.coversFolder.toStdString().c_str());
   printf("Screenshots folder: '\033[1;32m%s\033[0m'\n", config.screenshotsFolder.toStdString().c_str());
@@ -806,6 +807,10 @@ void Skyscraper::loadConfig(const QCommandLineParser &parser)
     config.inputFolder = inputFolder + (inputFolder.right(1) == "/"?"":"/") + config.platform;
     inputFolderSet = true;
   }
+  if(settings.contains("reportsFolder")) {
+    QString reportsFolder = settings.value("reportsFolder").toString();
+    config.reportsFolder = reportsFolder + (reportsFolder.right(1) == "/"?"":"/") + config.platform;
+  }
   // gamelistFolder kept in addition to gameListFolder for backwards compatibility
   if(settings.contains("gamelistFolder")) {
     QString gameListFolder = settings.value("gamelistFolder").toString();
@@ -847,6 +852,9 @@ void Skyscraper::loadConfig(const QCommandLineParser &parser)
   if(settings.contains("inputFolder")) {
     config.inputFolder = settings.value("inputFolder").toString();
     inputFolderSet = true;
+  }
+  if(settings.contains("reportsFolder")) {
+    config.reportsFolder = settings.value("reportsFolder").toString();
   }
   // gamelistFolder kept in addition to gameListFolder for backwards compatibility
   if(settings.contains("gamelistFolder")) {
@@ -1149,6 +1157,9 @@ void Skyscraper::loadConfig(const QCommandLineParser &parser)
   if(parser.isSet("i")) {
     config.inputFolder = parser.value("i");
     inputFolderSet = true;
+  }
+  if(parser.isSet("r")) {
+    config.reportsFolder = parser.value("r");
   }
   if(parser.isSet("g")) {
     config.gameListFolder = parser.value("g");

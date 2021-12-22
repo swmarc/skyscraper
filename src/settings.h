@@ -42,6 +42,7 @@ struct Settings {
   QString userCreds = "";
   QString igdbToken = "";
   QString inputFolder = "";
+  QString reportsFolder = "";
   QString gameListFolder = "";
   QString mediaFolder = "";
   bool mediaFolderHidden = false; // Only relevant for EmulationStation

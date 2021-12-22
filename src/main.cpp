@@ -203,6 +203,7 @@ int main(int argc, char *argv[])
   QCommandLineOption iOption("i", "Folder which contains the game/rom files.\n(default is '/home/USER/RetroPie/roms/PLATFORM')", "PATH", "");
   QCommandLineOption gOption("g", "Game list export folder.\n(default depends on frontend)", "PATH", "");
   QCommandLineOption oOption("o", "Game media export folder.\n(default depends on frontend)", "PATH", "");
+  QCommandLineOption rOption("r", "Game reports export folder.\n(default is '/home/User/.skyscraper/reports')", "PATH", "");
   QCommandLineOption sOption("s", "The scraping module you wish to gather resources from for the platform set with '-p'.\nLeave the '-s' option out to enable Skyscraper's gamelist generation mode.\n(WEB: 'arcadedb', 'igdb', 'mobygames', 'openretro', 'screenscraper', 'thegamesdb', LOCAL: 'esgamelist' and 'import')", "MODULE", "");
   QCommandLineOption uOption("u", "userKey or UserID and Password for use with the selected scraping module.\n(Default is none)", "KEY/USER:PASSWORD", "");
   QCommandLineOption mOption("m", "Minimum match percentage when comparing search result titles to filename titles.\n(default is 65)", "0-100", "");
@@ -232,6 +233,7 @@ int main(int argc, char *argv[])
   parser.addOption(iOption);
   parser.addOption(gOption);
   parser.addOption(oOption);
+  parser.addOption(rOption);
   parser.addOption(fOption);
   parser.addOption(eOption);
   parser.addOption(tOption);
