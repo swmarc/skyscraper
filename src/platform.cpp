@@ -77,6 +77,7 @@ QStringList Platform::getPlatforms()
   platforms.append("gbc");
   platforms.append("gc");
   platforms.append("genesis");
+  platforms.append("gp32");
   platforms.append("intellivision");
   platforms.append("mame-advmame");
   platforms.append("mame-libretro");
@@ -212,6 +213,8 @@ QStringList Platform::getScrapers(QString platform)
   } else if(platform == "gc") {
     scrapers.append("screenscraper");
   } else if(platform == "genesis") {
+    scrapers.append("screenscraper");
+  } else if(platform == "gp32") {
     scrapers.append("screenscraper");
   } else if(platform == "intellivision") {
     scrapers.append("screenscraper");
@@ -421,6 +424,8 @@ QString Platform::getFormats(QString platform, QString extensions, QString addEx
     formats.append("*.iso *.cso *.gcz *.gcm *.m3u *.rvz");
   } else if(platform == "genesis") {
     formats.append("*.smd *.bin *.gen *.md *.sg");
+  } else if(platform == "gp32") {
+    formats.append("*.smc");
   } else if(platform == "intellivision") {
     formats.append("*.int *.bin");
   } else if(platform == "mame-advmame") {
@@ -604,6 +609,8 @@ QString Platform::getDefaultScraper(QString platform)
   } else if(platform == "gc") {
     scraper = "cache";
   } else if(platform == "genesis") {
+    scraper = "cache";
+  } else if(platform == "gp32") {
     scraper = "cache";
   } else if(platform == "intellivision") {
     scraper = "cache";
@@ -1028,6 +1035,8 @@ QStringList Platform::getAliases(QString platform)
     aliases.append("mega drive");
     aliases.append("sega mega drive");
     aliases.append("sega mega drive/genesis");
+  } else if(platform == "gp32") {
+    aliases.append("gamepark");
   } else if(platform == "mame-advmame") {
     aliases.append("arcade");
     aliases.append("neo geo");
