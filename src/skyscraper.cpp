@@ -787,7 +787,8 @@ void Skyscraper::loadConfig(const QCommandLineParser &parser)
     config.scummIni = settings.value("scummIni").toString();
   }
   // Check for command line platform here, since we need it for 'platform' config.ini entries
-  if(parser.isSet("p") && Platform::getPlatforms().contains(parser.value("p"))) {
+  if((parser.isSet("p") && Platform::getPlatforms().contains(parser.value("p"))) ||
+     (parser.isSet("s") && parser.value("s") == "import")) {
     config.platform = parser.value("p");
   } else {
     if((!parser.isSet("flags") && parser.value("flags") != "help") &&
