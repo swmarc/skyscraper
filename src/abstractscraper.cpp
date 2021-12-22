@@ -151,7 +151,7 @@ void AbstractScraper::getDescription(GameEntry &game)
     nomNom(nom);
   }
 
-  game.description = data.left(data.indexOf(descriptionPost.toUtf8())).replace("&lt;", "<").replace("&gt;", ">");
+  game.description = data.left(data.indexOf(descriptionPost.toUtf8().trimmed())).replace("&lt;", "<").replace("&gt;", ">");
   game.description = game.description.replace("\\n", "\n");
 
   // Remove all html tags within description
@@ -168,7 +168,7 @@ void AbstractScraper::getDeveloper(GameEntry &game)
   for(const auto &nom: developerPre) {
     nomNom(nom);
   }
-  game.developer = data.left(data.indexOf(developerPost.toUtf8()));
+  game.developer = data.left(data.indexOf(developerPost.toUtf8().trimmed()));
 }
 
 void AbstractScraper::getPublisher(GameEntry &game)
@@ -184,7 +184,7 @@ void AbstractScraper::getPublisher(GameEntry &game)
   for(const auto &nom: publisherPre) {
     nomNom(nom);
   }
-  game.publisher = data.left(data.indexOf(publisherPost.toUtf8()));
+  game.publisher = data.left(data.indexOf(publisherPost.toUtf8().trimmed()));
 }
 
 void AbstractScraper::getPlayers(GameEntry &game)
@@ -200,7 +200,7 @@ void AbstractScraper::getPlayers(GameEntry &game)
   for(const auto &nom: playersPre) {
     nomNom(nom);
   }
-  game.players = data.left(data.indexOf(playersPost.toUtf8()));
+  game.players = data.left(data.indexOf(playersPost.toUtf8().trimmed()));
 }
 
 void AbstractScraper::getAges(GameEntry &game)
@@ -216,7 +216,7 @@ void AbstractScraper::getAges(GameEntry &game)
   for(const auto &nom: agesPre) {
     nomNom(nom);
   }
-  game.ages = data.left(data.indexOf(agesPost.toUtf8()));
+  game.ages = data.left(data.indexOf(agesPost.toUtf8().trimmed()));
 }
 
 void AbstractScraper::getTags(GameEntry &game)
@@ -232,7 +232,7 @@ void AbstractScraper::getTags(GameEntry &game)
   for(const auto &nom: tagsPre) {
     nomNom(nom);
   }
-  game.tags = data.left(data.indexOf(tagsPost.toUtf8()));
+  game.tags = data.left(data.indexOf(tagsPost.toUtf8().trimmed()));
 }
 
 void AbstractScraper::getRating(GameEntry &game)
@@ -248,7 +248,7 @@ void AbstractScraper::getRating(GameEntry &game)
   for(const auto &nom: ratingPre) {
     nomNom(nom);
   }
-  game.rating = data.left(data.indexOf(ratingPost.toUtf8()));
+  game.rating = data.left(data.indexOf(ratingPost.toUtf8().trimmed()));
   bool toDoubleOk = false;
   double rating = game.rating.toDouble(&toDoubleOk);
   if(toDoubleOk) {
@@ -271,7 +271,7 @@ void AbstractScraper::getReleaseDate(GameEntry &game)
   for(const auto &nom: releaseDatePre) {
     nomNom(nom);
   }
-  game.releaseDate = data.left(data.indexOf(releaseDatePost.toUtf8())).simplified();
+  game.releaseDate = data.left(data.indexOf(releaseDatePost.toUtf8().trimmed())).simplified();
 }
 
 void AbstractScraper::getCover(GameEntry &game)

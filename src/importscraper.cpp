@@ -228,7 +228,7 @@ void ImportScraper::getTitle(GameEntry &game)
   for(const auto &nom: titlePre) {
     nomNom(nom);
   }
-  game.title = data.left(data.indexOf(titlePost.toUtf8())).simplified();
+  game.title = data.left(data.indexOf(titlePost.toUtf8().trimmed())).simplified();
 }
 
 void ImportScraper::loadData()
