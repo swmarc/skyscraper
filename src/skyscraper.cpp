@@ -985,7 +985,6 @@ void Skyscraper::loadConfig(const QCommandLineParser &parser)
   if(parser.isSet("s") && (parser.value("s") == "openretro" ||
 			   parser.value("s") == "thegamesdb" ||
 			   parser.value("s") == "arcadedb" ||
-			   parser.value("s") == "worldofspectrum" ||
 			   parser.value("s") == "igdb" ||
 			   parser.value("s") == "mobygames" ||
 			   parser.value("s") == "screenscraper" ||

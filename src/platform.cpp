@@ -327,7 +327,6 @@ QStringList Platform::getScrapers(QString platform)
   } else if(platform  == "zx81") {
     scrapers.append("screenscraper");
   } else if(platform  == "zxspectrum") {
-    scrapers.append("worldofspectrum");
     scrapers.append("screenscraper");
   }
 

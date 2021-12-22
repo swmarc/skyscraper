@@ -35,7 +35,6 @@
 
 #include "openretro.h"
 #include "thegamesdb.h"
-#include "worldofspectrum.h"
 #include "screenscraper.h"
 #include "igdb.h"
 #include "mobygames.h"
@@ -71,8 +70,6 @@ void ScraperWorker::run()
     scraper = new Igdb(&config, manager);
   } else if(config.scraper == "mobygames") {
     scraper = new MobyGames(&config, manager);
-  } else if(config.scraper == "worldofspectrum") {
-    scraper = new WorldOfSpectrum(&config, manager);
   } else if(config.scraper == "esgamelist") {
     scraper = new ESGameList(&config, manager);
   } else if(config.scraper == "cache") {
