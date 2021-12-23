@@ -41,6 +41,7 @@ Platform::~Platform()
 QStringList Platform::getPlatforms()
 {
   QStringList platforms;
+  platforms.append("32x");
   platforms.append("3do");
   platforms.append("3ds");
   platforms.append("amiga");
@@ -138,7 +139,9 @@ QStringList Platform::getPlatforms()
 QStringList Platform::getScrapers(QString platform)
 {
   QStringList scrapers;
-  if(platform == "3do") {
+  if(platform == "32x") {
+    scrapers.append("screenscraper");
+  } else if(platform == "3do") {
     scrapers.append("screenscraper");
   } else if(platform == "3ds") {
     scrapers.append("screenscraper");
@@ -352,7 +355,9 @@ QString Platform::getFormats(QString platform, QString extensions, QString addEx
   if(formats.right(1) != " ") {
     formats.append(" ");
   }
-  if(platform == "3do") {
+  if(platform == "32x") {
+    formats.append("*.32x");
+  } else if(platform == "3do") {
     formats.append("*.iso *.cue *.chd");
   } else if(platform == "3ds") {
     formats.append("*.3ds");
@@ -537,188 +542,14 @@ QString Platform::getFormats(QString platform, QString extensions, QString addEx
 // If user provides no scraping source with '-s' this sets the default for the platform
 QString Platform::getDefaultScraper(QString platform)
 {
-  QString scraper;
-  if(platform == "3do") {
-    scraper = "cache";
-  } else if(platform == "3ds") {
-    scraper = "cache";
-  } else if(platform == "amiga") {
-    scraper = "cache";
-  } else if(platform == "amigacd32") {
-    scraper = "cache";
-  } else if(platform == "amstradcpc") {
-    scraper = "cache";
-  } else if(platform == "arcade") {
-    scraper = "cache";
-  } else if(platform == "arcadia") {
-    scraper = "cache";
-  } else if(platform == "astrocde") {
-    scraper = "cache";
-  } else if(platform == "apple2") {
-    scraper = "cache";
-  } else if(platform == "atari800") {
-    scraper = "cache";
-  } else if(platform == "atari2600") {
-    scraper = "cache";
-  } else if(platform == "atari5200") {
-    scraper = "cache";
-  } else if(platform == "atari7800") {
-    scraper = "cache";
-  } else if(platform == "atarijaguar") {
-    scraper = "cache";
-  } else if(platform == "atarijaguarcd") {
-    scraper = "cache";
-  } else if(platform == "atarilynx") {
-    scraper = "cache";
-  } else if(platform == "atarist") {
-    scraper = "cache";
-  } else if(platform == "atomiswave") {
-    scraper = "cache";
-  } else if(platform == "c16") {
-    scraper = "cache";
-  } else if(platform == "c64") {
-    scraper = "cache";
-  } else if(platform == "c128") {
-    scraper = "cache";
-  } else if(platform == "channelf") {
-    scraper = "cache";
-  } else if(platform == "coco") {
-    scraper = "cache";
-  } else if(platform == "coleco") {
-    scraper = "cache";
-  } else if(platform == "daphne") {
-    scraper = "cache";
-  } else if(platform == "dragon32") {
-    scraper = "cache";
-  } else if(platform == "dreamcast") {
-    scraper = "cache";
-  } else if(platform == "fba") {
-    scraper = "cache";
-  } else if(platform == "fds") {
-    scraper = "cache";
-  } else if(platform == "gameandwatch") {
-    scraper = "cache";
-  } else if(platform == "gamegear") {
-    scraper = "cache";
-  } else if(platform == "gb") {
-    scraper = "cache";
-  } else if(platform == "gba") {
-    scraper = "cache";
-  } else if(platform == "gbc") {
-    scraper = "cache";
-  } else if(platform == "gc") {
-    scraper = "cache";
-  } else if(platform == "genesis") {
-    scraper = "cache";
-  } else if(platform == "gp32") {
-    scraper = "cache";
-  } else if(platform == "intellivision") {
-    scraper = "cache";
-  } else if(platform == "megacd") {
-    scraper = "cache";
-  } else if(platform == "megadrive") {
-    scraper = "cache";
-  } else if(platform == "moto") {
-    scraper = "cache";
-  } else if(platform == "mame-advmame") {
-    scraper = "cache";
-  } else if(platform == "mame-libretro") {
-    scraper = "cache";
-  } else if(platform == "mame-mame4all") {
-    scraper = "cache";
-  } else if(platform == "mastersystem") {
-    scraper = "cache";
-  } else if(platform == "msx") {
-    scraper = "cache";
-  } else if(platform == "msx2") {
-    scraper = "cache";
-  } else if(platform == "n64") {
-    scraper = "cache";
-  } else if(platform == "naomi") {
-    scraper = "cache";
-  } else if(platform == "nds") {
-    scraper = "cache";
-  } else if(platform == "neogeo") {
-    scraper = "cache";
-  } else if(platform == "neogeocd") {
-    scraper = "cache";
-  } else if(platform == "nes") {
-    scraper = "cache";
-  } else if(platform == "ngp") {
-    scraper = "cache";
-  } else if(platform == "ngpc") {
-    scraper = "cache";
-  } else if(platform == "openbor") {
-    scraper = "cache";
-  } else if(platform == "oric") {
-    scraper = "cache";
-  } else if(platform == "pc") {
-    scraper = "cache";
-  } else if(platform == "pc88") {
-    scraper = "cache";
-  } else if(platform == "pc98") {
-    scraper = "cache";
-  } else if(platform == "pcfx") {
-    scraper = "cache";
-  } else if(platform == "pcengine") {
-    scraper = "cache";
-  } else if(platform == "pcenginecd") {
-    scraper = "cache";
-  } else if(platform == "pokemini") {
-    scraper = "cache";
-  } else if(platform == "ports") {
-    scraper = "cache";
-  } else if(platform == "ps2") {
-    scraper = "cache";
-  } else if(platform == "psp") {
-    scraper = "cache";
-  } else if(platform == "psx") {
-    scraper = "cache";
-  } else if(platform == "saturn") {
-    scraper = "cache";
-  } else if(platform == "scummvm") {
-    scraper = "cache";
-  } else if(platform == "sega32x") {
-    scraper = "cache";
-  } else if(platform == "segacd") {
-    scraper = "cache";
-  } else if(platform == "sg-1000") {
-    scraper = "cache";
-  } else if(platform == "snes") {
-    scraper = "cache";
-  } else if(platform == "steam") {
-    scraper = "cache";
-  } else if(platform == "ti99") {
-    scraper = "cache";
-  } else if(platform == "trs-80") {
-    scraper = "cache";
-  } else if(platform == "vectrex") {
-    scraper = "cache";
-  } else if(platform == "vic20") {
-    scraper = "cache";
-  } else if(platform == "videopac") {
-    scraper = "cache";
-  } else if(platform == "virtualboy") {
-    scraper = "cache";
-  } else if(platform == "wii") {
-    scraper = "cache";
-  } else if(platform == "wiiu") {
-    scraper = "cache";
-  } else if(platform == "wonderswan") {
-    scraper = "cache";
-  } else if(platform == "wonderswancolor") {
-    scraper = "cache";
-  } else if(platform == "x68000") {
-    scraper = "cache";
-  } else if(platform == "x1") {
-    scraper = "cache";
-  } else if(platform == "zmachine") {
-    scraper = "cache";
-  } else if(platform == "zx81") {
-    scraper = "cache";
-  } else if(platform == "zxspectrum") {
-    scraper = "cache";
+  QString scraper = "cache";
+
+  if (platform.isEmpty() == true) {
+    scraper.clear();
+
+    return scraper;
   }
+
   return scraper;
 }
 
@@ -731,7 +562,9 @@ QStringList Platform::getAliases(QString platform)
 
   // If you don't find the platform listed below, it's probably because the needed alias is
   // the same as the platform name and has already been appended above.
-  if(platform == "3ds") {
+  if(platform == "32x") {
+    aliases.append("32x");
+  } else if(platform == "3ds") {
     aliases.append("nintendo 3ds");
   } else if(platform == "amiga") {
     aliases.append("amiga (aga)");

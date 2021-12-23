@@ -626,7 +626,9 @@ QString ScreenScraper::getJsonText(QJsonArray jsonArr, int attr, QList<QString> 
 
 QString ScreenScraper::getPlatformId(const QString platform)
 {
-  if(platform == "3do") {
+  if(platform == "32x") {
+    return "19";
+  } else if(platform == "3do") {
     return "29";
   } else if(platform == "3ds") {
     return "17";
