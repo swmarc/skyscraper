@@ -41,7 +41,6 @@ Platform::~Platform()
 QStringList Platform::getPlatforms()
 {
   QStringList platforms;
-  platforms.append("32x");
   platforms.append("3do");
   platforms.append("3ds");
   platforms.append("amiga");
@@ -139,9 +138,7 @@ QStringList Platform::getPlatforms()
 QStringList Platform::getScrapers(QString platform)
 {
   QStringList scrapers;
-  if(platform == "32x") {
-    scrapers.append("screenscraper");
-  } else if(platform == "3do") {
+  if(platform == "3do") {
     scrapers.append("screenscraper");
   } else if(platform == "3ds") {
     scrapers.append("screenscraper");
@@ -355,9 +352,7 @@ QString Platform::getFormats(QString platform, QString extensions, QString addEx
   if(formats.right(1) != " ") {
     formats.append(" ");
   }
-  if(platform == "32x") {
-    formats.append("*.32x");
-  } else if(platform == "3do") {
+  if(platform == "3do") {
     formats.append("*.iso *.cue *.chd");
   } else if(platform == "3ds") {
     formats.append("*.3ds");
@@ -562,9 +557,7 @@ QStringList Platform::getAliases(QString platform)
 
   // If you don't find the platform listed below, it's probably because the needed alias is
   // the same as the platform name and has already been appended above.
-  if(platform == "32x") {
-    aliases.append("32x");
-  } else if(platform == "3ds") {
+  if(platform == "3ds") {
     aliases.append("nintendo 3ds");
   } else if(platform == "amiga") {
     aliases.append("amiga (aga)");
