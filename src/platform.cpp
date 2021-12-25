@@ -109,6 +109,7 @@ QStringList Platform::getPlatforms()
   platforms.append("ps2");
   platforms.append("psp");
   platforms.append("psx");
+  platforms.append("samcoupe");
   platforms.append("saturn");
   platforms.append("scummvm");
   platforms.append("sega32x");
@@ -284,6 +285,8 @@ QStringList Platform::getScrapers(QString platform)
   } else if(platform == "psx") {
     scrapers.append("screenscraper");
     scrapers.append("thegamesdb");
+  } else if(platform == "samcoupe") {
+    scrapers.append("screenscraper");
   } else if(platform == "saturn") {
     scrapers.append("screenscraper");
   } else if(platform == "scummvm") {
@@ -345,7 +348,7 @@ QString Platform::getFormats(QString platform, QString extensions, QString addEx
     return extensions;
   }
 
-  QString formats = "*.zip *.7z *.ml "; // The last ' ' IS IMPORTANT!!!!!
+  QString formats = "*.zip *.7z *.ml *.vdat "; // The last ' ' IS IMPORTANT!!!!!
   if(!addExtensions.isEmpty() && addExtensions.contains("*.")) {
     formats.append(addExtensions);
   }
@@ -488,6 +491,8 @@ QString Platform::getFormats(QString platform, QString extensions, QString addEx
     formats.append("*.cso *.iso *.pbp");
   } else if(platform == "psx") {
     formats.append("*.cue *.cbn *.img *.iso *.m3u *.mdf *.pbp *.toc *.z *.znx *.chd");
+  } else if(platform == "samcoupe") {
+    formats.append("*.dsk *.sad .sdf");
   } else if(platform == "saturn") {
     formats.append("*.cue *.iso *.mdf *.chd");
   } else if(platform == "scummvm") {
@@ -1246,6 +1251,8 @@ QStringList Platform::getAliases(QString platform)
   } else if(platform == "psp") {
     aliases.append("sony playstation portable");
     aliases.append("playstation portable");
+  } else if(platform == "samcoupe") {
+     aliases.append("sam coupe");
   } else if(platform == "saturn") {
     aliases.append("sega saturn");
   } else if(platform == "scummvm") {

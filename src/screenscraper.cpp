@@ -766,6 +766,8 @@ QString ScreenScraper::getPlatformId(const QString platform)
     return "61";
   } else if(platform == "psx") {
     return "57";
+  } else if(platform == "samcoupe") {
+    return "213";
   } else if(platform == "saturn") {
     return "22";
   } else if(platform == "scummvm") {
