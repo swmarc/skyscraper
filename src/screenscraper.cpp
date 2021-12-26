@@ -117,6 +117,7 @@ void ScreenScraper::getSearchResults(QList<GameEntry> &gameEntries,
 
     // Check if we got a valid JSON document back
     if(jsonObj.isEmpty()) {
+      reqRemaining = 0;
       printf("\033[1;31mScreenScraper APIv2 returned invalid / empty Json. Their servers are probably down. Please try again later or use a different scraping module with '-s MODULE'. Check 'Skyscraper --help' for more information.\033[0m\n");
       data.replace(StrTools::unMagic("204;198;236;130;203;181;203;126;191;167;200;198;192;228;169;156"), "****");
       data.replace(config->password.toUtf8(), "****");
