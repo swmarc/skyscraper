@@ -67,7 +67,7 @@ void ScreenScraper::getSearchResults(QList<GameEntry> &gameEntries,
   if(platformId == "na") {
     reqRemaining = 0;
     printf("\033[0;31mPlatform not supported by ScreenScraper or it hasn't yet been included in Skyscraper for this module...\033[0m\n");
-    return;
+    exit(1);
   }
 
   QString gameUrl = "https://www.screenscraper.fr/api2/jeuInfos.php?devid=muldjord&devpassword=" + StrTools::unMagic("204;198;236;130;203;181;203;126;191;167;200;198;192;228;169;156") + "&softname=skyscraper" VERSION + (config->user.isEmpty()?"":"&ssid=" + config->user) + (config->password.isEmpty()?"":"&sspassword=" + config->password) + (platformId.isEmpty()?"":"&systemeid=" + platformId) + "&output=json&" + searchName;
@@ -87,26 +87,23 @@ void ScreenScraper::getSearchResults(QList<GameEntry> &gameEntries,
       return;
     } else if(headerData.contains("API totalement fermé")) {
       printf("\033[1;31mThe ScreenScraper API is currently closed, exiting nicely...\033[0m\n\n");
-      reqRemaining = 0;
-      return;
+      exit(1);
     } else if(headerData.contains("Le logiciel de scrape utilisé a été blacklisté")) {
       printf("\033[1;31mSkyscraper has apparently been blacklisted at ScreenScraper, exiting nicely...\033[0m\n\n");
-      reqRemaining = 0;
-      return;
+      exit(1);
     } else if(headerData.contains("Votre quota de scrape est")) {
       printf("\033[1;31mYour daily ScreenScraper request limit has been reached, exiting nicely...\033[0m\n\n");
-      reqRemaining = 0;
-      return;
+      exit(1);
     } else if(headerData.contains("API fermé pour les non membres") ||
-	      headerData.contains("API closed for non-registered members") ||
-	      headerData.contains("****T****h****e**** ****m****a****x****i****m****u****m**** ****t****h****r****e****a****d****s**** ****a****l****l****o****w****e****d**** ****t****o**** ****l****e****e****c****h****e****r**** ****u****s****e****r****s**** ****i****s**** ****a****l****r****e****a****d****y**** ****u****s****e****d****")) {
+	  headerData.contains("API closed for non-registered members") ||
+	  headerData.contains("****T****h****e**** ****m****a****x****i****m****u****m**** ****t****h****r****e****a****d****s**** ****a****l****l****o****w****e****d**** ****t****o**** ****l****e****e****c****h****e****r**** ****u****s****e****r****s**** ****i****s**** ****a****l****r****e****a****d****y**** ****u****s****e****d****"))
+	{
       printf("\033[1;31mThe screenscraper service is currently closed or too busy to handle requests from unregistered and inactive users. Sign up for an account at https://www.screenscraper.fr and contribute to gain more threads. Then use the credentials with Skyscraper using the '-u user:pass' command line option or by setting 'userCreds=\"user:pass\"' in '/home/USER/.skyscraper/config.ini'.\033[0m\n\n");
       if(retries == RETRIESMAX - 1) {
-	reqRemaining = 0;
-	return;
-      } else {
-	continue;
+	    reqRemaining = 0;
+	    return;
       }
+      continue;
     }
     
     // Fix faulty JSON that is sometimes received back from ScreenScraper
@@ -123,13 +120,13 @@ void ScreenScraper::getSearchResults(QList<GameEntry> &gameEntries,
       data.replace(config->password.toUtf8(), "****");
       QFile jsonErrorFile("./screenscraper_error.json");
       if(jsonErrorFile.open(QIODevice::WriteOnly)) {
-	if(data.length() > 64) {
-	  jsonErrorFile.write(data);
-	  printf("The erroneous answer was written to '/home/USER/.skyscraper/screenscraper_error.json'. If this file contains game data, please consider filing a bug report at 'https://github.com/muldjord/skyscraper/issues' and attach that file.\n");
-	}
-	jsonErrorFile.close();
+	  if(data.length() > 64) {
+	    jsonErrorFile.write(data);
+	    printf("The erroneous answer was written to '/home/USER/.skyscraper/screenscraper_error.json'. If this file contains game data, please consider filing a bug report at 'https://github.com/muldjord/skyscraper/issues' and attach that file.\n");
+	  }
+	    jsonErrorFile.close();
       }
-      break; // DON'T try again! If we don't get a valid JSON document, something is very wrong with the API
+      exit(1); // DON'T try again! If we don't get a valid JSON document, something is very wrong with the API
     }
 
     // Check if the request was successful
