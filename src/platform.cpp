@@ -348,7 +348,7 @@ QString Platform::getFormats(QString platform, QString extensions, QString addEx
     return extensions;
   }
 
-  QString formats = "*.zip *.7z *.ml *.vdat "; // The last ' ' IS IMPORTANT!!!!!
+  QString formats = "*.zip *.7z *.ml *.rsvrom "; // The last ' ' IS IMPORTANT!!!!!
   if(!addExtensions.isEmpty() && addExtensions.contains("*.")) {
     formats.append(addExtensions);
   }
