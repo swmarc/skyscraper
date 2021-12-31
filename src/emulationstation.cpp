@@ -172,7 +172,7 @@ void EmulationStation::assembleList(QString &finalOutput, QList<GameEntry> &game
       entry.path.replace(config->inputFolder, ".");
     }
 
-    finalOutput.append("  <" + entryType + ">\n");
+    finalOutput.append("  <" + entryType + " romname=\"" + StrTools::xmlEscape(entry.baseName)  + "\">\n");
     finalOutput.append("    <path>" + StrTools::xmlEscape(entry.path) + "</path>\n");
     finalOutput.append("    <name>" + StrTools::xmlEscape(entry.title) + "</name>\n");
     if(entry.coverFile.isEmpty()) {
