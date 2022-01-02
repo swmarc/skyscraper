@@ -80,9 +80,6 @@ void ScraperWorker::run()
     scraper = new AbstractScraper(&config, manager);
   }
 
-  if(config.platform == "amigacd32") {
-    config.platform = "amiga";
-  }
   platformOrig = config.platform;
 
   Compositor compositor(&config);
@@ -104,18 +101,6 @@ void ScraperWorker::run()
       cache->addQuickId(info, cacheId);
     }
     QString compareTitle = scraper->getCompareTitle(info);
-
-    // For Amiga platform, change to subplatforms if detected as such
-    if(config.platform == "amiga") {
-      if(info.completeBaseName().toLower().contains("cd32") ||
-	 info.suffix() == "cue" || info.suffix() == "iso" || info.suffix() == "img") {
-	debug.append("Platform change: 'amiga'->'cd32'\n");
-	config.platform = "cd32";
-      } else if(info.completeBaseName().toLower().contains("cdtv")) {
-	debug.append("Platform change: 'amiga'->'cdtv', filename contains 'cdtv'\n");
-	config.platform = "cdtv";
-      }
-    }
 
     // Create the game entry we use for the rest of the process
     GameEntry game;
@@ -166,11 +151,11 @@ void ScraperWorker::run()
 	scraper->runPasses(gameEntries, info, output, debug);
       }
     }
-    
+
     // Sort the returned entries, in case the source did a poor job of doing so itself
     // I disabled this as it messed up results containing dual-game results ("game 1 + game 2")
     /*
-    qSort(gameEntries.begin(), gameEntries.end(), 
+    qSort(gameEntries.begin(), gameEntries.end(),
 	  [](const GameEntry a, const GameEntry b) -> bool { return a.title.toLower() < b.title.toLower(); });
     */
 
@@ -196,7 +181,7 @@ void ScraperWorker::run()
     game.parNotes.append(NameTools::getParNotes(info.completeBaseName()));
     game.sqrNotes = NameTools::getUniqueNotes(game.sqrNotes, '[');
     game.parNotes = NameTools::getUniqueNotes(game.parNotes, '(');
-    
+
     if(game.found == false) {
       output.append("\033[1;33m---- Game '" + info.completeBaseName() + "' not found :( ----\033[0m\n\n");
       game.resetMedia();
@@ -227,7 +212,7 @@ void ScraperWorker::run()
     }
 
     output.append("\033[1;34m---- Game '" + info.completeBaseName() + "' found! :) ----\033[0m\n");
-    
+
     if(!fromCache) {
       scraper->getGameData(game);
     }
@@ -263,7 +248,7 @@ void ScraperWorker::run()
 	}
       }
     }
-    
+
     // Add all resources to the cache
     QString cacheOutput = "";
     if(config.scraper != "cache" && game.found && !fromCache) {
@@ -400,11 +385,11 @@ int ScraperWorker::getSearchMatch(const QString &title, const QString &compareTi
   return searchMatch;
 }
 
-unsigned int ScraperWorker::editDistance(const std::string& s1, const std::string& s2) 
+unsigned int ScraperWorker::editDistance(const std::string& s1, const std::string& s2)
 {
   const std::size_t len1 = s1.size(), len2 = s2.size();
   std::vector<unsigned int> col(len2+1), prevCol(len2+1);
-	
+
   for (unsigned int i = 0; i < prevCol.size(); i++)
     prevCol[i] = i;
   for (unsigned int i = 0; i < len1; i++) {
@@ -441,7 +426,7 @@ GameEntry ScraperWorker::getBestEntry(const QList<GameEntry> &gameEntries,
   // Start by applying rules we are certain are needed. Add the ones that pass to potentials
   for(auto entry: gameEntries) {
     entry.title = StrTools::xmlUnescape(entry.title);
-    
+
     int entryNumeral = NameTools::getNumeral(entry.title);
     // If numerals don't match, skip.
     // Numeral defaults to 1, even for games without a numeral.
@@ -457,7 +442,7 @@ GameEntry ScraperWorker::getBestEntry(const QList<GameEntry> &gameEntries,
       entry.title = entry.title.left(entry.title.indexOf("(")).simplified();
       entry.title = entry.title.left(entry.title.indexOf("[")).simplified();
     }
-    
+
     potentials.append(entry);
   }
 
@@ -499,7 +484,7 @@ GameEntry ScraperWorker::getBestEntry(const QList<GameEntry> &gameEntries,
       return game;
     }
 
-    
+
     // Compare all words of compareTitle and entryTitle. If all words with a length of more than 3 letters are found in the entry words, return match
     QList<QString> compareWords = compareTitle.toLower().simplified().split(" ");
     for(int b = 0; b < compareWords.size(); ++b) {
