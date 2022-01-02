@@ -1,3 +1,8 @@
+# Regarding this fork
+Please note that this fork is just for minor changes with concentration on Screen Scraper & ArcadeDB.
+Small additions, fixes & compatibility for my scraping project.
+So generally speaking, this fork might not work the same as expected from Lars' one. You have been warned.
+
 # Skyscraper by Lars Muldjord
 A powerful and versatile yet easy to use game scraper written in C++ for use with multiple frontends running on a Linux system (macOS and Windows too, but not officially supported). It scrapes and caches various game resources from various scraping sources, including media such as screenshot, cover and video. It then gives you the option to generate a game list and artwork for the chosen frontend by combining all of the cached resources.
 
