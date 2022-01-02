@@ -77,7 +77,7 @@ void ScreenScraper::getSearchResults(QList<GameEntry> &gameEntries,
     netComm->request(gameUrl);
     q.exec();
     data = netComm->getData();
-    
+
     QByteArray headerData = data.left(1024); // Minor optimization with minimal more RAM usage
     // Do error checks on headerData. It's more stable than checking the potentially faulty JSON
     if(headerData.isEmpty()) {
@@ -105,7 +105,7 @@ void ScreenScraper::getSearchResults(QList<GameEntry> &gameEntries,
       }
       continue;
     }
-    
+
     // Fix faulty JSON that is sometimes received back from ScreenScraper
     data.replace("],\n\t\t}", "]\n\t\t}");
 
@@ -137,7 +137,7 @@ void ScreenScraper::getSearchResults(QList<GameEntry> &gameEntries,
       // Try again. We handle important errors above, so something weird is going on here
       continue;
     }
-    
+
     // Check if user has exceeded daily request limit
     if(!jsonObj["response"].toObject()["ssuser"].toObject()["requeststoday"].toString().isEmpty() && !jsonObj["response"].toObject()["ssuser"].toObject()["maxrequestsperday"].toString().isEmpty()) {
       reqRemaining = jsonObj["response"].toObject()["ssuser"].toObject()["maxrequestsperday"].toString().toInt() - jsonObj["response"].toObject()["ssuser"].toObject()["requeststoday"].toString().toInt();
@@ -510,7 +510,7 @@ QList<QString> ScreenScraper::getSearchNames(const QFileInfo &info)
     QFile romFile(info.absoluteFilePath());
     romFile.open(QIODevice::ReadOnly);
     while(!romFile.atEnd()) {
-      
+
       QByteArray dataSeg = romFile.read(1024);
       md5.addData(dataSeg);
       sha1.addData(dataSeg);
@@ -632,9 +632,9 @@ QString ScreenScraper::getPlatformId(const QString platform)
     return "64";
   } else if(platform == "aga") {
     return "111";
-  } else if(platform == "cd32") {
+  } else if(platform == "amigacd32") {
     return "130";
-  } else if(platform == "cdtv") {
+  } else if(platform == "amigacdtv") {
     return "129";
   } else if(platform == "amstradcpc") {
     return "65";

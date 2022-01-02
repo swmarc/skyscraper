@@ -82,9 +82,9 @@ void MobyGames::getSearchResults(QList<GameEntry> &gameEntries,
 
   while(!jsonGames.isEmpty()) {
     GameEntry game;
-    
+
     QJsonObject jsonGame = jsonGames.first().toObject();
-    
+
     game.id = QString::number(jsonGame["game_id"].toInt());
     game.title = jsonGame["title"].toString();
     game.miscData = QJsonDocument(jsonGame).toJson(QJsonDocument::Compact);
@@ -401,9 +401,9 @@ QString MobyGames::getPlatformId(const QString platform)
     return "19";
   } else if(platform == "aga") {
     return "19";
-  } else if(platform == "cd32") {
+  } else if(platform == "amigacd32") {
     return "56";
-  } else if(platform == "cdtv") {
+  } else if(platform == "amigacdtv") {
     return "83";
   } else if(platform == "amstradcpc") {
     return "60";

@@ -45,6 +45,7 @@ QStringList Platform::getPlatforms()
   platforms.append("3ds");
   platforms.append("amiga");
   platforms.append("amigacd32");
+  platforms.append("amigacdtv");
   platforms.append("amstradcpc");
   platforms.append("apple2");
   platforms.append("arcade");
@@ -146,8 +147,7 @@ QStringList Platform::getScrapers(QString platform)
   } else if(platform == "amiga") {
     scrapers.append("openretro");
     scrapers.append("screenscraper");
-  } else if(platform == "amigacd32") {
-    scrapers.append("openretro");
+  } else if(platform == "amigacd32" || platform == "amigacdtv") {
     scrapers.append("screenscraper");
   } else if(platform == "amstradcpc") {
     scrapers.append("screenscraper");
@@ -361,7 +361,7 @@ QString Platform::getFormats(QString platform, QString extensions, QString addEx
     formats.append("*.3ds");
   } else if(platform == "amiga") {
     formats.append("*.uae *.adf *.dms *.adz *.rp9 *.lha *.cue *.img *.iso *.hdf");
-  } else if(platform == "amigacd32") {
+  } else if(platform == "amigacd32" || platform == "amigacdtv") {
     formats.append("*.uae *.adf *.dms *.adz *.rp9 *.lha *.cue *.img *.iso *.hdf");
   } else if(platform == "amstradcpc") {
     formats.append("*.dsk *.cpc");
@@ -570,7 +570,7 @@ QStringList Platform::getAliases(QString platform)
     aliases.append("amiga cd32");
     aliases.append("amiga cd32 (hack)");
     aliases.append("amiga cd");
-  } else if(platform == "amigacd32") {
+  } else if(platform == "amigacd32" || platform == "amigacdtv") {
     aliases.append("amiga (aga)");
     aliases.append("amiga cdtv");
     aliases.append("amiga cd32");
@@ -745,10 +745,10 @@ QStringList Platform::getAliases(QString platform)
     aliases.append("commodore 128");
     aliases.append("commodore 64");
     aliases.append("commodore c64/128");
-  } else if(platform == "cd32") {
+  } else if(platform == "amigacd32") {
     aliases.append("amiga cd32");
     aliases.append("amiga cd32 (hack)");
-  } else if(platform == "cdtv") {
+  } else if(platform == "amigacdtv") {
     aliases.append("amiga cdtv");
   } else if(platform == "channelf") {
     aliases.append("fairchild channel f");
