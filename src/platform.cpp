@@ -183,7 +183,8 @@ QStringList Platform::getScrapers(QString platform)
   } else if(platform == "c64") {
     scrapers.append("screenscraper");
   } else if(platform == "c128") {
-    scrapers.append("screenscraper");
+    scrapers.append("igdb");
+    scrapers.append("thegamesdb");
   } else if(platform == "channelf") {
     scrapers.append("screenscraper");
   } else if(platform == "coco") {
