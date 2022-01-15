@@ -67,8 +67,9 @@ QStringList Platform::getPlatforms()
   platforms.append("coco");
   platforms.append("coleco");
   platforms.append("daphne");
-  platforms.append("dragon32");
+  platforms.append("dragon");
   platforms.append("dreamcast");
+  platforms.append("easyrpg");
   platforms.append("fba");
   platforms.append("fds");
   platforms.append("gameandwatch");
@@ -193,9 +194,11 @@ QStringList Platform::getScrapers(QString platform)
     scrapers.append("screenscraper");
   } else if(platform == "daphne") {
     scrapers.append("screenscraper");
-  } else if(platform == "dragon32") {
+  } else if(platform == "dragon") {
     scrapers.append("screenscraper");
   } else if(platform == "dreamcast") {
+    scrapers.append("screenscraper");
+  } else if(platform == "easyrpg") {
     scrapers.append("screenscraper");
   } else if(platform == "fba") {
     scrapers.append("arcadedb");
@@ -349,7 +352,7 @@ QString Platform::getFormats(QString platform, QString extensions, QString addEx
     return extensions;
   }
 
-  QString formats = "*.zip *.7z *.ml *.rsvrom "; // The last ' ' IS IMPORTANT!!!!!
+  QString formats = "*.zip *.7z *.ml "; // The last ' ' IS IMPORTANT!!!!!
   if(!addExtensions.isEmpty() && addExtensions.contains("*.")) {
     formats.append(addExtensions);
   }
@@ -406,7 +409,7 @@ QString Platform::getFormats(QString platform, QString extensions, QString addEx
     formats.append("*.bin *.col *.rom");
   } else if(platform == "daphne") {
     formats.append("*.daphne");
-  } else if(platform == "dragon32") {
+  } else if(platform == "dragon") {
     formats.append("*.cas *.wav *.bas *.asc *.dmk *.jvc *.os9 *.dsk *.vdk *.rom *.ccc *.sna");
   } else if(platform == "dreamcast") {
     formats.append("*.cdi *.gdi *.iso *.chd *.cue *.m3u");
@@ -763,7 +766,7 @@ QStringList Platform::getAliases(QString platform)
     aliases.append("pioneer laseractive");
     aliases.append("laseractive");
     aliases.append("american laser games");
-  } else if(platform == "dragon32") {
+  } else if(platform == "dragon") {
     aliases.append("dragon 32/64");
   } else if(platform == "dreamcast") {
     aliases.append("sega dreamcast");

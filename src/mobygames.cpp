@@ -441,7 +441,7 @@ QString MobyGames::getPlatformId(const QString platform)
     return "29";
   } else if(platform == "daphne") {
     return "na";
-  } else if(platform == "dragon32") {
+  } else if(platform == "dragon") {
     return "79";
   } else if(platform == "dreamcast") {
     return "8";
