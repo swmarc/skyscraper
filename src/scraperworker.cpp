@@ -115,10 +115,10 @@ void ScraperWorker::run()
       cachedGame.cacheId = cacheId;
       cache->fillBlanks(cachedGame);
       if(cachedGame.title.isEmpty()) {
-	cachedGame.title = compareTitle;
+        cachedGame.title = compareTitle;
       }
       if(cachedGame.platform.isEmpty()) {
-	cachedGame.platform = config.platform;
+        cachedGame.platform = config.platform;
       }
       gameEntries.append(cachedGame);
     } else if(config.onlyMissing && cache->hasEntries(cacheId)) {
@@ -129,26 +129,26 @@ void ScraperWorker::run()
       game.resetMedia();
       emit entryReady(game, output, debug);
       if(forceEnd) {
-	break;
+        break;
       } else {
-	continue;
+        continue;
       }
     } else {
       if(config.scraper != "cache" &&
-	 cache->hasEntries(cacheId, config.scraper) && !config.refresh) {
-	fromCache = true;
-	GameEntry cachedGame;
-	cachedGame.cacheId = cacheId;
-	cache->fillBlanks(cachedGame, config.scraper);
-	if(cachedGame.title.isEmpty()) {
-	  cachedGame.title = compareTitle;
-	}
-	if(cachedGame.platform.isEmpty()) {
-	  cachedGame.platform = config.platform;
-	}
-	gameEntries.append(cachedGame);
+         cache->hasEntries(cacheId, config.scraper) && !config.refresh) {
+        fromCache = true;
+        GameEntry cachedGame;
+        cachedGame.cacheId = cacheId;
+        cache->fillBlanks(cachedGame, config.scraper);
+        if(cachedGame.title.isEmpty()) {
+          cachedGame.title = compareTitle;
+        }
+        if(cachedGame.platform.isEmpty()) {
+          cachedGame.platform = config.platform;
+        }
+        gameEntries.append(cachedGame);
       } else {
-	scraper->runPasses(gameEntries, info, output, debug);
+        scraper->runPasses(gameEntries, info, output, debug);
       }
     }
 
@@ -166,7 +166,7 @@ void ScraperWorker::run()
     } else {
       game = getBestEntry(gameEntries, compareTitle, lowestDistance);
       if(config.interactive && !fromCache) {
-	game = getEntryFromUser(gameEntries, game, compareTitle, lowestDistance);
+        game = getEntryFromUser(gameEntries, game, compareTitle, lowestDistance);
       }
     }
     // Fill it with additional needed data
@@ -186,12 +186,12 @@ void ScraperWorker::run()
       output.append("\033[1;33m---- Game '" + info.completeBaseName() + "' not found :( ----\033[0m\n\n");
       game.resetMedia();
       if(!forceEnd)
-	forceEnd = limitReached(output);
+        forceEnd = limitReached(output);
       emit entryReady(game, output, debug);
       if(forceEnd) {
-	break;
+        break;
       } else {
-	continue;
+        continue;
       }
     }
 
@@ -202,12 +202,12 @@ void ScraperWorker::run()
       game.found = false;
       game.resetMedia();
       if(!forceEnd)
-	forceEnd = limitReached(output);
+        forceEnd = limitReached(output);
       emit entryReady(game, output, debug);
       if(forceEnd) {
-	break;
+        break;
       } else {
-	continue;
+        continue;
       }
     }
 
@@ -222,10 +222,10 @@ void ScraperWorker::run()
       compositor.saveAll(game, info.completeBaseName());
       // Copy or symlink videos as requested
       if(config.videos &&
-	 game.videoFormat != "" &&
-	 !game.videoFile.isEmpty() &&
-	 QFile::exists(game.videoFile)) {
-	QString videoDst = config.videosFolder + "/" + info.completeBaseName() + "." + game.videoFormat;
+         game.videoFormat != "" &&
+         !game.videoFile.isEmpty() &&
+         QFile::exists(game.videoFile)) {
+        QString videoDst = config.videosFolder + "/" + info.completeBaseName() + "." + game.videoFormat;
 	if(config.skipExistingVideos && QFile::exists(videoDst)) {
 	} else {
 	  if(QFile::exists(videoDst)) {
@@ -265,12 +265,12 @@ void ScraperWorker::run()
     if(config.theInFront) {
       QRegularExpression theMatch(", [Tt]{1}he");
       if(theMatch.match(game.title).hasMatch()) {
-	game.title.replace(theMatch.match(game.title).captured(0), "");
-	game.title.prepend("The ");
+        game.title.replace(theMatch.match(game.title).captured(0), "");
+        game.title.prepend("The ");
       }
     } else {
       if(game.title.toLower().left(4) == "the ") {
-	game.title = game.title.remove(0, 4).simplified().append(", The");
+        game.title = game.title.remove(0, 4).simplified().append(", The");
       }
     }
 
@@ -307,10 +307,10 @@ void ScraperWorker::run()
     } else {
       game.title = StrTools::xmlUnescape(game.title);
       if(config.forceFilename) {
-	game.title = StrTools::xmlUnescape(StrTools::stripBrackets(info.completeBaseName()));
+        game.title = StrTools::xmlUnescape(StrTools::stripBrackets(info.completeBaseName()));
       }
       if(config.brackets) {
-	game.title.append(StrTools::xmlUnescape((game.parNotes != ""?" " + game.parNotes:"") + (game.sqrNotes != ""?" " + game.sqrNotes:"")));
+        game.title.append(StrTools::xmlUnescape((game.parNotes != ""?" " + game.parNotes:"") + (game.sqrNotes != ""?" " + game.sqrNotes:"")));
       }
     }
     output.append("Platform:       '\033[1;32m" + game.platform + "\033[0m' (" + game.platformSrc + ")\n");

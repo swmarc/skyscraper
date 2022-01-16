@@ -107,17 +107,27 @@ public:
   QList<QString> getCacheIdList(const QList<QFileInfo> &fileInfos);
 
   void addToResCounts(const QString source, const QString type);
-  void addResource(Resource &resource, GameEntry &entry, const QString &cacheAbsolutePath,
-		   const Settings &config, QString &output);
+  void addResource(
+    Resource &resource,
+    GameEntry &entry,
+    const QString &cacheAbsolutePath,
+  	const Settings &config, QString &output
+  );
   void verifyFiles(QDirIterator &dirIt, int &filesDeleted, int &noDelete, QString resType);
   void verifyResources(int &resourcesDeleted);
-  bool fillType(QString &type, QList<Resource> &matchingResources,
-		QString &result, QString &source);
-  bool doVideoConvert(Resource &resource,
-		      QString &cacheFile,
-		      const QString &cacheAbsolutePath,
-		      const Settings &config,
-		      QString &output);
+  bool fillType(
+    QString &type,
+    QList<Resource> &matchingResources,
+  	QString &result,
+    QString &source
+  );
+  bool doVideoConvert(
+    Resource &resource,
+    QString &cacheFile,
+    const QString &cacheAbsolutePath,
+    const Settings &config,
+    QString &output
+  );
   bool hasAlpha(const QImage &image);
   int resAtLoad = 0;
 };

@@ -26,6 +26,7 @@
 #include <iostream>
 
 #include <QFile>
+#include <QFileInfo>
 #include <QDir>
 #include <QXmlStreamReader>
 #include <QXmlStreamAttributes>
@@ -82,16 +83,16 @@ bool Cache::read()
     QXmlStreamReader xml(&quickIdFile);
     while(!xml.atEnd()) {
       if(xml.readNext() != QXmlStreamReader::StartElement) {
-	continue;
+        continue;
       }
       if(xml.name() != "quickid") {
-	continue;
+        continue;
       }
       QXmlStreamAttributes attribs = xml.attributes();
       if(!attribs.hasAttribute("filepath") ||
-	 !attribs.hasAttribute("timestamp") ||
-	 !attribs.hasAttribute("id")) {
-	continue;
+         !attribs.hasAttribute("timestamp") ||
+         !attribs.hasAttribute("id")) {
+        continue;
       }
 
       QPair<qint64, QString> pair;
@@ -109,53 +110,57 @@ bool Cache::read()
     QXmlStreamReader xml(&cacheFile);
     while(!xml.atEnd()) {
       if(xml.readNext() != QXmlStreamReader::StartElement) {
-	continue;
+        continue;
       }
       if(xml.name() != "resource") {
-	continue;
+        continue;
       }
       QXmlStreamAttributes attribs = xml.attributes();
       if(!attribs.hasAttribute("sha1") && !attribs.hasAttribute("id")) {
-	printf("Resource is missing unique id, skipping...\n");
-	continue;
+        printf("Resource is missing unique id, skipping...\n");
+        continue;
       }
 
       Resource resource;
       if(attribs.hasAttribute("sha1")) { // Obsolete, but needed for backwards compat
-	resource.cacheId = attribs.value("sha1").toString();
+        resource.cacheId = attribs.value("sha1").toString();
       } else {
-	resource.cacheId = attribs.value("id").toString();
+        resource.cacheId = attribs.value("id").toString();
       }
 
       if(attribs.hasAttribute("source")) {
-	resource.source = attribs.value("source").toString();
+        resource.source = attribs.value("source").toString();
       } else {
-	resource.source = "generic";
+        resource.source = "generic";
       }
       if(attribs.hasAttribute("type")) {
-	resource.type = attribs.value("type").toString();
-	addToResCounts(resource.source, resource.type);
+        resource.type = attribs.value("type").toString();
+        addToResCounts(resource.source, resource.type);
       } else {
-	printf("Resource with cache id '%s' is missing 'type' attribute, skipping...\n",
-	       resource.cacheId.toStdString().c_str());
-	continue;
+        printf(
+          "Resource with cache id '%s' is missing 'type' attribute, skipping...\n",
+	        resource.cacheId.toStdString().c_str()
+        );
+        continue;
       }
       if(attribs.hasAttribute("timestamp")) {
-	resource.timestamp = attribs.value("timestamp").toULongLong();
+        resource.timestamp = attribs.value("timestamp").toULongLong();
       } else {
-	printf("Resource with cache id '%s' is missing 'timestamp' attribute, skipping...\n",
-	       resource.cacheId.toStdString().c_str());
-	continue;
+        printf(
+          "Resource with cache id '%s' is missing 'timestamp' attribute, skipping...\n",
+	        resource.cacheId.toStdString().c_str()
+        );
+        continue;
       }
       resource.value = xml.readElementText();
       if(resource.type == "cover" || resource.type == "screenshot" ||
-	 resource.type == "wheel" || resource.type == "marquee" ||
-	 resource.type == "video") {
-	if(!QFileInfo::exists(cacheDir.absolutePath() + "/" + resource.value)) {
-	  printf("Source file '%s' missing, skipping entry...\n",
-		 resource.value.toStdString().c_str());
-	  continue;
-	}
+         resource.type == "wheel" || resource.type == "marquee" ||
+         resource.type == "video") {
+        if(!QFileInfo::exists(cacheDir.absolutePath() + "/" + resource.value)) {
+          printf("Source file '%s' missing, skipping entry...\n",
+          resource.value.toStdString().c_str());
+          continue;
+        }
       }
 
       resources.append(resource);
@@ -893,7 +898,7 @@ void Cache::assembleReport(const Settings &config, const QString filter)
       int dots = 0;
       // Always make dotMod at least 1 or it will give "floating point exception" when modulo
       int dotMod = fileInfos.size() * 0.1 + 1;
-      
+
       for(int a = 0; a < fileInfos.length(); ++a) {
 	if(dots % dotMod == 0) {
 	  printf(".");
@@ -911,7 +916,7 @@ void Cache::assembleReport(const Settings &config, const QString filter)
 	}
 	if(!found) {
 	  missing++;
-	  reportFile.write(fileInfos.at(a).absoluteFilePath().toUtf8() + "\n");
+	  reportFile.write(fileInfos.at(a).completeBaseName().toUtf8() + "\n");
 	}
       }
       reportFile.close();
@@ -924,9 +929,12 @@ void Cache::assembleReport(const Settings &config, const QString filter)
   printf("\033[1;32mAll done!\033[0m\nConsider using the '\033[1;33m--cache edit --fromfile <REPORTFILE>\033[0m' or the '\033[1;33m-s import\033[0m' module to add the missing resources. Check '\033[1;33m--help\033[0m' and '\033[1;33m--cache help\033[0m' for more information.\n\n");
 }
 
-bool Cache::vacuumResources(const QString inputFolder, const QString filter,
-			    const int verbosity, const bool unattend)
-{
+bool Cache::vacuumResources(
+  const QString inputFolder,
+  const QString filter,
+  const int verbosity,
+  const bool unattend
+) {
   if(!unattend) {
     std::string userInput = "";
     printf("\033[1;33mWARNING! Vacuuming your Skyscraper cache removes all resources that don't match your current romset (files located at '%s' or any of its subdirectories matching the suffixes supported by the platform and any extension(s) you might have added manually). Please consider making a backup of your Skyscraper cache before performing this action. The cache for this platform is listed under 'Cache folder' further up and is usually located under '/home/USER/.skyscraper/' unless you've set it manually.\033[0m\n\n", inputFolder.toStdString().c_str());
@@ -943,7 +951,7 @@ bool Cache::vacuumResources(const QString inputFolder, const QString filter,
   // Clean the quick id's aswell
   QMap<QString, QPair<qint64, QString> > quickIdsCleaned;
   for(const auto &info: fileInfos) {
-    QString filePath = info.absoluteFilePath();
+    QString filePath = info.completeBaseName();
     if(quickIds.contains(filePath)) {
       quickIdsCleaned[filePath] = quickIds[filePath];
     }
@@ -1176,8 +1184,10 @@ bool Cache::write(const bool onlyQuickId)
     xml.writeStartDocument();
     xml.writeStartElement("quickids");
     for(const auto &key: quickIds.keys()) {
+      QFileInfo fileInfo(key);
+
       xml.writeStartElement("quickid");
-      xml.writeAttribute("filepath", key);
+      xml.writeAttribute("filepath", fileInfo.completeBaseName());
       xml.writeAttribute("timestamp", QString::number(quickIds[key].first));
       xml.writeAttribute("id", quickIds[key].second);
       xml.writeEndElement();
@@ -1293,11 +1303,11 @@ void Cache::verifyFiles(QDirIterator &dirIt, int &filesDeleted, int &filesNoDele
       printf("No resource entry for file '%s', deleting... ",
 	     fileInfo.absoluteFilePath().toStdString().c_str());
       if(QFile::remove(fileInfo.absoluteFilePath())) {
-	printf("OK!\n");
-	filesDeleted++;
+        printf("OK!\n");
+        filesDeleted++;
       } else {
-	printf("ERROR! File couldn't be deleted :/\n");
-	filesNoDelete++;
+        printf("ERROR! File couldn't be deleted :/\n");
+        filesNoDelete++;
       }
     }
   }
@@ -1330,7 +1340,7 @@ void Cache::merge(Cache &mergeCache, bool overwrite, const QString &mergeCacheFo
 	      printf("Couldn't remove media file '%s' for updating, skipping...\n", res.value.toStdString().c_str());
 	      continue;
 	    }
-	    
+
 	  }
 	  it.remove();
 	} else {
@@ -1366,7 +1376,7 @@ QList<Resource> Cache::getResources()
 {
   return resources;
 }
-    
+
 void Cache::addResources(GameEntry &entry, const Settings &config, QString &output)
 {
   QString cacheAbsolutePath = cacheDir.absolutePath();
@@ -1591,7 +1601,7 @@ void Cache::addResource(Resource &resource,
     } else {
       printf("\033[1;33mWarning! Couldn't add resource to cache. Have you run out of disk space?\n\033[0m");
     }
-    
+
   }
 }
 
@@ -1688,14 +1698,14 @@ void Cache::addQuickId(const QFileInfo &info, const QString &cacheId) {
   QPair<qint64, QString> pair; // Quick id pair
   pair.first = info.lastModified().toMSecsSinceEpoch();
   pair.second = cacheId;
-  quickIds[info.absoluteFilePath()] = pair;
+  quickIds[info.completeBaseName()] = pair;
 }
 
 QString Cache::getQuickId(const QFileInfo &info) {
   QMutexLocker locker(&quickIdMutex);
-  if(quickIds.contains(info.absoluteFilePath()) &&
-     info.lastModified().toMSecsSinceEpoch() <= quickIds[info.absoluteFilePath()].first) {
-    return quickIds[info.absoluteFilePath()].second;
+  if(quickIds.contains(info.completeBaseName()) &&
+     info.lastModified().toMSecsSinceEpoch() <= quickIds[info.completeBaseName()].first) {
+    return quickIds[info.completeBaseName()].second;
   }
   return QString();
 }
@@ -1924,6 +1934,6 @@ bool Cache::fillType(QString &type, QList<Resource> &matchingResources,
       result = resource.value;
       source = resource.source;
     }
-  }  
+  }
   return true;
 }
