@@ -806,6 +806,8 @@ QString ScreenScraper::getPlatformId(const QString platform)
     return "79";
   } else if(platform == "x1") {
     return "220";
+  } else if(platform == "xbox") {
+    return "32";
   } else if(platform == "zmachine") {
     return "215";
   } else if(platform == "zx81") {
