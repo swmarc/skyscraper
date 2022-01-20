@@ -269,7 +269,7 @@ void Skyscraper::run() {
   // Create shared queue with files to process
   queue = QSharedPointer<Queue>(new Queue());
   QList<QFileInfo> infoList = inputDir.entryInfoList();
-  if (QFileInfo::exists(config.inputFolder + "/.skyscraperignore")) {
+  if(config.scraper != "cache" && QFileInfo::exists(config.inputFolder + "/.skyscraperignore")) {
     infoList.clear();
   }
   if (!config.startAt.isEmpty() && !infoList.isEmpty()) {
@@ -303,13 +303,25 @@ void Skyscraper::run() {
     }
   }
   queue->append(infoList);
-  if (config.subdirs) {
-    QDirIterator dirIt(config.inputFolder, QDir::Dirs | QDir::NoDotAndDotDot,
-                       QDirIterator::Subdirectories);
-    while (dirIt.hasNext()) {
+  if(config.subdirs) {
+    QDirIterator dirIt(config.inputFolder,
+		       QDir::Dirs | QDir::NoDotAndDotDot,
+		       QDirIterator::Subdirectories);
+    QString exclude = "";
+    while(dirIt.hasNext()) {
       QString subdir = dirIt.next();
-      if (QFileInfo::exists(subdir + "/.skyscraperignore")) {
-        continue;
+      if(config.scraper != "cache" && QFileInfo::exists(subdir + "/.skyscraperignoretree")) {
+	exclude = subdir;
+      }
+      if(!exclude.isEmpty() &&
+	 (subdir == exclude ||
+	  (subdir.left(exclude.length()) == exclude && subdir.mid(exclude.length(), 1) == "/"))) {
+	continue;
+      } else {
+	exclude.clear();
+      }
+      if(config.scraper != "cache" && QFileInfo::exists(subdir + "/.skyscraperignore")) {
+	continue;
       }
       inputDir.setPath(subdir);
       queue->append(inputDir.entryInfoList());
