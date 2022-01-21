@@ -113,6 +113,7 @@ QStringList Platform::getPlatforms()
   platforms.append("psp");
   platforms.append("psx");
   platforms.append("samcoupe");
+  platforms.append("satellaview");
   platforms.append("saturn");
   platforms.append("scummvm");
   platforms.append("sega32x");
