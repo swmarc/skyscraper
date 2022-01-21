@@ -120,6 +120,7 @@ QStringList Platform::getPlatforms()
   platforms.append("sg-1000");
   platforms.append("snes");
   platforms.append("steam");
+  platforms.append("sufami");
   platforms.append("ti99");
   platforms.append("trs-80");
   platforms.append("vectrex");

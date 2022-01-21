@@ -782,37 +782,39 @@ QString ScreenScraper::getPlatformId(const QString platform)
     return "109";
   } else if(platform == "snes") {
     return "4";
-  } else if(platform == "ti99") {
+  } else if (platform == "sufami") {
+    return "108";
+  } else if (platform == "ti99") {
     return "205";
-  } else if(platform == "trs-80") {
+  } else if (platform == "trs-80") {
     return "144";
-  } else if(platform == "vectrex") {
+  } else if (platform == "vectrex") {
     return "102";
-  } else if(platform == "vic20") {
+  } else if (platform == "vic20") {
     return "73";
-  } else if(platform == "videopac") {
+  } else if (platform == "videopac") {
     return "104";
-  } else if(platform == "virtualboy") {
+  } else if (platform == "virtualboy") {
     return "11";
-  } else if(platform == "wii") {
+  } else if (platform == "wii") {
     return "16";
-  } else if(platform == "wiiu") {
+  } else if (platform == "wiiu") {
     return "18";
-  } else if(platform == "wonderswan") {
+  } else if (platform == "wonderswan") {
     return "45";
-  } else if(platform == "wonderswancolor") {
+  } else if (platform == "wonderswancolor") {
     return "46";
-  } else if(platform == "x68000") {
+  } else if (platform == "x68000") {
     return "79";
-  } else if(platform == "x1") {
+  } else if (platform == "x1") {
     return "220";
-  } else if(platform == "xbox") {
+  } else if (platform == "xbox") {
     return "32";
-  } else if(platform == "zmachine") {
+  } else if (platform == "zmachine") {
     return "215";
-  } else if(platform == "zx81") {
+  } else if (platform == "zx81") {
     return "77";
-  } else if(platform == "zxspectrum") {
+  } else if (platform == "zxspectrum") {
     return "76";
   }
   return "na";
