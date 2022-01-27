@@ -123,6 +123,7 @@ QStringList Platform::getPlatforms()
   platforms.append("steam");
   platforms.append("sufami");
   platforms.append("supergrafx");
+  platforms.append("supervision");
   platforms.append("ti99");
   platforms.append("trs-80");
   platforms.append("vectrex");
@@ -312,6 +313,8 @@ QStringList Platform::getScrapers(QString platform)
   } else if(platform == "snes") {
     scrapers.append("screenscraper");
   } else if (platform == "supergrafx") {
+    scrapers.append("screenscraper");
+  } else if (platform == "supervision") {
     scrapers.append("screenscraper");
   } else if (platform == "steam") {
     scrapers.append("screenscraper");
@@ -526,6 +529,8 @@ QString Platform::getFormats(QString platform, QString extensions, QString addEx
     formats.append("*.smc *.sfc *.fig *.swc *.mgd *.bin");
   } else if (platform == "supergrafx") {
     formats.append("*.sgx");
+  } else if (platform == "supervision") {
+    formats.append("*.sv");
   } else if (platform == "ti99") {
     formats.append("*.ctg");
   } else if (platform == "trs-80") {
