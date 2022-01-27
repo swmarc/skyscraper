@@ -860,7 +860,9 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "105";
   } else if (platform == "supervision") {
     return "207";
-  } else if (platform == "ti99") {
+  } else if(platform == "switch") {
+    return "225";
+  } else if(platform == "ti99") {
     return "205";
   } else if (platform == "trs-80") {
     return "144";

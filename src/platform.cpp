@@ -124,6 +124,7 @@ QStringList Platform::getPlatforms()
   platforms.append("sufami");
   platforms.append("supergrafx");
   platforms.append("supervision");
+  platforms.append("switch");
   platforms.append("ti99");
   platforms.append("trs-80");
   platforms.append("vectrex");
@@ -315,6 +316,10 @@ QStringList Platform::getScrapers(QString platform)
   } else if (platform == "supergrafx") {
     scrapers.append("screenscraper");
   } else if (platform == "supervision") {
+    scrapers.append("screenscraper");
+  } else if(platform == "switch") {
+    scrapers.append("screenscraper");
+  } else if(platform == "ti99") {
     scrapers.append("screenscraper");
   } else if (platform == "steam") {
     scrapers.append("screenscraper");
@@ -531,7 +536,9 @@ QString Platform::getFormats(QString platform, QString extensions, QString addEx
     formats.append("*.sgx");
   } else if (platform == "supervision") {
     formats.append("*.sv");
-  } else if (platform == "ti99") {
+  } else if(platform == "switch") {
+    formats.append("*.xci *.nsp");
+  } else if(platform == "ti99") {
     formats.append("*.ctg");
   } else if (platform == "trs-80") {
     formats.append("*.dsk");
@@ -1326,6 +1333,8 @@ QStringList Platform::getAliases(QString platform)
     // Adding these consoles because 'thegamesdb' often only return these instead of PC versions
     aliases.append("microsoft xbox one");
     aliases.append("sony playstation 4");
+  } else if(platform == "switch") {
+    aliases.append("nintendo switch");
   } else if(platform == "ti99") {
     aliases.append("ti-99/4a");
     aliases.append("texas instruments ti-99");
