@@ -856,6 +856,8 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "4";
   } else if (platform == "sufami") {
     return "108";
+  } else if (platform == "supergrafx") {
+    return "105";
   } else if (platform == "ti99") {
     return "205";
   } else if (platform == "trs-80") {

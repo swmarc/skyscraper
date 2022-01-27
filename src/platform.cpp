@@ -122,6 +122,7 @@ QStringList Platform::getPlatforms()
   platforms.append("snes");
   platforms.append("steam");
   platforms.append("sufami");
+  platforms.append("supergrafx");
   platforms.append("ti99");
   platforms.append("trs-80");
   platforms.append("vectrex");
@@ -310,41 +311,43 @@ QStringList Platform::getScrapers(QString platform)
     scrapers.append("screenscraper");
   } else if(platform == "snes") {
     scrapers.append("screenscraper");
-  } else if(platform == "steam") {
+  } else if (platform == "supergrafx") {
     scrapers.append("screenscraper");
-  } else if(platform == "ti99") {
+  } else if (platform == "steam") {
     scrapers.append("screenscraper");
-  } else if(platform == "trs-80") {
+  } else if (platform == "ti99") {
     scrapers.append("screenscraper");
-  } else if(platform == "vectrex") {
+  } else if (platform == "trs-80") {
     scrapers.append("screenscraper");
-  } else if(platform == "vic20") {
+  } else if (platform == "vectrex") {
     scrapers.append("screenscraper");
-  } else if(platform == "videopac") {
+  } else if (platform == "vic20") {
     scrapers.append("screenscraper");
-  } else if(platform == "virtualboy") {
+  } else if (platform == "videopac") {
     scrapers.append("screenscraper");
-  } else if(platform == "wii") {
+  } else if (platform == "virtualboy") {
+    scrapers.append("screenscraper");
+  } else if (platform == "wii") {
     scrapers.append("thegamesdb");
     scrapers.append("screenscraper");
-  } else if(platform == "wiiu") {
+  } else if (platform == "wiiu") {
     scrapers.append("thegamesdb");
     scrapers.append("screenscraper");
-  } else if(platform == "wonderswan") {
+  } else if (platform == "wonderswan") {
     scrapers.append("screenscraper");
-  } else if(platform == "wonderswancolor") {
+  } else if (platform == "wonderswancolor") {
     scrapers.append("screenscraper");
-  } else if(platform  == "x68000") {
+  } else if (platform == "x68000") {
     scrapers.append("screenscraper");
-  } else if(platform  == "x1") {
+  } else if (platform == "x1") {
     scrapers.append("screenscraper");
-  } else if(platform  == "xbox") {
+  } else if (platform == "xbox") {
     scrapers.append("screenscraper");
-  } else if(platform  == "zmachine") {
+  } else if (platform == "zmachine") {
     scrapers.append("thegamesdb");
-  } else if(platform  == "zx81") {
+  } else if (platform == "zx81") {
     scrapers.append("screenscraper");
-  } else if(platform  == "zxspectrum") {
+  } else if (platform == "zxspectrum") {
     scrapers.append("screenscraper");
   }
 
@@ -521,37 +524,39 @@ QString Platform::getFormats(QString platform, QString extensions, QString addEx
     formats.append("*.bin *.sg");
   } else if(platform == "snes") {
     formats.append("*.smc *.sfc *.fig *.swc *.mgd *.bin");
-  } else if(platform == "ti99") {
+  } else if (platform == "supergrafx") {
+    formats.append("*.sgx");
+  } else if (platform == "ti99") {
     formats.append("*.ctg");
-  } else if(platform == "trs-80") {
+  } else if (platform == "trs-80") {
     formats.append("*.dsk");
-  } else if(platform == "vectrex") {
+  } else if (platform == "vectrex") {
     formats.append("*.bin *.gam *.vec");
-  } else if(platform == "vic20") {
+  } else if (platform == "vic20") {
     formats.append("*.crt *.d64 *.prg *.tap *.t64 *.g64 *.x64 *.vsf");
-  } else if(platform == "videopac") {
+  } else if (platform == "videopac") {
     formats.append("*.bin");
-  } else if(platform == "virtualboy") {
+  } else if (platform == "virtualboy") {
     formats.append("*.vb");
-  } else if(platform == "wii") {
+  } else if (platform == "wii") {
     formats.append("*.iso *.cso *.gcz *.wbfs *.rvz");
-  } else if(platform == "wiiu") {
+  } else if (platform == "wiiu") {
     formats.append("*.iso *.cso *.gcz *.wbfs *.wud *.wux *.rpx *.app");
-  } else if(platform == "wonderswan") {
+  } else if (platform == "wonderswan") {
     formats.append("*.ws");
-  } else if(platform == "wonderswancolor") {
+  } else if (platform == "wonderswancolor") {
     formats.append("*.wsc");
-  } else if(platform == "x68000") {
+  } else if (platform == "x68000") {
     formats.append("*.dim *.m3u");
-  } else if(platform == "x1") {
+  } else if (platform == "x1") {
     formats.append("*.dx1 *.2d *.2hd *.tfd *.d88 *.88d *.hdm *.xdf *.dup *.cmd");
-  } else if(platform == "x1") {
+  } else if (platform == "x1") {
     formats.append("*.iso");
-  } else if(platform == "zmachine") {
+  } else if (platform == "zmachine") {
     formats.append("*.dat *.z1 *.z2 *.z3 *.z4 *.z5 *.z6 *.z7 *.z8");
-  } else if(platform == "zx81") {
+  } else if (platform == "zx81") {
     formats.append("*.p *.tzx *.t81");
-  } else if(platform == "zxspectrum") {
+  } else if (platform == "zxspectrum") {
     formats.append("*.sna *.szx *.z80 *.tap *.tzx *.gz *.udi *.mgt *.img *.trd *.scl *.dsk");
   }
   return formats;
