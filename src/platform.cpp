@@ -387,7 +387,7 @@ QString Platform::getFormats(QString platform, QString extensions, QString addEx
   } else if(platform == "amiga") {
     formats.append("*.uae *.adf *.dms *.adz *.rp9 *.lha *.cue *.img *.iso *.hdf");
   } else if(platform == "amigacd32" || platform == "amigacdtv") {
-    formats.append("*.uae *.adf *.dms *.adz *.rp9 *.lha *.cue *.img *.iso *.hdf");
+    formats.append("*.uae *.adf *.dms *.adz *.rp9 *.lha *.cue *.img *.iso *.hdf *.chd");
   } else if(platform == "amstradcpc") {
     formats.append("*.dsk *.cpc");
   } else if(platform == "apple2") {
