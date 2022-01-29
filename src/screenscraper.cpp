@@ -800,6 +800,8 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "14";
   } else if (platform == "naomi") {
     return "75";
+  } else if (platform == "naomi2") {
+    return "230";
   } else if (platform == "nds") {
     return "15";
   } else if (platform == "neogeo") {
@@ -860,9 +862,9 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "105";
   } else if (platform == "supervision") {
     return "207";
-  } else if(platform == "switch") {
+  } else if (platform == "switch") {
     return "225";
-  } else if(platform == "ti99") {
+  } else if (platform == "ti99") {
     return "205";
   } else if (platform == "trs-80") {
     return "144";

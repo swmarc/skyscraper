@@ -93,6 +93,7 @@ QStringList Platform::getPlatforms()
   platforms.append("msx2");
   platforms.append("n64");
   platforms.append("naomi");
+  platforms.append("naomi2");
   platforms.append("nds");
   platforms.append("neogeo");
   platforms.append("neogeocd");
@@ -257,69 +258,71 @@ QStringList Platform::getScrapers(QString platform)
     scrapers.append("screenscraper");
   } else if(platform == "naomi") {
     scrapers.append("screenscraper");
-  } else if(platform == "nds") {
+  } else if (platform == "naomi2") {
     scrapers.append("screenscraper");
-  } else if(platform == "neogeo") {
+  } else if (platform == "nds") {
+    scrapers.append("screenscraper");
+  } else if (platform == "neogeo") {
     scrapers.append("arcadedb");
     scrapers.append("screenscraper");
-  } else if(platform == "neogeocd") {
+  } else if (platform == "neogeocd") {
     scrapers.append("screenscraper");
-  } else if(platform == "nes") {
+  } else if (platform == "nes") {
     scrapers.append("screenscraper");
-  } else if(platform == "ngp") {
+  } else if (platform == "ngp") {
     scrapers.append("screenscraper");
-  } else if(platform == "ngpc") {
+  } else if (platform == "ngpc") {
     scrapers.append("screenscraper");
-  } else if(platform == "openbor") {
+  } else if (platform == "openbor") {
     scrapers.append("screenscraper");
-  } else if(platform == "oric") {
+  } else if (platform == "oric") {
     scrapers.append("screenscraper");
-  } else if(platform == "pc") {
+  } else if (platform == "pc") {
     scrapers.append("thegamesdb");
-  } else if(platform == "pc88") {
+  } else if (platform == "pc88") {
     scrapers.append("thegamesdb");
-  } else if(platform == "pc98") {
+  } else if (platform == "pc98") {
     scrapers.append("thegamesdb");
-  } else if(platform == "pcfx") {
+  } else if (platform == "pcfx") {
     scrapers.append("screenscraper");
-  } else if(platform == "pcengine") {
+  } else if (platform == "pcengine") {
     scrapers.append("screenscraper");
-  } else if(platform == "pcenginecd") {
+  } else if (platform == "pcenginecd") {
     scrapers.append("screenscraper");
-  } else if(platform == "pokemini") {
+  } else if (platform == "pokemini") {
     scrapers.append("screenscraper");
-  } else if(platform == "ports") {
+  } else if (platform == "ports") {
     scrapers.append("thegamesdb");
-  } else if(platform == "ps2") {
-    scrapers.append("screenscraper");
-    scrapers.append("thegamesdb");
-  } else if(platform == "psp") {
-    scrapers.append("screenscraper");
-  } else if(platform == "psx") {
+  } else if (platform == "ps2") {
     scrapers.append("screenscraper");
     scrapers.append("thegamesdb");
-  } else if(platform == "samcoupe") {
+  } else if (platform == "psp") {
     scrapers.append("screenscraper");
-  } else if(platform == "saturn") {
-    scrapers.append("screenscraper");
-  } else if(platform == "scummvm") {
+  } else if (platform == "psx") {
     scrapers.append("screenscraper");
     scrapers.append("thegamesdb");
-  } else if(platform == "sega32x") {
+  } else if (platform == "samcoupe") {
     scrapers.append("screenscraper");
-  } else if(platform == "segacd") {
+  } else if (platform == "saturn") {
     scrapers.append("screenscraper");
-  } else if(platform == "sg-1000") {
+  } else if (platform == "scummvm") {
     scrapers.append("screenscraper");
-  } else if(platform == "snes") {
+    scrapers.append("thegamesdb");
+  } else if (platform == "sega32x") {
+    scrapers.append("screenscraper");
+  } else if (platform == "segacd") {
+    scrapers.append("screenscraper");
+  } else if (platform == "sg-1000") {
+    scrapers.append("screenscraper");
+  } else if (platform == "snes") {
     scrapers.append("screenscraper");
   } else if (platform == "supergrafx") {
     scrapers.append("screenscraper");
   } else if (platform == "supervision") {
     scrapers.append("screenscraper");
-  } else if(platform == "switch") {
+  } else if (platform == "switch") {
     scrapers.append("screenscraper");
-  } else if(platform == "ti99") {
+  } else if (platform == "ti99") {
     scrapers.append("screenscraper");
   } else if (platform == "steam") {
     scrapers.append("screenscraper");
@@ -479,66 +482,68 @@ QString Platform::getFormats(QString platform, QString extensions, QString addEx
   } else if(platform == "n64") {
     formats.append("*.z64 *.n64 *.v64");
   } else if(platform == "naomi") {
-    formats.append("*.bin *.dat");
-  } else if(platform == "nds") {
+    formats.append("*.cue *.bin *.dat");
+  } else if (platform == "naomi2") {
+    formats.append("*.cue *.bin *.dat");
+  } else if (platform == "nds") {
     formats.append("*.nds");
-  } else if(platform == "neogeo") {
+  } else if (platform == "neogeo") {
     formats.append("");
-  } else if(platform == "neogeocd") {
+  } else if (platform == "neogeocd") {
     formats.append("*.cue *.chd *.iso");
-  } else if(platform == "nes") {
+  } else if (platform == "nes") {
     formats.append("*.nes *.smc *.sfc *.fig *.swc *.mgd");
-  } else if(platform == "ngp") {
+  } else if (platform == "ngp") {
     formats.append(" *.ngp");
-  } else if(platform == "ngpc") {
+  } else if (platform == "ngpc") {
     formats.append(" *.ngc");
-  } else if(platform == "openbor") {
+  } else if (platform == "openbor") {
     formats.append(" *.pak");
-  } else if(platform == "oric") {
+  } else if (platform == "oric") {
     formats.append(" *.dsk *.tap");
-  } else if(platform == "pc") {
+  } else if (platform == "pc") {
     formats.append("*.com *.sh *.bat *.exe *.conf");
-  } else if(platform == "pc88") {
+  } else if (platform == "pc88") {
     formats.append("*.d88 *.88d *.cmt *.t88");
-  } else if(platform == "pc98") {
+  } else if (platform == "pc98") {
     formats.append("*.d88 *.d98 *.88d *.98d *.fdi *.xdf *.hdm *.dup *.2hd *.tfd *.hdi *.thd *.nhd *.hdd *.fdd *.cmd *.hdn");
-  } else if(platform == "pcfx") {
+  } else if (platform == "pcfx") {
     formats.append("*.img *.iso *.ccd *.cue");
-  } else if(platform == "pcengine") {
+  } else if (platform == "pcengine") {
     formats.append("*.pce *.chd *.cue");
-  } else if(platform == "pcenginecd") {
+  } else if (platform == "pcenginecd") {
     formats.append("*.pce *.chd *.cue");
-  } else if(platform == "pokemini") {
+  } else if (platform == "pokemini") {
     formats.append("*.min");
-  } else if(platform == "ports") {
+  } else if (platform == "ports") {
     formats.append("*.com *.sh *.bat *.exe *.conf");
-  } else if(platform == "ps2") {
+  } else if (platform == "ps2") {
     formats.append("*.iso *.cue *.img *.mdf *.z *.z2 *.bz2 *.dump *.cso *.ima *.gz");
-  } else if(platform == "psp") {
+  } else if (platform == "psp") {
     formats.append("*.cso *.iso *.pbp");
-  } else if(platform == "psx") {
+  } else if (platform == "psx") {
     formats.append("*.cue *.cbn *.img *.iso *.m3u *.mdf *.pbp *.toc *.z *.znx *.chd");
-  } else if(platform == "samcoupe") {
+  } else if (platform == "samcoupe") {
     formats.append("*.dsk *.sad .sdf");
-  } else if(platform == "saturn") {
+  } else if (platform == "saturn") {
     formats.append("*.cue *.iso *.mdf *.chd");
-  } else if(platform == "scummvm") {
+  } else if (platform == "scummvm") {
     formats.append("*.svm *.scummvm");
-  } else if(platform == "sega32x") {
+  } else if (platform == "sega32x") {
     formats.append("*.32x *.bin *.md *.smd");
-  } else if(platform == "segacd") {
+  } else if (platform == "segacd") {
     formats.append("*.cue *.iso *.chd");
-  } else if(platform == "sg-1000") {
+  } else if (platform == "sg-1000") {
     formats.append("*.bin *.sg");
-  } else if(platform == "snes") {
+  } else if (platform == "snes") {
     formats.append("*.smc *.sfc *.fig *.swc *.mgd *.bin");
   } else if (platform == "supergrafx") {
     formats.append("*.sgx");
   } else if (platform == "supervision") {
     formats.append("*.sv");
-  } else if(platform == "switch") {
+  } else if (platform == "switch") {
     formats.append("*.xci *.nsp");
-  } else if(platform == "ti99") {
+  } else if (platform == "ti99") {
     formats.append("*.ctg");
   } else if (platform == "trs-80") {
     formats.append("*.dsk");
