@@ -121,6 +121,7 @@ QStringList Platform::getPlatforms()
   platforms.append("segacd");
   platforms.append("sg-1000");
   platforms.append("snes");
+  platforms.append("snes-msu");
   platforms.append("steam");
   platforms.append("sufami");
   platforms.append("supergrafx");
@@ -315,6 +316,8 @@ QStringList Platform::getScrapers(QString platform)
   } else if (platform == "sg-1000") {
     scrapers.append("screenscraper");
   } else if (platform == "snes") {
+    scrapers.append("screenscraper");
+  } else if (platform == "snes-msu") {
     scrapers.append("screenscraper");
   } else if (platform == "supergrafx") {
     scrapers.append("screenscraper");
@@ -537,6 +540,8 @@ QString Platform::getFormats(QString platform, QString extensions, QString addEx
     formats.append("*.bin *.sg");
   } else if (platform == "snes") {
     formats.append("*.smc *.sfc *.fig *.swc *.mgd *.bin");
+  } else if (platform == "snes-msu") {
+    formats.append(".smc .sfc .bml .m3u");
   } else if (platform == "supergrafx") {
     formats.append("*.sgx");
   } else if (platform == "supervision") {
