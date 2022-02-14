@@ -269,7 +269,8 @@ void Skyscraper::run() {
   // Create shared queue with files to process
   queue = QSharedPointer<Queue>(new Queue());
   QList<QFileInfo> infoList = inputDir.entryInfoList();
-  if(config.scraper != "cache" && QFileInfo::exists(config.inputFolder + "/.skyscraperignore")) {
+  if (config.scraper != "cache" &&
+      QFileInfo::exists(config.inputFolder + "/.skyscraperignore")) {
     infoList.clear();
   }
   if (!config.startAt.isEmpty() && !infoList.isEmpty()) {
@@ -303,25 +304,26 @@ void Skyscraper::run() {
     }
   }
   queue->append(infoList);
-  if(config.subdirs) {
-    QDirIterator dirIt(config.inputFolder,
-		       QDir::Dirs | QDir::NoDotAndDotDot,
-		       QDirIterator::Subdirectories);
+  if (config.subdirs) {
+    QDirIterator dirIt(config.inputFolder, QDir::Dirs | QDir::NoDotAndDotDot,
+                       QDirIterator::Subdirectories);
     QString exclude = "";
-    while(dirIt.hasNext()) {
+    while (dirIt.hasNext()) {
       QString subdir = dirIt.next();
-      if(config.scraper != "cache" && QFileInfo::exists(subdir + "/.skyscraperignoretree")) {
-	exclude = subdir;
+      if (config.scraper != "cache" &&
+          QFileInfo::exists(subdir + "/.skyscraperignoretree")) {
+        exclude = subdir;
       }
-      if(!exclude.isEmpty() &&
-	 (subdir == exclude ||
-	  (subdir.left(exclude.length()) == exclude && subdir.mid(exclude.length(), 1) == "/"))) {
-	continue;
+      if (!exclude.isEmpty() &&
+          (subdir == exclude || (subdir.left(exclude.length()) == exclude &&
+                                 subdir.mid(exclude.length(), 1) == "/"))) {
+        continue;
       } else {
-	exclude.clear();
+        exclude.clear();
       }
-      if(config.scraper != "cache" && QFileInfo::exists(subdir + "/.skyscraperignore")) {
-	continue;
+      if (config.scraper != "cache" &&
+          QFileInfo::exists(subdir + "/.skyscraperignore")) {
+        continue;
       }
       inputDir.setPath(subdir);
       queue->append(inputDir.entryInfoList());
@@ -350,10 +352,10 @@ void Skyscraper::run() {
   // Remove files from excludeFrom, if any
   if (!config.excludeFrom.isEmpty()) {
     QFileInfo excludeFromInfo(config.excludeFrom);
-    if(!excludeFromInfo.exists()) {
+    if (!excludeFromInfo.exists()) {
       excludeFromInfo.setFile(config.currentDir + "/" + config.excludeFrom);
     }
-    if(excludeFromInfo.exists()) {
+    if (excludeFromInfo.exists()) {
       QFile excludeFrom(excludeFromInfo.absoluteFilePath());
       if (excludeFrom.open(QIODevice::ReadOnly)) {
         QList<QString> excludes;
@@ -586,7 +588,7 @@ void Skyscraper::entryReady(const GameEntry &entry, const QString &output,
   if (!config.onlyMissing && currentFile == config.maxFails &&
       notFound == config.maxFails && config.scraper != "import" &&
       config.scraper != "cache") {
-    printf("\033[1;31mThis is NOT going well! I guit! *slams the door*\nNo, "
+    printf("\033[1;31mThis is NOT going well! I quit! *slams the door*\nNo, "
            "seriously, out of %d files we had %d misses. So either the "
            "scraping source is down or you are using a scraping source that "
            "doesn't support this platform. Please try another scraping module "
@@ -781,6 +783,7 @@ void Skyscraper::loadConfig(const QCommandLineParser &parser) {
   frontend->setConfig(&config);
 
   bool inputFolderSet = false;
+  bool reportsFolderSet = false;
   bool gameListFolderSet = false;
   bool mediaFolderSet = false;
 
@@ -965,6 +968,7 @@ void Skyscraper::loadConfig(const QCommandLineParser &parser) {
     config.reportsFolder = reportsFolder +
                            (reportsFolder.right(1) == "/" ? "" : "/") +
                            config.platform;
+    reportsFolderSet = true;
   }
   // gamelistFolder kept in addition to gameListFolder for backwards
   // compatibility
@@ -1017,6 +1021,7 @@ void Skyscraper::loadConfig(const QCommandLineParser &parser) {
   }
   if (settings.contains("reportsFolder")) {
     config.reportsFolder = settings.value("reportsFolder").toString();
+    reportsFolderSet = true;
   }
   // gamelistFolder kept in addition to gameListFolder for backwards
   // compatibility
@@ -1351,6 +1356,7 @@ void Skyscraper::loadConfig(const QCommandLineParser &parser) {
   }
   if (parser.isSet("r")) {
     config.reportsFolder = parser.value("r");
+    reportsFolderSet = true;
   }
   if (parser.isSet("g")) {
     config.gameListFolder = parser.value("g");
@@ -1699,6 +1705,9 @@ void Skyscraper::loadConfig(const QCommandLineParser &parser) {
   if (!inputFolderSet) {
     config.inputFolder = frontend->getInputFolder();
   }
+  if (!reportsFolderSet) {
+    config.reportsFolder = frontend->getReportsFolder();
+  }
   if (!gameListFolderSet) {
     config.gameListFolder = frontend->getGameListFolder();
   }
@@ -1742,10 +1751,10 @@ void Skyscraper::loadConfig(const QCommandLineParser &parser) {
   // Add files from '--includefrom', if any
   if (!config.includeFrom.isEmpty()) {
     QFileInfo includeFromInfo(config.includeFrom);
-    if(!includeFromInfo.exists()) {
+    if (!includeFromInfo.exists()) {
       includeFromInfo.setFile(config.currentDir + "/" + config.includeFrom);
     }
-    if(includeFromInfo.exists()) {
+    if (includeFromInfo.exists()) {
       QFile includeFrom(includeFromInfo.absoluteFilePath());
       if (includeFrom.open(QIODevice::ReadOnly)) {
         while (!includeFrom.atEnd()) {

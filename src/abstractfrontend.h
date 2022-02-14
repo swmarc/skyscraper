@@ -26,16 +26,15 @@
 #ifndef ABSTRACTFRONTEND_H
 #define ABSTRACTFRONTEND_H
 
-#include <QObject>
 #include <QFileInfo>
+#include <QObject>
 #include <QSharedPointer>
 
 #include "gameentry.h"
-#include "settings.h"
 #include "queue.h"
+#include "settings.h"
 
-class AbstractFrontend : public QObject
-{
+class AbstractFrontend : public QObject {
   Q_OBJECT
 
 public:
@@ -44,24 +43,26 @@ public:
   void setConfig(Settings *config);
   virtual void checkReqs(){};
   virtual void assembleList(QString &, QList<GameEntry> &){};
-  virtual bool skipExisting(QList<GameEntry> &, QSharedPointer<Queue>){return false;};
-  virtual bool canSkip(){return false;};
-  virtual bool loadOldGameList(const QString &){return false;};
+  virtual bool skipExisting(QList<GameEntry> &, QSharedPointer<Queue>) {
+    return false;
+  };
+  virtual bool canSkip() { return false; };
+  virtual bool loadOldGameList(const QString &) { return false; };
   virtual void preserveFromOld(GameEntry &){};
-  virtual QString getGameListFileName(){return QString();};
-  virtual QString getInputFolder(){return QString();};
-  virtual QString getGameListFolder(){return QString();};
-  virtual QString getCoversFolder(){return QString();};
-  virtual QString getScreenshotsFolder(){return QString();};
-  virtual QString getWheelsFolder(){return QString();};
-  virtual QString getMarqueesFolder(){return QString();};
-  virtual QString getVideosFolder(){return QString();};
+  virtual QString getGameListFileName() { return QString(); };
+  virtual QString getInputFolder() { return QString(); };
+  virtual QString getReportsFolder() { return QString(); };
+  virtual QString getGameListFolder() { return QString(); };
+  virtual QString getCoversFolder() { return QString(); };
+  virtual QString getScreenshotsFolder() { return QString(); };
+  virtual QString getWheelsFolder() { return QString(); };
+  virtual QString getMarqueesFolder() { return QString(); };
+  virtual QString getVideosFolder() { return QString(); };
   virtual void sortEntries(QList<GameEntry> &gameEntries);
 
 protected:
   Settings *config;
   QList<GameEntry> oldEntries;
-
 };
 
 #endif // ABSTRACTFRONTEND_H

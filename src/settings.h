@@ -36,7 +36,8 @@ struct Settings {
   QString skippedFileString = "";
   QString configFile = "";
   QString frontend = "emulationstation";
-  QString frontendExtra = ""; // For use with 'emulator' with Attractmode and 'command' for Pegasus
+  QString frontendExtra =
+      ""; // For use with 'emulator' with Attractmode and 'command' for Pegasus
   QString platform = "";
   QString scraper = "";
   QString userCreds = "";
@@ -102,7 +103,7 @@ struct Settings {
 
   bool videos = false;
   bool videoPreferNormalized = true;
-  int videoSizeLimit = 100*1024*1024;
+  int videoSizeLimit = 100 * 1024 * 1024;
   QString videoConvertCommand = "";
   QString videoConvertExtension = "";
   bool symlink = false;
@@ -110,13 +111,14 @@ struct Settings {
   bool cacheCovers = true;
   bool skipExistingCovers = false;
   bool cacheScreenshots = true;
-  bool skipExistingScreenshots= false;
-  bool cropBlack = true; // If true, will crop away black borders around screenshots
+  bool skipExistingScreenshots = false;
+  bool cropBlack =
+      true; // If true, will crop away black borders around screenshots
   bool cacheWheels = true;
   bool skipExistingWheels = false;
   bool cacheMarquees = true;
   bool skipExistingMarquees = false;
-  
+
   QString user = "";
   QString password = "";
   QString lang = "";
@@ -129,11 +131,10 @@ struct Settings {
   QMap<QString, QImage> resources;
   QMap<QString, QString> mameMap;
   QMap<QString, QString> aliasMap;
-  QMap<QString, QPair<QString, QString> > whdLoadMap;
+  QMap<QString, QPair<QString, QString>> whdLoadMap;
 
   QList<QString> regionPrios;
   QList<QString> langPrios;
-
 };
 
 #endif // SETTINGS_H
