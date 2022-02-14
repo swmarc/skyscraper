@@ -119,6 +119,7 @@ QStringList Platform::getPlatforms()
   platforms.append("scummvm");
   platforms.append("sega32x");
   platforms.append("segamodel2");
+  platforms.append("segamodel3");
   platforms.append("segacd");
   platforms.append("sg-1000");
   platforms.append("snes");
@@ -313,6 +314,8 @@ QStringList Platform::getScrapers(QString platform)
   } else if (platform == "sega32x") {
     scrapers.append("screenscraper");
   } else if (platform == "segamodel2") {
+    scrapers.append("screenscraper");
+  } else if (platform == "segamodel3") {
     scrapers.append("screenscraper");
   } else if (platform == "segacd") {
     scrapers.append("screenscraper");
