@@ -1,6 +1,7 @@
 # Regarding this fork
-Please note that this fork is just for minor changes with concentration on Screen Scraper & ArcadeDB.
+Please note that this fork is just for minor changes with concentration on ScreenScraper & ArcadeDB.
 Small additions, fixes & compatibility for my scraping project.
+In it's current state it's **is incompatible**.
 So generally speaking, this fork might not work the same as expected from Lars' one. You have been warned.
 
 # Skyscraper by Lars Muldjord
