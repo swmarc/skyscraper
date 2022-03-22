@@ -541,14 +541,11 @@ QString Platform::getFormats(QString platform, QString extensions,
         "*.iso *.cue *.img *.mdf *.z *.z2 *.bz2 *.dump *.cso *.ima *.gz");
   } else if (platform == "psp") {
     formats.append("*.cso *.iso *.pbp");
-  } else if (platform == "psx") {
-    formats.append(
-        "*.cue *.cbn *.img *.iso *.m3u *.mdf *.pbp *.toc *.z *.znx *.chd");
-  } else if (platform == "samcoupe") {
-    formats.append("*.dsk *.sad .sdf");
-  } else if (platform == "saturn") {
-    formats.append("*.cue *.iso *.mdf *.chd");
-  } else if (platform == "scummvm") {
+  } else if(platform == "psx") {
+    formats.append("*.cue *.cbn *.img *.iso *.m3u *.mdf *.pbp *.toc *.z *.znx *.chd");
+  } else if(platform == "saturn") {
+    formats.append("*.cue *.iso *.mdf *.chd *.m3u");
+  } else if(platform == "scummvm") {
     formats.append("*.svm *.scummvm");
   } else if (platform == "sega32x") {
     formats.append("*.32x *.bin *.md *.smd");
