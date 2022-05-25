@@ -71,6 +71,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("easyrpg");
   platforms.append("fba");
   platforms.append("fds");
+  platforms.append("fmtowns");
   platforms.append("gameandwatch");
   platforms.append("gamegear");
   platforms.append("gb");
@@ -220,6 +221,8 @@ QStringList Platform::getScrapers(QString platform) {
     scrapers.append("arcadedb");
     scrapers.append("screenscraper");
   } else if (platform == "fds") {
+    scrapers.append("screenscraper");
+  } else if (platform == "fmtowns") {
     scrapers.append("screenscraper");
   } else if (platform == "gameandwatch") {
     scrapers.append("screenscraper");

@@ -748,6 +748,12 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "144";
   } else if (platform == "coleco") {
     return "48";
+  } else if (platform == "cps1") {
+    return "6";
+  } else if (platform == "cps2") {
+    return "7";
+  } else if (platform == "cps3") {
+    return "8";
   } else if (platform == "daphne") {
     return "49";
   } else if (platform == "dragon") {
@@ -760,6 +766,8 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "75";
   } else if (platform == "fds") {
     return "106";
+  } else if (platform == "fmtowns") {
+    return "253";
   } else if (platform == "gameandwatch") {
     return "52";
   } else if (platform == "gamegear") {
