@@ -107,6 +107,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("pcfx");
   platforms.append("pcengine");
   platforms.append("pcenginecd");
+  platforms.append("pico8");
   platforms.append("pokemini");
   platforms.append("ports");
   platforms.append("ps2");
@@ -298,7 +299,9 @@ QStringList Platform::getScrapers(QString platform) {
     scrapers.append("screenscraper");
   } else if (platform == "pcenginecd") {
     scrapers.append("screenscraper");
-  } else if (platform == "pokemini") {
+  } else if(platform == "pico8") {
+    scrapers.append("screenscraper");
+  } else if(platform == "pokemini") {
     scrapers.append("screenscraper");
   } else if (platform == "ports") {
     scrapers.append("thegamesdb");
@@ -535,7 +538,9 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("*.pce *.chd *.cue");
   } else if (platform == "pcenginecd") {
     formats.append("*.pce *.chd *.cue");
-  } else if (platform == "pokemini") {
+  } else if(platform == "pico8") {
+    formats.append("*.png *.p8");
+  } else if(platform == "pokemini") {
     formats.append("*.min");
   } else if (platform == "ports") {
     formats.append("*.com *.sh *.bat *.exe *.conf");
@@ -1300,7 +1305,10 @@ QStringList Platform::getAliases(QString platform) {
     aliases.append("pc engine");
     aliases.append("pc engine cd-rom");
     aliases.append("pc engine supergrafx");
-  } else if (platform == "pokemini") {
+  } else if(platform == "pico8") {
+    aliases.append("pico-8");
+    aliases.append("pico 8");
+  } else if(platform == "pokemini") {
     aliases.append("nintendo pokémon mini");
     aliases.append("pokémon mini");
   } else if (platform == "ports") {
