@@ -557,9 +557,9 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("*.svm *.scummvm");
   } else if (platform == "sega32x") {
     formats.append("*.32x *.bin *.md *.smd");
-  } else if (platform == "segacd") {
-    formats.append("*.cue *.iso *.chd");
-  } else if (platform == "sg-1000") {
+  } else if(platform == "segacd") {
+    formats.append("*.cue *.iso *.chd *.m3u");
+  } else if(platform == "sg-1000") {
     formats.append("*.bin *.sg");
   } else if (platform == "snes") {
     formats.append("*.smc *.sfc *.fig *.swc *.mgd *.bin");
