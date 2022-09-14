@@ -585,17 +585,6 @@ void Skyscraper::entryReady(const GameEntry &entry, const QString &output,
   printf("Est. time left : \033[1;33m%s\033[0m\n\n",
          secsToString(estTime).toStdString().c_str());
 
-  if (!config.onlyMissing && currentFile == config.maxFails &&
-      notFound == config.maxFails && config.scraper != "import" &&
-      config.scraper != "cache") {
-    printf("\033[1;31mThis is NOT going well! I quit! *slams the door*\nNo, "
-           "seriously, out of %d files we had %d misses. So either the "
-           "scraping source is down or you are using a scraping source that "
-           "doesn't support this platform. Please try another scraping module "
-           "(check '--help').\n\nNow exiting...\033[0m\n",
-           config.maxFails, config.maxFails);
-    exit(1);
-  }
   currentFile++;
 
 #if QT_VERSION >= 0x050400
