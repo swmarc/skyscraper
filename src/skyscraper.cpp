@@ -1779,7 +1779,7 @@ void Skyscraper::loadConfig(const QCommandLineParser &parser) {
     if (!requestedFileInfo.exists()) {
       requestedFileInfo.setFile(config.inputFolder + "/" + requestedFile);
     }
-    if (requestedFileInfo.exists()) {
+    if (requestedFileInfo.exists() || !config.includeFrom.isEmpty()) {
       cliFiles.append(requestedFileInfo.absoluteFilePath());
       // Always set refresh and unattend true if user has supplied filenames on
       // command line. That way they are cached, but game list is not changed
