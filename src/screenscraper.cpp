@@ -386,7 +386,7 @@ void ScreenScraper::getCover(GameEntry &game) {
                       QList<QString>({"flyer"}));
   } else {
     url = getJsonText(jsonObj["medias"].toArray(), REGION,
-                      QList<QString>({"box-2D"}));
+                      QList<QString>({"box-2D", "box-texture"}));
   }
   if (!url.isEmpty()) {
     bool moveOn = true;
@@ -433,7 +433,7 @@ void ScreenScraper::getScreenshot(GameEntry &game) {
 
 void ScreenScraper::getWheel(GameEntry &game) {
   QString url = getJsonText(jsonObj["medias"].toArray(), REGION,
-                            QList<QString>({"wheel", "wheel-hd"}));
+                            QList<QString>({"wheel", "wheel-hd", "wheel-carbon", "wheel-steel"}));
   if (!url.isEmpty()) {
     bool moveOn = true;
     for (int retries = 0; retries < RETRIESMAX; ++retries) {
@@ -455,8 +455,8 @@ void ScreenScraper::getWheel(GameEntry &game) {
 }
 
 void ScreenScraper::getMarquee(GameEntry &game) {
-  QString url = getJsonText(jsonObj["medias"].toArray(), REGION,
-                            QList<QString>({"screenmarquee"}));
+  QString url = getJsonText(jsonObj["medias"].toArray(), NONE,
+                            QList<QString>({"screenmarquee", "marquee"}));
   if (!url.isEmpty()) {
     bool moveOn = true;
     for (int retries = 0; retries < RETRIESMAX; ++retries) {
