@@ -89,6 +89,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("megadrive");
   platforms.append("moto");
   platforms.append("msx");
+  platforms.append("msx1");
   platforms.append("msx2");
   platforms.append("n64");
   platforms.append("naomi");
@@ -262,7 +263,7 @@ QStringList Platform::getScrapers(QString platform) {
     scrapers.append("screenscraper");
   } else if (platform == "moto") {
     scrapers.append("screenscraper");
-  } else if (platform == "msx") {
+  } else if (platform == "msx" || platform == "msx1") {
     scrapers.append("screenscraper");
   } else if (platform == "msx2") {
     scrapers.append("screenscraper");
@@ -503,16 +504,16 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("*.smd *.bin *.gen *.md *.sg");
   } else if (platform == "moto") {
     formats.append("*.fd *.sap *.k7 *.m5 *.m7 *.rom");
-  } else if (platform == "msx") {
+  } else if (platform == "msx" || platform == "msx1") {
     formats.append("*.rom *.mx1 *.mx2 *.col *.dsk");
   } else if (platform == "msx2") {
     formats.append("*.rom *.mx1 *.mx2 *.col *.dsk");
   } else if (platform == "n64") {
     formats.append("*.z64 *.n64 *.v64");
   } else if (platform == "naomi") {
-    formats.append("*.cue *.bin *.dat");
+    formats.append("*.cue *.bin *.dat *.chd");
   } else if (platform == "naomi2") {
-    formats.append("*.cue *.bin *.dat");
+    formats.append("*.cue *.bin *.dat *.chd");
   } else if (platform == "nds") {
     formats.append("*.nds");
   } else if (platform == "neogeo") {
@@ -1168,6 +1169,7 @@ QStringList Platform::getAliases(QString platform) {
     aliases.append("thomson mo/to");
     aliases.append("thomson to7,thomson mo5");
   } else if (platform == "msx") {
+    aliases.append("msx1");
     aliases.append("msx2");
     aliases.append("msx2+");
     aliases.append("msx r turbo");
