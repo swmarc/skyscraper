@@ -784,6 +784,8 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "1";
   } else if (platform == "gp32") {
     return "101";
+  } else if (platform == "hikaru") {
+    return "258";
   } else if (platform == "intellivision") {
     return "115";
   } else if (platform == "mame-advmame") {

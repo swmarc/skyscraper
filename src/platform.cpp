@@ -80,6 +80,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("gc");
   platforms.append("genesis");
   platforms.append("gp32");
+  platforms.append("hikaru");
   platforms.append("intellivision");
   platforms.append("mame-advmame");
   platforms.append("mame-libretro");
@@ -243,6 +244,8 @@ QStringList Platform::getScrapers(QString platform) {
   } else if (platform == "genesis") {
     scrapers.append("screenscraper");
   } else if (platform == "gp32") {
+    scrapers.append("screenscraper");
+  } else if (platform == "hikaru") {
     scrapers.append("screenscraper");
   } else if (platform == "intellivision") {
     scrapers.append("screenscraper");
