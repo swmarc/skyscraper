@@ -559,7 +559,7 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("*.com *.sh *.bat *.exe *.conf");
   } else if (platform == "ps2") {
     formats.append(
-        "*.iso *.cue *.img *.mdf *.z *.z2 *.bz2 *.dump *.cso *.ima *.gz");
+        "*.iso *.cue *.img *.mdf *.z *.z2 *.bz2 *.dump *.cso *.ima *.gz *.chd");
   } else if (platform == "psp") {
     formats.append("*.cso *.iso *.pbp");
   } else if(platform == "psx") {
@@ -577,7 +577,7 @@ QString Platform::getFormats(QString platform, QString extensions,
   } else if (platform == "snes") {
     formats.append("*.smc *.sfc *.fig *.swc *.mgd *.bin");
   } else if (platform == "snes-msu") {
-    formats.append(".smc .sfc .bml .m3u");
+    formats.append("*.smc *.sfc *.bml *.m3u");
   } else if (platform == "supergrafx") {
     formats.append("*.sgx");
   } else if (platform == "supervision") {
