@@ -378,7 +378,7 @@ void ScreenScraper::getTags(GameEntry &game) {
 
 void ScreenScraper::getCover(GameEntry &game) {
   QString url = "";
-  if (config->platform == "arcade" || config->platform == "fba" ||
+  if (config->platform == "arcade" || config->platform == "fbneo" ||
       config->platform == "mame-advmame" ||
       config->platform == "mame-libretro" ||
       config->platform == "mame-mame4all") {
@@ -764,7 +764,7 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "23";
   } else if (platform == "easyrpg") {
     return "231";
-  } else if (platform == "fba") {
+  } else if (platform == "fbneo") {
     return "75";
   } else if (platform == "fds") {
     return "106";

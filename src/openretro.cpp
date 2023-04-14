@@ -124,26 +124,26 @@ void OpenRetro::getSearchResults(QList<GameEntry> &gameEntries,
   } else {
     while(data.indexOf(searchResultPre.toUtf8()) != -1) {
       nomNom(searchResultPre);
-      
+
       // Digest until url
       for(const auto &nom: urlPre) {
 	nomNom(nom);
       }
       game.url = baseUrl + "/" + data.left(data.indexOf(urlPost.toUtf8())) + "/edit";
-      
+
       // Digest until title
       for(const auto &nom: titlePre) {
 	nomNom(nom);
       }
       // Remove AGA, we already add this automatically in StrTools::addSqrBrackets
       game.title = data.left(data.indexOf(titlePost.toUtf8())).replace("[AGA]", "").simplified();
-      
+
       // Digest until platform
       for(const auto &nom: platformPre) {
 	nomNom(nom);
       }
       game.platform = data.left(data.indexOf(platformPost.toUtf8())).replace("&nbsp;", " ");
-      
+
       if(platformMatch(game.platform, platform)) {
 	gameEntries.append(game);
       }
@@ -325,7 +325,7 @@ QList<QString> OpenRetro::getSearchNames(const QFileInfo &info)
     if(!config->aliasMap[baseName].isEmpty()) {
       baseName = config->aliasMap[baseName];
     } else if(info.suffix() == "lha") {
-      // Pass 1 is uuid from whdload_db.xml 
+      // Pass 1 is uuid from whdload_db.xml
       if(!config->whdLoadMap[baseName].second.isEmpty()) {
 	searchNames.append("/game/" + config->whdLoadMap[baseName].second);
       }
@@ -343,7 +343,7 @@ QList<QString> OpenRetro::getSearchNames(const QFileInfo &info)
 	       config->platform == "mame-advmame" ||
 	       config->platform == "mame-libretro" ||
 	       config->platform == "mame-mame4all" ||
-	       config->platform == "fba") && !config->mameMap[baseName].isEmpty()) {
+	       config->platform == "fbneo") && !config->mameMap[baseName].isEmpty()) {
       baseName = config->mameMap[baseName];
     }
   }

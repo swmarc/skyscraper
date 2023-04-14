@@ -445,7 +445,7 @@ QString MobyGames::getPlatformId(const QString platform)
     return "79";
   } else if(platform == "dreamcast") {
     return "8";
-  } else if(platform == "fba") {
+  } else if(platform == "fbneo") {
     return "na";
   } else if(platform == "fds") {
     return "22";

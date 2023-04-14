@@ -70,7 +70,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("dragon");
   platforms.append("dreamcast");
   platforms.append("easyrpg");
-  platforms.append("fba");
+  platforms.append("fbneo");
   platforms.append("fds");
   platforms.append("fmtowns");
   platforms.append("gameandwatch");
@@ -225,7 +225,7 @@ QStringList Platform::getScrapers(QString platform) {
     scrapers.append("screenscraper");
   } else if (platform == "easyrpg") {
     scrapers.append("screenscraper");
-  } else if (platform == "fba") {
+  } else if (platform == "fbneo") {
     scrapers.append("arcadedb");
     scrapers.append("screenscraper");
   } else if (platform == "fds") {
@@ -476,7 +476,7 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("*.cdi *.gdi *.iso *.chd *.cue *.m3u");
   } else if (platform == "easyrpg") {
     formats.append("*.ini");
-  } else if (platform == "fba") {
+  } else if (platform == "fbneo") {
     formats.append("");
   } else if (platform == "fds") {
     formats.append("*.fds *.nes");
@@ -599,7 +599,7 @@ QString Platform::getFormats(QString platform, QString extensions,
   } else if (platform == "wii") {
     formats.append("*.iso *.cso *.gcz *.wbfs *.rvz");
   } else if (platform == "wiiu") {
-    formats.append("*.iso *.cso *.gcz *.wbfs *.wud *.wux *.rpx *.app");
+    formats.append("*.iso *.cso *.gcz *.wbfs *.wud *.wux *.wua *.rpx *.app");
   } else if (platform == "wonderswan") {
     formats.append("*.ws");
   } else if (platform == "wonderswancolor") {
@@ -850,7 +850,7 @@ QStringList Platform::getAliases(QString platform) {
     aliases.append("dragon 32/64");
   } else if (platform == "dreamcast") {
     aliases.append("sega dreamcast");
-  } else if (platform == "fba") {
+  } else if (platform == "fbneo") {
     aliases.append("arcade");
     aliases.append("neo geo");
     aliases.append("neo-geo");

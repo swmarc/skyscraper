@@ -2109,7 +2109,7 @@ void Skyscraper::loadMameMap() {
       (config.platform == "neogeo" || config.platform == "arcade" ||
        config.platform == "mame-advmame" ||
        config.platform == "mame-libretro" ||
-       config.platform == "mame-mame4all" || config.platform == "fba")) {
+       config.platform == "mame-mame4all" || config.platform == "fbneo")) {
     QFile mameMapFile("mameMap.csv");
     if (mameMapFile.open(QIODevice::ReadOnly)) {
       while (!mameMapFile.atEnd()) {

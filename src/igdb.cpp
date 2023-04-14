@@ -43,7 +43,7 @@ Igdb::Igdb(Settings *config,
 
   headers.append(clientIdHeader);
   headers.append(tokenHeader);
-  
+
   connect(&limitTimer, &QTimer::timeout, &limiter, &QEventLoop::quit);
   limitTimer.setInterval(1100); // 1.1 second request limit set a bit above 1.0 as requested by the good folks at IGDB. Don't change! It will break the module stability.
   limitTimer.setSingleShot(false);
@@ -71,13 +71,13 @@ void Igdb::getSearchResults(QList<GameEntry> &gameEntries,
   netComm->request(baseUrl + "/search/", "fields game.name,game.platforms.name; search \"" + searchName + "\"; where game != null & game.version_parent = null;", headers);
   q.exec();
   data = netComm->getData();
-  
+
   jsonDoc = QJsonDocument::fromJson(data);
   if(jsonDoc.isEmpty()) {
     return;
   }
 
-  if(jsonDoc.object()["message"].toString() == "Too Many Requests") { 
+  if(jsonDoc.object()["message"].toString() == "Too Many Requests") {
     printf("\033[1;31mThe IGDB requests per second limit has been exceeded, can't continue!\033[0m\n");
     reqRemaining = 0;
     return;
@@ -87,7 +87,7 @@ void Igdb::getSearchResults(QList<GameEntry> &gameEntries,
 
   for(const auto &jsonGame: jsonGames) {
     GameEntry game;
-    
+
     game.title = jsonGame.toObject()["game"].toObject()["name"].toString();
     game.id = QString::number(jsonGame.toObject()["game"].toObject()["id"].toInt());
 
@@ -261,7 +261,7 @@ void Igdb::getPublisher(GameEntry &game)
       game.publisher = jsonCompany.toObject()["company"].toObject()["name"].toString();
       return;
     }
-  }  
+  }
 }
 
 void Igdb::getDeveloper(GameEntry &game)
@@ -272,7 +272,7 @@ void Igdb::getDeveloper(GameEntry &game)
       game.developer = jsonCompany.toObject()["company"].toObject()["name"].toString();
       return;
     }
-  }  
+  }
 }
 
 void Igdb::getDescription(GameEntry &game)
@@ -314,7 +314,7 @@ QList<QString> Igdb::getSearchNames(const QFileInfo &info)
 	     config->platform == "mame-advmame" ||
 	     config->platform == "mame-libretro" ||
 	     config->platform == "mame-mame4all" ||
-	     config->platform == "fba") && !config->mameMap[baseName].isEmpty()) {
+	     config->platform == "fbneo") && !config->mameMap[baseName].isEmpty()) {
     baseName = config->mameMap[baseName];
   }
   baseName = StrTools::stripBrackets(baseName);

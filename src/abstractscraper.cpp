@@ -438,7 +438,7 @@ QList<QString> AbstractScraper::getSearchNames(const QFileInfo &info)
 	       config->platform == "mame-advmame" ||
 	       config->platform == "mame-libretro" ||
 	       config->platform == "mame-mame4all" ||
-	       config->platform == "fba") && !config->mameMap[baseName].isEmpty()) {
+	       config->platform == "fbneo") && !config->mameMap[baseName].isEmpty()) {
       baseName = config->mameMap[baseName];
     }
   }
@@ -499,7 +499,7 @@ QString AbstractScraper::getCompareTitle(QFileInfo info)
 	       config->platform == "mame-advmame" ||
 	       config->platform == "mame-libretro" ||
 	       config->platform == "mame-mame4all" ||
-	       config->platform == "fba") && !config->mameMap[baseName].isEmpty()) {
+	       config->platform == "fbneo") && !config->mameMap[baseName].isEmpty()) {
       baseName = config->mameMap[baseName];
     }
   }
@@ -520,7 +520,7 @@ QString AbstractScraper::getCompareTitle(QFileInfo info)
   if(match.hasMatch() && match.capturedStart(0) != -1) {
     baseName = baseName.left(match.capturedStart(0)).simplified();
   }
-    
+
   return baseName;
 }
 
