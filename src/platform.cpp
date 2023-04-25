@@ -611,6 +611,10 @@ QString Platform::getFormats(QString platform, QString extensions,
         "*.dx1 *.2d *.2hd *.tfd *.d88 *.88d *.hdm *.xdf *.dup *.cmd");
   } else if (platform == "x1") {
     formats.append("*.iso");
+  } else if (platform == "xbox") {
+    formats.append("*.iso");
+  } else if (platform == "xbox360") {
+    formats.append("*.iso");
   } else if (platform == "zmachine") {
     formats.append("*.dat *.z1 *.z2 *.z3 *.z4 *.z5 *.z6 *.z7 *.z8");
   } else if (platform == "zx81") {
