@@ -480,6 +480,8 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("");
   } else if (platform == "fds") {
     formats.append("*.fds *.nes");
+  } else if (platform == "fmtowns") {
+    formats.append("*.chd");
   } else if (platform == "gameandwatch") {
     formats.append("*.mgw");
   } else if (platform == "gamegear") {
