@@ -525,7 +525,7 @@ QString Platform::getFormats(QString platform, QString extensions,
   } else if (platform == "naomi2") {
     formats.append("*.cue *.bin *.dat *.chd");
   } else if (platform == "nds") {
-    formats.append("*.nds");
+    formats.append("*.nds *.dsi *.ids *.srl *.zip *.7z *.rar *.tar *.tar.gz *.tar.xz *.tar.bz2");
   } else if (platform == "neogeo") {
     formats.append("");
   } else if (platform == "neogeocd") {
