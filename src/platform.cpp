@@ -566,6 +566,8 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("*.cso *.iso *.pbp");
   } else if(platform == "psx") {
     formats.append("*.cue *.cbn *.img *.iso *.m3u *.mdf *.pbp *.toc *.z *.znx *.chd");
+  } else if (platform == "samcoupe") {
+    formats.append("*.dsk *.sad *.mgt *.sbt *.cpm *.gz");
   } else if(platform == "saturn") {
     formats.append("*.cue *.iso *.mdf *.chd *.m3u");
   } else if(platform == "scummvm") {
