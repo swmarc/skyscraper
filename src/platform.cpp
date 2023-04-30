@@ -548,7 +548,7 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("*.d88 *.d98 *.88d *.98d *.fdi *.xdf *.hdm *.dup *.2hd "
                    "*.tfd *.hdi *.thd *.nhd *.hdd *.fdd *.cmd *.hdn");
   } else if (platform == "pcfx") {
-    formats.append("*.img *.iso *.ccd *.cue");
+    formats.append("*.img *.iso *.ccd *.cue *.chd");
   } else if (platform == "pcengine") {
     formats.append("*.pce *.chd *.cue");
   } else if (platform == "pcenginecd") {
