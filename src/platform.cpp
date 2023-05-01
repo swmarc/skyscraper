@@ -481,7 +481,7 @@ QString Platform::getFormats(QString platform, QString extensions,
   } else if (platform == "fds") {
     formats.append("*.fds *.nes");
   } else if (platform == "fmtowns") {
-    formats.append("*.chd");
+    formats.append("*.m3u *.d88 *.d77 *.xdf *.cue *.iso *.game *.cd *.chd");
   } else if (platform == "gameandwatch") {
     formats.append("*.mgw");
   } else if (platform == "gamegear") {
