@@ -704,6 +704,8 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "64";
   } else if (platform == "aga") {
     return "111";
+  } else if (platform == "amigacd") {
+    return "134";
   } else if (platform == "amigacd32") {
     return "130";
   } else if (platform == "amigacdtv") {
@@ -792,6 +794,8 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "1";
   } else if (platform == "gp32") {
     return "101";
+  } else if (platform == "gx4000") {
+    return "87";
   } else if (platform == "hikaru") {
     return "258";
   } else if (platform == "intellivision") {

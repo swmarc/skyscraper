@@ -40,6 +40,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("3ds");
   platforms.append("64dd");
   platforms.append("amiga");
+  platforms.append("amigacd");
   platforms.append("amigacd32");
   platforms.append("amigacdtv");
   platforms.append("amstradcpc");
@@ -84,6 +85,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("gc");
   platforms.append("genesis");
   platforms.append("gp32");
+  platforms.append("gx4000");
   platforms.append("hikaru");
   platforms.append("intellivision");
   platforms.append("mame-advmame");
@@ -169,6 +171,8 @@ QStringList Platform::getScrapers(QString platform) {
     scrapers.append("screenscraper");
   } else if (platform == "amiga") {
     scrapers.append("openretro");
+    scrapers.append("screenscraper");
+  } else if (platform == "amigacd") {
     scrapers.append("screenscraper");
   } else if (platform == "amigacd32" || platform == "amigacdtv") {
     scrapers.append("screenscraper");
@@ -258,6 +262,8 @@ QStringList Platform::getScrapers(QString platform) {
   } else if (platform == "genesis") {
     scrapers.append("screenscraper");
   } else if (platform == "gp32") {
+    scrapers.append("screenscraper");
+  } else if (platform == "gx4000") {
     scrapers.append("screenscraper");
   } else if (platform == "hikaru") {
     scrapers.append("screenscraper");
@@ -434,6 +440,8 @@ QString Platform::getFormats(QString platform, QString extensions,
   } else if (platform == "amiga") {
     formats.append(
         "*.uae *.adf *.dms *.adz *.rp9 *.lha *.cue *.img *.iso *.hdf");
+  } else if (platform == "amigacd") {
+    formats.append("*.cue *.img *.iso *.hdf *.chd");
   } else if (platform == "amigacd32" || platform == "amigacdtv") {
     formats.append(
         "*.uae *.adf *.dms *.adz *.rp9 *.lha *.cue *.img *.iso *.hdf *.chd");
@@ -519,6 +527,8 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("*.smd *.bin *.gen *.md *.sg");
   } else if (platform == "gp32") {
     formats.append("*.smc");
+  } else if (platform == "gx4000") {
+    formats.append("*.cpr");
   } else if (platform == "intellivision") {
     formats.append("*.int *.bin");
   } else if (platform == "mame-advmame") {
