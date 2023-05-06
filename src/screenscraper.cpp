@@ -856,6 +856,8 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "61";
   } else if (platform == "psx") {
     return "57";
+  } else if (platform == "pv1000") {
+    return "74";
   } else if (platform == "samcoupe") {
     return "213";
   } else if (platform == "satellaview") {
@@ -902,6 +904,8 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "16";
   } else if (platform == "wiiu") {
     return "18";
+  } else if (platform == "windows") {
+    return "138";
   } else if (platform == "wonderswan") {
     return "45";
   } else if (platform == "wonderswancolor") {

@@ -117,6 +117,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("ps3");
   platforms.append("psp");
   platforms.append("psx");
+  platforms.append("pv1000");
   platforms.append("samcoupe");
   platforms.append("satellaview");
   platforms.append("saturn");
@@ -141,6 +142,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("virtualboy");
   platforms.append("wii");
   platforms.append("wiiu");
+  platforms.append("windows");
   platforms.append("wonderswan");
   platforms.append("wonderswancolor");
   platforms.append("x68000");
@@ -324,6 +326,8 @@ QStringList Platform::getScrapers(QString platform) {
   } else if (platform == "psx") {
     scrapers.append("screenscraper");
     scrapers.append("thegamesdb");
+  } else if (platform == "pv1000") {
+    scrapers.append("screenscraper");
   } else if (platform == "samcoupe") {
     scrapers.append("screenscraper");
   } else if (platform == "saturn") {
@@ -372,6 +376,8 @@ QStringList Platform::getScrapers(QString platform) {
     scrapers.append("screenscraper");
   } else if (platform == "wiiu") {
     scrapers.append("thegamesdb");
+    scrapers.append("screenscraper");
+  } else if (platform == "windows") {
     scrapers.append("screenscraper");
   } else if (platform == "wonderswan") {
     scrapers.append("screenscraper");
@@ -429,7 +435,7 @@ QString Platform::getFormats(QString platform, QString extensions,
   } else if (platform == "arcade") {
     formats.append("*.bin *.dat");
   } else if (platform == "arcadia") {
-    formats.append("");
+    formats.append("*.bin");
   } else if (platform == "astrocde") {
     formats.append("");
   } else if (platform == "atari800") {
@@ -566,6 +572,8 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("*.cso *.iso *.pbp");
   } else if(platform == "psx") {
     formats.append("*.cue *.cbn *.img *.iso *.m3u *.mdf *.pbp *.toc *.z *.znx *.chd");
+  } else if(platform == "pv1000") {
+    formats.append("*.bin");
   } else if (platform == "samcoupe") {
     formats.append("*.dsk *.sad *.mgt *.sbt *.cpm *.gz");
   } else if(platform == "saturn") {
@@ -585,7 +593,7 @@ QString Platform::getFormats(QString platform, QString extensions,
   } else if (platform == "supergrafx") {
     formats.append("*.sgx");
   } else if (platform == "supervision") {
-    formats.append("*.sv");
+    formats.append("*.sv *.bin");
   } else if (platform == "switch") {
     formats.append("*.xci *.nsp");
   } else if (platform == "ti99") {
@@ -604,6 +612,8 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("*.iso *.cso *.gcz *.wbfs *.rvz");
   } else if (platform == "wiiu") {
     formats.append("*.iso *.cso *.gcz *.wbfs *.wud *.wux *.wua *.rpx *.app");
+  } else if (platform == "windows") {
+    formats.append("*.lnk .bat .exe");
   } else if (platform == "wonderswan") {
     formats.append("*.ws");
   } else if (platform == "wonderswancolor") {
