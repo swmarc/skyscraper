@@ -66,14 +66,17 @@ QStringList Platform::getPlatforms() {
   platforms.append("cps1");
   platforms.append("cps2");
   platforms.append("cps3");
+  platforms.append("crvision");
   platforms.append("daphne");
   platforms.append("dragon");
   platforms.append("dreamcast");
   platforms.append("easyrpg");
   platforms.append("fbneo");
   platforms.append("fds");
+  platforms.append("fm7");
   platforms.append("fmtowns");
   platforms.append("gameandwatch");
+  platforms.append("gamecom");
   platforms.append("gamegear");
   platforms.append("gb");
   platforms.append("gba");
@@ -219,6 +222,8 @@ QStringList Platform::getScrapers(QString platform) {
     scrapers.append("screenscraper");
   } else if (platform == "cps3") {
     scrapers.append("screenscraper");
+  } else if (platform == "crvision") {
+    scrapers.append("screenscraper");
   } else if (platform == "daphne") {
     scrapers.append("screenscraper");
   } else if (platform == "dragon") {
@@ -232,9 +237,13 @@ QStringList Platform::getScrapers(QString platform) {
     scrapers.append("screenscraper");
   } else if (platform == "fds") {
     scrapers.append("screenscraper");
+  } else if (platform == "fm7") {
+    scrapers.append("screenscraper");
   } else if (platform == "fmtowns") {
     scrapers.append("screenscraper");
   } else if (platform == "gameandwatch") {
+    scrapers.append("screenscraper");
+  } else if (platform == "gamecom") {
     scrapers.append("screenscraper");
   } else if (platform == "gamegear") {
     scrapers.append("screenscraper");
@@ -473,6 +482,8 @@ QString Platform::getFormats(QString platform, QString extensions,
                    "*.rom *.ccc *.sna");
   } else if (platform == "coleco") {
     formats.append("*.bin *.col *.rom");
+  } else if (platform == "crvision") {
+    formats.append("*.rom");
   } else if (platform == "daphne") {
     formats.append("*.daphne");
   } else if (platform == "dragon") {
@@ -486,10 +497,14 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("");
   } else if (platform == "fds") {
     formats.append("*.fds *.nes");
+  } else if (platform == "fm7") {
+    formats.append("*.d88 *.d77 *.t77 *.wav");
   } else if (platform == "fmtowns") {
     formats.append("*.m3u *.d88 *.d77 *.xdf *.cue *.iso *.game *.cd *.chd");
   } else if (platform == "gameandwatch") {
     formats.append("*.mgw");
+  } else if (platform == "gamecom") {
+    formats.append("*.tgc");
   } else if (platform == "gamegear") {
     formats.append("*.gg");
   } else if (platform == "gb") {

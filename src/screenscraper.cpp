@@ -756,6 +756,8 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "7";
   } else if (platform == "cps3") {
     return "8";
+  } else if (platform == "crvision") {
+    return "241";
   } else if (platform == "daphne") {
     return "49";
   } else if (platform == "dragon") {
@@ -768,10 +770,14 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "75";
   } else if (platform == "fds") {
     return "106";
+  } else if (platform == "fm7") {
+    return "97";
   } else if (platform == "fmtowns") {
     return "253";
   } else if (platform == "gameandwatch") {
     return "52";
+  } else if (platform == "gamecom") {
+    return "121";
   } else if (platform == "gamegear") {
     return "21";
   } else if (platform == "gb") {
