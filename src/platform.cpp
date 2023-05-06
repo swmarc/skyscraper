@@ -448,7 +448,7 @@ QString Platform::getFormats(QString platform, QString extensions,
   } else if (platform == "amstradcpc") {
     formats.append("*.dsk *.cpc");
   } else if (platform == "apple2") {
-    formats.append("*.dsk");
+    formats.append("*.nib *.do *.po *.dsk");
   } else if (platform == "arcade") {
     formats.append("*.bin *.dat");
   } else if (platform == "arcadia") {
