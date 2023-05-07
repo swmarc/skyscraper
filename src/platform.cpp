@@ -462,7 +462,7 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("");
   } else if (platform == "atari800") {
     formats.append(
-        "*.a52 *.bas *.bin *.car *.xex *.atr *.xfd *.dcm *.atr.gz *.xfd.gz");
+        "*.a52 *.bas *.bin *.car *.cas *.cdm *.xex *.atr *.atx *.xfd *.dcm *.atr.gz *.xfd.gz *.rom");
   } else if (platform == "atari2600") {
     formats.append("*.bin *.a26 *.rom *.gz");
   } else if (platform == "atari5200") {
