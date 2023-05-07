@@ -848,7 +848,7 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "82";
   } else if (platform == "openbor") {
     return "214";
-  } else if (platform == "oric") {
+  } else if (platform == "oric" || platform == "oricatmos") {
     return "131";
   } else if (platform == "pc") {
     return "135";

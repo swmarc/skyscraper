@@ -113,7 +113,10 @@ QStringList Platform::getPlatforms() {
   platforms.append("ngp");
   platforms.append("ngpc");
   platforms.append("openbor");
+
   platforms.append("oric");
+  platforms.append("oricatmos");
+
   platforms.append("pc");
   platforms.append("pc88");
   platforms.append("pc98");
@@ -331,7 +334,7 @@ QStringList Platform::getScrapers(QString platform) {
     scrapers.append("screenscraper");
   } else if (platform == "openbor") {
     scrapers.append("screenscraper");
-  } else if (platform == "oric") {
+  } else if (platform == "oric" || platform == "oricatmos") {
     scrapers.append("screenscraper");
   } else if (platform == "pc") {
     scrapers.append("thegamesdb");
@@ -601,7 +604,7 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append(" *.ngc");
   } else if (platform == "openbor") {
     formats.append(" *.pak");
-  } else if (platform == "oric") {
+  } else if (platform == "oric" || platform == "oricatmos") {
     formats.append(" *.dsk *.tap");
   } else if (platform == "pc") {
     formats.append("*.com *.sh *.bat *.exe *.conf");
