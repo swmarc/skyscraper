@@ -136,6 +136,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("satellaview");
   platforms.append("saturn");
   platforms.append("scummvm");
+  platforms.append("scv");
   platforms.append("sega32x");
   platforms.append("segamodel2");
   platforms.append("segamodel3");
@@ -373,6 +374,8 @@ QStringList Platform::getScrapers(QString platform) {
   } else if (platform == "scummvm") {
     scrapers.append("screenscraper");
     scrapers.append("thegamesdb");
+  } else if (platform == "scv") {
+    scrapers.append("screenscraper");
   } else if (platform == "sega32x") {
     scrapers.append("screenscraper");
   } else if (platform == "segamodel2") {
@@ -642,6 +645,8 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("*.cue *.iso *.mdf *.chd *.m3u");
   } else if(platform == "scummvm") {
     formats.append("*.svm *.scummvm");
+  } else if(platform == "scv") {
+    formats.append("*.bin");
   } else if (platform == "sega32x") {
     formats.append("*.32x *.bin *.md *.smd");
   } else if(platform == "segacd") {

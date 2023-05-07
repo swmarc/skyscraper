@@ -888,6 +888,8 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "22";
   } else if (platform == "scummvm") {
     return "123";
+  } else if (platform == "scv") {
+    return "67";
   } else if (platform == "sega32x") {
     return "19";
   } else if (platform == "segamodel2") {
