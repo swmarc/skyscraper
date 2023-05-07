@@ -99,6 +99,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("msx");
   platforms.append("msx1");
   platforms.append("msx2");
+  platforms.append("msx2+");
   platforms.append("n64");
   platforms.append("naomi");
   platforms.append("naomi2");
@@ -293,6 +294,8 @@ QStringList Platform::getScrapers(QString platform) {
   } else if (platform == "msx" || platform == "msx1") {
     scrapers.append("screenscraper");
   } else if (platform == "msx2") {
+    scrapers.append("screenscraper");
+  } else if (platform == "msx2+") {
     scrapers.append("screenscraper");
   } else if (platform == "n64") {
     scrapers.append("screenscraper");
@@ -555,6 +558,8 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("*.rom *.mx1 *.mx2 *.col *.dsk");
   } else if (platform == "msx2") {
     formats.append("*.rom *.mx1 *.mx2 *.col *.dsk");
+  } else if (platform == "msx2+") {
+    formats.append("*.rom *.ri *.mx1 *.mx2 *.col *.dsk *.cas *.sg *.sc *.m3u");
   } else if (platform == "n64") {
     formats.append("*.z64 *.n64 *.v64");
   } else if (platform == "naomi") {
@@ -1235,7 +1240,6 @@ QStringList Platform::getAliases(QString platform) {
   } else if (platform == "msx2") {
     aliases.append("msx");
     aliases.append("msx2");
-    aliases.append("msx2+");
     aliases.append("msx r turbo");
   } else if (platform == "n64") {
     aliases.append("nintendo 64");

@@ -820,6 +820,8 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "113";
   } else if (platform == "msx2") {
     return "113";
+  } else if (platform == "msx2+") {
+    return "117";
   } else if (platform == "n64") {
     return "14";
   } else if (platform == "naomi") {
