@@ -147,7 +147,10 @@ QStringList Platform::getPlatforms() {
   platforms.append("trs-80");
   platforms.append("vectrex");
   platforms.append("vic20");
+
   platforms.append("videopac");
+  platforms.append("odyssey2");
+
   platforms.append("virtualboy");
   platforms.append("wii");
   platforms.append("wiiu");
@@ -392,7 +395,7 @@ QStringList Platform::getScrapers(QString platform) {
     scrapers.append("screenscraper");
   } else if (platform == "vic20") {
     scrapers.append("screenscraper");
-  } else if (platform == "videopac") {
+  } else if (platform == "videopac" || platform == "odyssey2") {
     scrapers.append("screenscraper");
   } else if (platform == "virtualboy") {
     scrapers.append("screenscraper");
@@ -647,7 +650,7 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("*.bin *.gam *.vec");
   } else if (platform == "vic20") {
     formats.append("*.crt *.d64 *.prg *.tap *.t64 *.g64 *.x64 *.vsf");
-  } else if (platform == "videopac") {
+  } else if (platform == "videopac" || platform == "odyssey2") {
     formats.append("*.bin");
   } else if (platform == "virtualboy") {
     formats.append("*.vb");

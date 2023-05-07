@@ -914,7 +914,7 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "102";
   } else if (platform == "vic20") {
     return "73";
-  } else if (platform == "videopac") {
+  } else if (platform == "videopac" || platform == "odyssey2") {
     return "104";
   } else if (platform == "virtualboy") {
     return "11";
