@@ -786,6 +786,8 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "121";
   } else if (platform == "gamegear") {
     return "21";
+  } else if (platform == "gamepock") {
+    return "95";
   } else if (platform == "gb") {
     return "9";
   } else if (platform == "gba") {
