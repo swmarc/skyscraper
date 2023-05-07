@@ -96,6 +96,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("mastersystem");
   platforms.append("megacd");
   platforms.append("megadrive");
+  platforms.append("megaduck");
   platforms.append("moto");
   platforms.append("msx");
   platforms.append("msx1");
@@ -295,6 +296,8 @@ QStringList Platform::getScrapers(QString platform) {
   } else if (platform == "megacd") {
     scrapers.append("screenscraper");
   } else if (platform == "megadrive") {
+    scrapers.append("screenscraper");
+  } else if (platform == "megaduck") {
     scrapers.append("screenscraper");
   } else if (platform == "moto") {
     scrapers.append("screenscraper");
@@ -563,6 +566,8 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("*.cue *.iso *.chd");
   } else if (platform == "megadrive") {
     formats.append("*.smd *.bin *.gen *.md *.sg");
+  } else if (platform == "megaduck") {
+    formats.append("*.bin");
   } else if (platform == "moto") {
     formats.append("*.fd *.sap *.k7 *.m5 *.m7 *.rom");
   } else if (platform == "msx" || platform == "msx1") {
