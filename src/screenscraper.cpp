@@ -700,6 +700,8 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "17";
   } else if (platform == "64dd") {
     return "122";
+  } else if (platform == "advision") {
+    return "78";
   } else if (platform == "amiga") {
     return "64";
   } else if (platform == "aga") {

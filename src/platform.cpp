@@ -39,6 +39,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("3do");
   platforms.append("3ds");
   platforms.append("64dd");
+  platforms.append("advision");
   platforms.append("amiga");
   platforms.append("amigacd");
   platforms.append("amigacd32");
@@ -175,6 +176,8 @@ QStringList Platform::getScrapers(QString platform) {
   } else if (platform == "3ds") {
     scrapers.append("screenscraper");
   } else if (platform == "64dd") {
+    scrapers.append("screenscraper");
+  } else if (platform == "advision") {
     scrapers.append("screenscraper");
   } else if (platform == "amiga") {
     scrapers.append("openretro");
@@ -450,6 +453,8 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("*.3ds");
   } else if (platform == "64dd") {
     formats.append("*.ndd");
+  } else if (platform == "advision") {
+    formats.append("*.bin");
   } else if (platform == "amiga") {
     formats.append(
         "*.uae *.adf *.dms *.adz *.rp9 *.lha *.cue *.img *.iso *.hdf");
