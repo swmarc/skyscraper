@@ -116,6 +116,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("pcfx");
   platforms.append("pcengine");
   platforms.append("pcenginecd");
+  platforms.append("pet");
   platforms.append("pico8");
   platforms.append("pokemini");
   platforms.append("ports");
@@ -589,6 +590,8 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("*.pce *.chd *.cue");
   } else if (platform == "pcenginecd") {
     formats.append("*.pce *.chd *.cue");
+  } else if (platform == "pet") {
+    formats.append("*.a0 *.b0 *.crt *.d64 *.d81 *.prg *.tap *.t64 *.m3u");
   } else if(platform == "pico8") {
     formats.append("*.png *.p8");
   } else if(platform == "pokemini") {
