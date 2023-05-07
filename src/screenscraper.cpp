@@ -714,6 +714,8 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "65";
   } else if (platform == "apple2") {
     return "86";
+  } else if (platform == "apple2gs") {
+    return "217";
   } else if (platform == "arcade") {
     return "75";
   } else if (platform == "arcadia") {

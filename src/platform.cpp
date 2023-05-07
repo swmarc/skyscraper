@@ -45,6 +45,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("amigacdtv");
   platforms.append("amstradcpc");
   platforms.append("apple2");
+  platforms.append("apple2gs");
   platforms.append("arcade");
   platforms.append("arcadia");
   platforms.append("astrocde");
@@ -179,6 +180,8 @@ QStringList Platform::getScrapers(QString platform) {
   } else if (platform == "amstradcpc") {
     scrapers.append("screenscraper");
   } else if (platform == "apple2") {
+    scrapers.append("screenscraper");
+  } else if (platform == "apple2gs") {
     scrapers.append("screenscraper");
   } else if (platform == "arcade") {
     scrapers.append("arcadedb");
@@ -449,6 +452,8 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("*.dsk *.cpc");
   } else if (platform == "apple2") {
     formats.append("*.nib *.do *.po *.dsk");
+  } else if (platform == "apple2gs") {
+    formats.append("*.2mg *.po");
   } else if (platform == "arcade") {
     formats.append("*.bin *.dat");
   } else if (platform == "arcadia") {
