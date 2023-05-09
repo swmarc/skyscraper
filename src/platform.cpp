@@ -51,7 +51,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("arcade");
   platforms.append("arcadia");
   platforms.append("archimedes");
-  platforms.append("astrocde");
+  platforms.append("astrocade");
   platforms.append("atari800");
   platforms.append("atari2600");
   platforms.append("atari5200");
@@ -84,13 +84,13 @@ QStringList Platform::getPlatforms() {
   platforms.append("fmtowns");
   platforms.append("gameandwatch");
   platforms.append("gamecom");
-  platforms.append("gamegear");
   platforms.append("gamepock");
   platforms.append("gb");
   platforms.append("gba");
   platforms.append("gbc");
   platforms.append("gc");
   platforms.append("genesis");
+  platforms.append("gmaster");
   platforms.append("gp32");
   platforms.append("gx4000");
   platforms.append("hikaru");
@@ -280,6 +280,8 @@ QStringList Platform::getScrapers(QString platform) {
   } else if (platform == "gamecom") {
     scrapers.append("screenscraper");
   } else if (platform == "gamegear") {
+    scrapers.append("screenscraper");
+  } else if (platform == "gamemaster") {
     scrapers.append("screenscraper");
   } else if (platform == "gamepock") {
     scrapers.append("screenscraper");
@@ -501,8 +503,8 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("*.bin");
   } else if (platform == "archimedes") {
     formats.append("*.adf *.jfd");
-  } else if (platform == "astrocde") {
-    formats.append("");
+  } else if (platform == "astrocade") {
+    formats.append("*.bin");
   } else if (platform == "atari800") {
     formats.append(
         "*.a52 *.bas *.bin *.car *.cas *.cdm *.xex *.atr *.atx *.xfd *.dcm *.atr.gz *.xfd.gz *.rom");
@@ -579,6 +581,8 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("*.iso *.cso *.gcz *.gcm *.m3u *.rvz");
   } else if (platform == "genesis") {
     formats.append("*.smd *.bin *.gen *.md *.sg");
+  } else if (platform == "gmaster") {
+    formats.append("*.bin");
   } else if (platform == "gp32") {
     formats.append("*.smc");
   } else if (platform == "gx4000") {
@@ -1545,4 +1549,4 @@ QStringList Platform::getAliases(QString platform) {
 // Blue         0;34     Light Blue    1;34
 // Purple       0;35     Light Purple  1;35
 // Cyan         0;36     Light Cyan    1;36
-// Light Gray   0;37     White         1;37
+// Light Gray   0;37     White       

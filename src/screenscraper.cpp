@@ -726,7 +726,7 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "94";
   } else if (platform == "archimedes") {
     return "84";
-  } else if (platform == "astrocde") {
+  } else if (platform == "astrocade") {
     return "44";
   } else if (platform == "atari800") {
     return "43";
@@ -806,6 +806,8 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "13";
   } else if (platform == "genesis") {
     return "1";
+  } else if (platform == "gmaster") {
+    return "103";
   } else if (platform == "gp32") {
     return "101";
   } else if (platform == "gx4000") {
