@@ -163,6 +163,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("odyssey2");
 
   platforms.append("virtualboy");
+  platforms.append("vsmile");
   platforms.append("wii");
   platforms.append("wiiu");
   platforms.append("windows");
@@ -427,6 +428,8 @@ QStringList Platform::getScrapers(QString platform) {
   } else if (platform == "videopac" || platform == "odyssey2") {
     scrapers.append("screenscraper");
   } else if (platform == "virtualboy") {
+    scrapers.append("screenscraper");
+  } else if (platform == "vsmile") {
     scrapers.append("screenscraper");
   } else if (platform == "wii") {
     scrapers.append("thegamesdb");
@@ -701,6 +704,8 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("*.bin");
   } else if (platform == "virtualboy") {
     formats.append("*.vb");
+  } else if (platform == "vsmile") {
+    formats.append("*.bin");
   } else if (platform == "wii") {
     formats.append("*.iso *.cso *.gcz *.wbfs *.rvz");
   } else if (platform == "wiiu") {
@@ -1549,4 +1554,4 @@ QStringList Platform::getAliases(QString platform) {
 // Blue         0;34     Light Blue    1;34
 // Purple       0;35     Light Purple  1;35
 // Cyan         0;36     Light Cyan    1;36
-// Light Gray   0;37     White       
+// Light Gray   0;37     White         1;37
