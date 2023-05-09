@@ -59,6 +59,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("atarijaguarcd");
   platforms.append("atarilynx");
   platforms.append("atarist");
+  platforms.append("atom");
   platforms.append("atomiswave");
   platforms.append("bbcmicro");
   platforms.append("c16");
@@ -224,6 +225,8 @@ QStringList Platform::getScrapers(QString platform) {
   } else if (platform == "atarilynx") {
     scrapers.append("screenscraper");
   } else if (platform == "atarist") {
+    scrapers.append("screenscraper");
+  } else if (platform == "atom") {
     scrapers.append("screenscraper");
   } else if (platform == "atomiswave") {
     scrapers.append("screenscraper");
@@ -513,6 +516,8 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("*.lnx");
   } else if (platform == "atarist") {
     formats.append("*.st *.stx *.img *.rom *.raw *.ipf *.ctr");
+  } else if (platform == "atom") {
+    formats.append("*.tap *.csw *.uef *.dsk");
   } else if (platform == "atomiswave") {
     formats.append("*.bin *.dat *.chd");
   } else if (platform == "bbcmicro") {

@@ -742,6 +742,8 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "28";
   } else if (platform == "atarist") {
     return "42";
+  } else if (platform == "atom") {
+    return "36";
   } else if (platform == "atomiswave") {
     return "75";
   } else if (platform == "bbcmicro") {
