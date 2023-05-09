@@ -700,6 +700,8 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "17";
   } else if (platform == "64dd") {
     return "122";
+  } else if (platform == "adam") {
+    return "89";
   } else if (platform == "advision") {
     return "78";
   } else if (platform == "amiga") {
@@ -742,6 +744,8 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "42";
   } else if (platform == "atomiswave") {
     return "75";
+  } else if (platform == "bbcmicro") {
+    return "37";
   } else if (platform == "c16") {
     return "99";
   } else if (platform == "c64") {

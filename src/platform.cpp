@@ -39,6 +39,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("3do");
   platforms.append("3ds");
   platforms.append("64dd");
+  platforms.append("adam");
   platforms.append("advision");
   platforms.append("amiga");
   platforms.append("amigacd");
@@ -59,6 +60,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("atarilynx");
   platforms.append("atarist");
   platforms.append("atomiswave");
+  platforms.append("bbcmicro");
   platforms.append("c16");
   platforms.append("c64");
   platforms.append("c128");
@@ -183,6 +185,8 @@ QStringList Platform::getScrapers(QString platform) {
     scrapers.append("screenscraper");
   } else if (platform == "64dd") {
     scrapers.append("screenscraper");
+  } else if (platform == "adam") {
+    scrapers.append("screenscraper");
   } else if (platform == "advision") {
     scrapers.append("screenscraper");
   } else if (platform == "amiga") {
@@ -222,6 +226,8 @@ QStringList Platform::getScrapers(QString platform) {
   } else if (platform == "atarist") {
     scrapers.append("screenscraper");
   } else if (platform == "atomiswave") {
+    scrapers.append("screenscraper");
+  } else if (platform == "bbcmicro") {
     scrapers.append("screenscraper");
   } else if (platform == "c16") {
     scrapers.append("screenscraper");
@@ -465,6 +471,8 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("*.3ds");
   } else if (platform == "64dd") {
     formats.append("*.ndd");
+  } else if (platform == "adam") {
+    formats.append("*.ndd");
   } else if (platform == "advision") {
     formats.append("*.bin");
   } else if (platform == "amiga") {
@@ -507,6 +515,8 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("*.st *.stx *.img *.rom *.raw *.ipf *.ctr");
   } else if (platform == "atomiswave") {
     formats.append("*.bin *.dat *.chd");
+  } else if (platform == "bbcmicro") {
+    formats.append("*.adl *.bin *.dsd *.ssd *.uef");
   } else if (platform == "c16") {
     formats.append("*.crt *.d64 *.prg *.tap *.t64 *.g64 *.x64 *.vsf");
   } else if (platform == "c64") {
