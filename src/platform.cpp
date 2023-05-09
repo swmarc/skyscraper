@@ -50,6 +50,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("apple2gs");
   platforms.append("arcade");
   platforms.append("arcadia");
+  platforms.append("archimedes");
   platforms.append("astrocde");
   platforms.append("atari800");
   platforms.append("atari2600");
@@ -207,6 +208,8 @@ QStringList Platform::getScrapers(QString platform) {
     scrapers.append("arcadedb");
     scrapers.append("screenscraper");
   } else if (platform == "arcadia") {
+    scrapers.append("screenscraper");
+  } else if (platform == "archimedes") {
     scrapers.append("screenscraper");
   } else if (platform == "astrocde") {
     scrapers.append("screenscraper");
@@ -496,6 +499,8 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("*.bin *.dat");
   } else if (platform == "arcadia") {
     formats.append("*.bin");
+  } else if (platform == "archimedes") {
+    formats.append("*.adf *.jfd");
   } else if (platform == "astrocde") {
     formats.append("");
   } else if (platform == "atari800") {
