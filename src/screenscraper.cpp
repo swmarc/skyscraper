@@ -756,6 +756,8 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "66";
   } else if (platform == "c128") {
     return "na";
+  } else if (platform == "camplynx") {
+    return "88";
   } else if (platform == "cdi") {
     return "133";
   } else if (platform == "channelf") {

@@ -66,6 +66,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("c16");
   platforms.append("c64");
   platforms.append("c128");
+  platforms.append("camplynx");
   platforms.append("cdi");
   platforms.append("channelf");
   platforms.append("coco");
@@ -243,6 +244,8 @@ QStringList Platform::getScrapers(QString platform) {
   } else if (platform == "c128") {
     scrapers.append("igdb");
     scrapers.append("thegamesdb");
+  } else if (platform == "camplynx") {
+    scrapers.append("screenscraper");
   } else if (platform == "cdi") {
     scrapers.append("screenscraper");
   } else if (platform == "channelf") {
@@ -538,6 +541,8 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("*.crt *.d64 *.prg *.tap *.t64 *.g64 *.x64 *.vsf");
   } else if (platform == "c128") {
     formats.append("*.crt *.d64 *.prg *.tap *.t64 *.g64 *.x64 *.vsf");
+  } else if (platform == "camplynx") {
+    formats.append("*.bin");
   } else if (platform == "cdi") {
     formats.append("*.cue *.bin *.chd");
   } else if (platform == "channelf") {
