@@ -85,6 +85,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("fmtowns");
   platforms.append("gameandwatch");
   platforms.append("gamecom");
+  platforms.append("gamegear");
   platforms.append("gamepock");
   platforms.append("gb");
   platforms.append("gba");
@@ -102,6 +103,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("mastersystem");
   platforms.append("megacd");
   platforms.append("megadrive");
+  platforms.append("megadrive-msu");
   platforms.append("megaduck");
   platforms.append("moto");
   platforms.append("msx");
@@ -320,7 +322,7 @@ QStringList Platform::getScrapers(QString platform) {
     scrapers.append("screenscraper");
   } else if (platform == "megacd") {
     scrapers.append("screenscraper");
-  } else if (platform == "megadrive") {
+  } else if (platform == "megadrive" || platform == "megadrive-msu") {
     scrapers.append("screenscraper");
   } else if (platform == "megaduck") {
     scrapers.append("screenscraper");
@@ -607,7 +609,7 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("*.sms");
   } else if (platform == "megacd") {
     formats.append("*.cue *.iso *.chd");
-  } else if (platform == "megadrive") {
+  } else if (platform == "megadrive" || platform == "megadrive-msu") {
     formats.append("*.smd *.bin *.gen *.md *.sg");
   } else if (platform == "megaduck") {
     formats.append("*.bin");
