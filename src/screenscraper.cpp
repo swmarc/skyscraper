@@ -700,6 +700,8 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "17";
   } else if (platform == "64dd") {
     return "122";
+  } else if (platform == "actionmax") {
+    return "81";
   } else if (platform == "adam") {
     return "89";
   } else if (platform == "advision") {
@@ -840,6 +842,8 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "113";
   } else if (platform == "msx2+") {
     return "117";
+  } else if (platform == "msxturbor") {
+    return "118";
   } else if (platform == "n64") {
     return "14";
   } else if (platform == "naomi") {
