@@ -77,6 +77,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("cps3");
   platforms.append("crvision");
   platforms.append("daphne");
+  platforms.append("dos");
   platforms.append("dragon");
   platforms.append("dreamcast");
   platforms.append("easyrpg");
@@ -126,7 +127,6 @@ QStringList Platform::getPlatforms() {
   platforms.append("oric");
   platforms.append("oricatmos");
 
-  platforms.append("pc");
   platforms.append("pc88");
   platforms.append("pc98");
   platforms.append("pcfx");
