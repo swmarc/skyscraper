@@ -153,6 +153,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("sg-1000");
   platforms.append("snes");
   platforms.append("snes-msu");
+  platforms.append("snes-t-en");
   platforms.append("spectravideo");
   platforms.append("steam");
   platforms.append("sufami");
@@ -410,7 +411,7 @@ QStringList Platform::getScrapers(QString platform) {
     scrapers.append("screenscraper");
   } else if (platform == "sg-1000") {
     scrapers.append("screenscraper");
-  } else if (platform == "snes") {
+  } else if (platform == "snes" || platform == "snes-t-en") {
     scrapers.append("screenscraper");
   } else if (platform == "snes-msu") {
     scrapers.append("screenscraper");
@@ -695,7 +696,7 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("*.cue *.iso *.chd *.m3u");
   } else if(platform == "sg-1000") {
     formats.append("*.bin *.sg");
-  } else if (platform == "snes") {
+  } else if (platform == "snes" || platform == "snes-t-en") {
     formats.append("*.smc *.sfc *.fig *.swc *.mgd *.bin");
   } else if (platform == "snes-msu") {
     formats.append("*.smc *.sfc *.bml *.m3u");
@@ -1494,7 +1495,7 @@ QStringList Platform::getAliases(QString platform) {
     aliases.append("mega-cd");
   } else if (platform == "sg-1000") {
     aliases.append("sega sg-1000");
-  } else if (platform == "snes") {
+  } else if (platform == "snes" || platform == "snes-t-en") {
     aliases.append("super nintendo (snes)");
     aliases.append("super nintendo entertainment system (snes)");
     aliases.append("super nintendo");

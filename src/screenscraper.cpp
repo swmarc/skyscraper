@@ -916,7 +916,7 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "20";
   } else if (platform == "sg-1000") {
     return "109";
-  } else if (platform == "snes") {
+  } else if (platform == "snes" || platform == "snes-t-en") {
     return "4";
   } else if (platform == "snes-msu") {
     return "210";
