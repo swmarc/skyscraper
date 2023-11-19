@@ -830,7 +830,7 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "2";
   } else if (platform == "megacd") {
     return "20";
-  } else if (platform == "megadrive" || platform == "megadrive-msu") {
+  } else if (platform == "megadrive" || platform == "megadrive-msu" || platform == "megadrive-t-en") {
     return "1";
   } else if (platform == "megaduck") {
     return "90";
