@@ -80,6 +80,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("dos");
   platforms.append("dragon");
   platforms.append("dreamcast");
+  platforms.append("dreamcast-t-en");
   platforms.append("easyrpg");
   platforms.append("fbneo");
   platforms.append("fds");
@@ -143,6 +144,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("samcoupe");
   platforms.append("satellaview");
   platforms.append("saturn");
+  platforms.append("saturn-t-en");
   platforms.append("scummvm");
   platforms.append("scv");
   platforms.append("sega32x");
