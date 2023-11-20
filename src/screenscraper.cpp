@@ -900,7 +900,7 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "213";
   } else if (platform == "satellaview") {
     return "107";
-  } else if (platform == "saturn") {
+  } else if (platform == "saturn" || platform == "saturn-t-en") {
     return "22";
   } else if (platform == "scummvm") {
     return "123";

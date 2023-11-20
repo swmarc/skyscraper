@@ -391,7 +391,7 @@ QStringList Platform::getScrapers(QString platform) {
     scrapers.append("screenscraper");
   } else if (platform == "samcoupe") {
     scrapers.append("screenscraper");
-  } else if (platform == "saturn") {
+  } else if (platform == "saturn" || platform == "saturn-t-en") {
     scrapers.append("screenscraper");
   } else if (platform == "scummvm") {
     scrapers.append("screenscraper");
@@ -681,7 +681,7 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("*.bin");
   } else if (platform == "samcoupe") {
     formats.append("*.dsk *.sad *.mgt *.sbt *.cpm *.gz");
-  } else if(platform == "saturn") {
+  } else if(platform == "saturn" || platform == "saturn-t-en") {
     formats.append("*.cue *.iso *.mdf *.chd *.m3u");
   } else if(platform == "scummvm") {
     formats.append("*.svm *.scummvm");
