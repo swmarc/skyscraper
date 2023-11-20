@@ -124,10 +124,8 @@ QStringList Platform::getPlatforms() {
   platforms.append("ngp");
   platforms.append("ngpc");
   platforms.append("openbor");
-
   platforms.append("oric");
   platforms.append("oricatmos");
-
   platforms.append("pc88");
   platforms.append("pc98");
   platforms.append("pcfx");
@@ -165,10 +163,8 @@ QStringList Platform::getPlatforms() {
   platforms.append("trs-80");
   platforms.append("vectrex");
   platforms.append("vic20");
-
   platforms.append("videopac");
   platforms.append("odyssey2");
-
   platforms.append("virtualboy");
   platforms.append("vsmile");
   platforms.append("wii");
@@ -274,7 +270,7 @@ QStringList Platform::getScrapers(QString platform) {
     scrapers.append("screenscraper");
   } else if (platform == "dragon") {
     scrapers.append("screenscraper");
-  } else if (platform == "dreamcast") {
+  } else if (platform == "dreamcast" || platform == "dreamcast-t-en") {
     scrapers.append("screenscraper");
   } else if (platform == "easyrpg") {
     scrapers.append("screenscraper");
@@ -569,7 +565,7 @@ QString Platform::getFormats(QString platform, QString extensions,
   } else if (platform == "dragon") {
     formats.append("*.cas *.wav *.bas *.asc *.dmk *.jvc *.os9 *.dsk *.vdk "
                    "*.rom *.ccc *.sna");
-  } else if (platform == "dreamcast") {
+  } else if (platform == "dreamcast" || platform == "dreamcast-t-en") {
     formats.append("*.cdi *.gdi *.iso *.chd *.cue *.m3u");
   } else if (platform == "easyrpg") {
     formats.append("*.ini");
