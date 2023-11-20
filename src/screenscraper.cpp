@@ -790,7 +790,7 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "106";
   } else if (platform == "fm7") {
     return "97";
-  } else if (platform == "fmtowns") {
+  } else if (platform == "fmtowns" || platform == "fmtowns-t-en") {
     return "253";
   } else if (platform == "gameandwatch") {
     return "52";

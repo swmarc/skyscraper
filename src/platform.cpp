@@ -86,6 +86,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("fds");
   platforms.append("fm7");
   platforms.append("fmtowns");
+  platforms.append("fmtowns-t-en");
   platforms.append("gameandwatch");
   platforms.append("gamecom");
   platforms.append("gamegear");
@@ -283,7 +284,7 @@ QStringList Platform::getScrapers(QString platform) {
     scrapers.append("screenscraper");
   } else if (platform == "fm7") {
     scrapers.append("screenscraper");
-  } else if (platform == "fmtowns") {
+  } else if (platform == "fmtowns" || platform == "fmtowns-t-en") {
     scrapers.append("screenscraper");
   } else if (platform == "gameandwatch") {
     scrapers.append("screenscraper");
@@ -577,7 +578,7 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("*.fds *.nes");
   } else if (platform == "fm7") {
     formats.append("*.d88 *.d77 *.t77 *.wav");
-  } else if (platform == "fmtowns") {
+  } else if (platform == "fmtowns" || platform == "fmtowns-t-en") {
     formats.append("*.m3u *.d88 *.d77 *.xdf *.cue *.iso *.game *.cd *.chd");
   } else if (platform == "gameandwatch") {
     formats.append("*.mgw");
