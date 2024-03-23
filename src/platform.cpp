@@ -139,6 +139,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("ports");
   platforms.append("ps2");
   platforms.append("ps3");
+  platforms.append("ps4");
   platforms.append("psp");
   platforms.append("psx");
   platforms.append("pv1000");
@@ -384,6 +385,8 @@ QStringList Platform::getScrapers(QString platform) {
     scrapers.append("screenscraper");
     scrapers.append("thegamesdb");
   } else if (platform == "ps3") {
+    scrapers.append("screenscraper");
+  } else if (platform == "ps4") {
     scrapers.append("screenscraper");
   } else if (platform == "psp") {
     scrapers.append("screenscraper");

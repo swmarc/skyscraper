@@ -26,6 +26,8 @@
 #include <QFileInfo>
 #include <QJsonDocument>
 #include <QProcess>
+#include <chrono>
+#include <thread>
 
 #include "crc32.h"
 #include "screenscraper.h"
@@ -143,7 +145,7 @@ void ScreenScraper::getSearchResults(QList<GameEntry> &gameEntries,
 
     // Check if we got a valid JSON document back
     if (jsonObj.isEmpty()) {
-      reqRemaining = 0;
+      // reqRemaining = 0;
       printf("\033[1;31mScreenScraper APIv2 returned invalid / empty Json. "
              "Their servers are probably down. Please try again later or use a "
              "different scraping module with '-s MODULE'. Check 'Skyscraper "
@@ -164,8 +166,11 @@ void ScreenScraper::getSearchResults(QList<GameEntry> &gameEntries,
         }
         jsonErrorFile.close();
       }
-      exit(1); // DON'T try again! If we don't get a valid JSON document,
+      // exit(1); // DON'T try again! If we don't get a valid JSON document,
                // something is very wrong with the API
+      printf("\033[1;31mSleeping for 5 seconds...\033[0m\n");
+      std::this_thread::sleep_for(std::chrono::milliseconds(5000));
+      continue;
     }
 
     // Check if the request was successful
@@ -890,6 +895,8 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "58";
   } else if (platform == "ps3") {
     return "59";
+  } else if (platform == "ps4") {
+    return "60";
   } else if (platform == "psp") {
     return "61";
   } else if (platform == "psx") {
