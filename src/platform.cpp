@@ -180,6 +180,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("x1");
   platforms.append("xbox");
   platforms.append("xbox360");
+  platforms.append("xboxone");
   platforms.append("zmachine");
   platforms.append("zx81");
   platforms.append("zxspectrum");
