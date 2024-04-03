@@ -733,6 +733,8 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "94";
   } else if (platform == "archimedes") {
     return "84";
+  } else if (platform == "arduboy") {
+    return "263";
   } else if (platform == "astrocade") {
     return "44";
   } else if (platform == "atari800") {

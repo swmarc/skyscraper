@@ -52,6 +52,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("arcade");
   platforms.append("arcadia");
   platforms.append("archimedes");
+  platforms.append("arduboy");
   platforms.append("astrocade");
   platforms.append("atari800");
   platforms.append("atari2600");
@@ -221,6 +222,8 @@ QStringList Platform::getScrapers(QString platform) {
   } else if (platform == "arcadia") {
     scrapers.append("screenscraper");
   } else if (platform == "archimedes") {
+    scrapers.append("screenscraper");
+  } else if (platform == "arduboy") {
     scrapers.append("screenscraper");
   } else if (platform == "astrocde") {
     scrapers.append("screenscraper");
