@@ -33,7 +33,7 @@
 #include "screenscraper.h"
 #include "strtools.h"
 
-constexpr int RETRIESMAX = 4;
+constexpr int RETRIESMAX = 24;
 constexpr int MINARTSIZE = 256;
 
 ScreenScraper::ScreenScraper(Settings *config,
@@ -168,8 +168,8 @@ void ScreenScraper::getSearchResults(QList<GameEntry> &gameEntries,
       }
       // exit(1); // DON'T try again! If we don't get a valid JSON document,
                // something is very wrong with the API
-      printf("\033[1;31mSleeping for 5 seconds...\033[0m\n");
-      std::this_thread::sleep_for(std::chrono::milliseconds(5000));
+      printf("\033[1;31mSleeping for 5 minutes...\033[0m\n");
+      std::this_thread::sleep_for(std::chrono::milliseconds(300000));
       continue;
     }
 
@@ -514,112 +514,11 @@ void ScreenScraper::getVideo(GameEntry &game) {
 }
 
 QList<QString> ScreenScraper::getSearchNames(const QFileInfo &info) {
-  QList<QString> hashList;
-  QCryptographicHash md5(QCryptographicHash::Md5);
-  QCryptographicHash sha1(QCryptographicHash::Sha1);
-  Crc32 crc;
-  crc.initInstance(1);
-
-  bool unpack = config->unpack;
-
-  if (unpack) {
-    // Size limit for "unpack" is set to 8 megs to ensure the pi doesn't run out
-    // of memory
-    if ((info.suffix() == "7z" || info.suffix() == "zip") &&
-        info.size() < 81920000) {
-      // For 7z (7z, zip) unpacked file reading
-      {
-        QProcess decProc;
-        decProc.setReadChannel(QProcess::StandardOutput);
-        decProc.start("7z", QStringList({"l", "-so", info.absoluteFilePath()}));
-        if (decProc.waitForFinished(30000)) {
-          if (decProc.exitStatus() != QProcess::NormalExit) {
-            printf("Getting file list from compressed file failed, falling "
-                   "back...\n");
-            unpack = false;
-          } else if (!decProc.readAllStandardOutput().contains(" 1 files")) {
-            printf(
-                "Compressed file contains more than 1 file, falling back...\n");
-            unpack = false;
-          }
-        } else {
-          printf("Getting file list from compressed file timed out or failed, "
-                 "falling back...\n");
-          unpack = false;
-        }
-      }
-
-      if (unpack) {
-        QProcess decProc;
-        decProc.setReadChannel(QProcess::StandardOutput);
-
-        decProc.start("7z", QStringList({"x", "-so", info.absoluteFilePath()}));
-        if (decProc.waitForFinished(30000)) {
-          if (decProc.exitStatus() == QProcess::NormalExit) {
-            QByteArray allData = decProc.readAllStandardOutput();
-            md5.addData(allData);
-            sha1.addData(allData);
-            crc.pushData(1, allData.data(), allData.length());
-          } else {
-            printf("Something went wrong when decompressing file to stdout, "
-                   "falling back...\n");
-            unpack = false;
-          }
-        } else {
-          printf(
-              "Decompression process timed out or failed, falling back...\n");
-          unpack = false;
-        }
-      }
-    } else {
-      printf("File either not a compressed file or exceeds 8 meg size limit, "
-             "falling back...\n");
-      unpack = false;
-    }
-  }
-
-  if (!unpack) {
-    // For normal file reading
-    QFile romFile(info.absoluteFilePath());
-    romFile.open(QIODevice::ReadOnly);
-    while (!romFile.atEnd()) {
-
-      QByteArray dataSeg = romFile.read(1024);
-      md5.addData(dataSeg);
-      sha1.addData(dataSeg);
-      crc.pushData(1, dataSeg.data(), dataSeg.length());
-    }
-    romFile.close();
-  }
-
-  QString crcResult = QString::number(crc.releaseInstance(1), 16);
-  while (crcResult.length() < 8) {
-    crcResult.prepend("0");
-  }
-  QString md5Result = md5.result().toHex();
-  while (md5Result.length() < 32) {
-    md5Result.prepend("0");
-  }
-  QString sha1Result = sha1.result().toHex();
-  while (sha1Result.length() < 40) {
-    sha1Result.prepend("0");
-  }
+  QList<QString> searchNames;
 
   // For some reason the APIv2 example from their website does not url encode
   // '(' and ')' so I've excluded them
-  hashList.append(QUrl::toPercentEncoding(info.fileName(), "()"));
-  hashList.append(crcResult.toUpper());
-  hashList.append(md5Result.toUpper());
-  hashList.append(sha1Result.toUpper());
-
-  QList<QString> searchNames;
-  if (info.size() != 0) {
-    searchNames.append("crc=" + hashList.at(1) + "&md5=" + hashList.at(2) +
-                       "&sha1=" + hashList.at(3) + "&romnom=" + hashList.at(0) +
-                       "&romtaille=" + QString::number(info.size()));
-  } else {
-    searchNames.append("romnom=" + hashList.at(0));
-  }
+  searchNames.append("romnom=" + QUrl::toPercentEncoding(info.fileName(), "()"));
 
   return searchNames;
 }
