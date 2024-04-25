@@ -786,6 +786,8 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "114";
   } else if (platform == "pet") {
     return "240";
+  } else if(platform == "pico") {
+    return "250";
   } else if(platform == "pico8") {
     return "234";
   } else if(platform == "pokemini") {
@@ -800,6 +802,8 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "60";
   } else if (platform == "psp") {
     return "61";
+  } else if (platform == "psvita") {
+    return "62";
   } else if (platform == "psx") {
     return "57";
   } else if (platform == "pv1000") {

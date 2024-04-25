@@ -135,6 +135,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("pcengine");
   platforms.append("pcenginecd");
   platforms.append("pet");
+  platforms.append("pico");
   platforms.append("pico8");
   platforms.append("pokemini");
   platforms.append("ports");
@@ -142,6 +143,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("ps3");
   platforms.append("ps4");
   platforms.append("psp");
+  platforms.append("psvita");
   platforms.append("psx");
   platforms.append("pv1000");
   platforms.append("samcoupe");
@@ -380,6 +382,8 @@ QStringList Platform::getScrapers(QString platform) {
     scrapers.append("screenscraper");
   } else if (platform == "pcenginecd") {
     scrapers.append("screenscraper");
+  } else if(platform == "pico") {
+    scrapers.append("screenscraper");
   } else if(platform == "pico8") {
     scrapers.append("screenscraper");
   } else if(platform == "pokemini") {
@@ -394,6 +398,8 @@ QStringList Platform::getScrapers(QString platform) {
   } else if (platform == "ps4") {
     scrapers.append("screenscraper");
   } else if (platform == "psp") {
+    scrapers.append("screenscraper");
+  } else if (platform == "psvita") {
     scrapers.append("screenscraper");
   } else if (platform == "psx") {
     scrapers.append("screenscraper");
@@ -677,6 +683,8 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("*.pce *.chd *.cue");
   } else if (platform == "pet") {
     formats.append("*.a0 *.b0 *.crt *.d64 *.d81 *.prg *.tap *.t64 *.m3u");
+  } else if(platform == "pico") {
+    formats.append("*.md");
   } else if(platform == "pico8") {
     formats.append("*.png *.p8");
   } else if(platform == "pokemini") {
