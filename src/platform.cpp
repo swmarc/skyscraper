@@ -83,6 +83,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("dreamcast");
   platforms.append("dreamcast-t-en");
   platforms.append("easyrpg");
+  platforms.append("exl100");
   platforms.append("fbneo");
   platforms.append("fds");
   platforms.append("fm7");
@@ -156,6 +157,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("segamodel2");
   platforms.append("segamodel3");
   platforms.append("segacd");
+  platforms.append("segacd-t-en");
   platforms.append("sg-1000");
   platforms.append("snes");
   platforms.append("snes-msu");
@@ -285,6 +287,8 @@ QStringList Platform::getScrapers(QString platform) {
   } else if (platform == "dreamcast" || platform == "dreamcast-t-en") {
     scrapers.append("screenscraper");
   } else if (platform == "easyrpg") {
+    scrapers.append("screenscraper");
+  } else if (platform == "exl100") {
     scrapers.append("screenscraper");
   } else if (platform == "fbneo") {
     scrapers.append("arcadedb");
@@ -422,7 +426,7 @@ QStringList Platform::getScrapers(QString platform) {
     scrapers.append("screenscraper");
   } else if (platform == "segamodel3") {
     scrapers.append("screenscraper");
-  } else if (platform == "segacd") {
+  } else if (platform == "segacd" || platform == "segacd-t-en") {
     scrapers.append("screenscraper");
   } else if (platform == "sg-1000") {
     scrapers.append("screenscraper");
@@ -591,6 +595,8 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("*.cdi *.gdi *.iso *.chd *.cue *.m3u");
   } else if (platform == "easyrpg") {
     formats.append("*.ini");
+  } else if (platform == "exl100") {
+    formats.append("*.bin *.k7 *.rom *.wav");
   } else if (platform == "fbneo") {
     formats.append("");
   } else if (platform == "fds") {
@@ -713,7 +719,7 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("*.bin");
   } else if (platform == "sega32x") {
     formats.append("*.32x *.bin *.md *.smd");
-  } else if(platform == "segacd") {
+  } else if(platform == "segacd" || platform == "segacd-t-en") {
     formats.append("*.cue *.iso *.chd *.m3u");
   } else if(platform == "sg-1000") {
     formats.append("*.bin *.sg");

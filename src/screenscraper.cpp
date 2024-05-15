@@ -690,6 +690,8 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "23";
   } else if (platform == "easyrpg") {
     return "231";
+  } else if (platform == "exl100") {
+    return "96";
   } else if (platform == "fbneo") {
     return "75";
   } else if (platform == "fds") {
@@ -824,7 +826,7 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "54";
   } else if (platform == "segamodel3") {
     return "55";
-  } else if (platform == "segacd") {
+  } else if (platform == "segacd" || platform == "segacd-t-en") {
     return "20";
   } else if (platform == "sg-1000") {
     return "109";
