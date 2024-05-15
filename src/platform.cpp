@@ -170,6 +170,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("ti99");
   platforms.append("trs-80");
   platforms.append("vectrex");
+  platforms.append("vg5000");
   platforms.append("vic20");
   platforms.append("videopac");
   platforms.append("odyssey2");
@@ -448,6 +449,8 @@ QStringList Platform::getScrapers(QString platform) {
   } else if (platform == "trs-80") {
     scrapers.append("screenscraper");
   } else if (platform == "vectrex") {
+    scrapers.append("screenscraper");
+  } else if (platform == "vg5000") {
     scrapers.append("screenscraper");
   } else if (platform == "vic20") {
     scrapers.append("screenscraper");
@@ -734,6 +737,8 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("*.dsk");
   } else if (platform == "vectrex") {
     formats.append("*.bin *.gam *.vec");
+  } else if (platform == "vg5000") {
+    formats.append("*.k7");
   } else if (platform == "vic20") {
     formats.append("*.crt *.d64 *.prg *.tap *.t64 *.g64 *.x64 *.vsf");
   } else if (platform == "videopac" || platform == "odyssey2") {

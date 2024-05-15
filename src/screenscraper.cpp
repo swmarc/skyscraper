@@ -850,6 +850,8 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "144";
   } else if (platform == "vectrex") {
     return "102";
+  } else if (platform == "vg5000") {
+    return "261";
   } else if (platform == "vic20") {
     return "73";
   } else if (platform == "videopac" || platform == "odyssey2") {
