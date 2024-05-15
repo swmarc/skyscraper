@@ -752,7 +752,7 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "117";
   } else if (platform == "msxturbor") {
     return "118";
-  } else if (platform == "n64") {
+  } else if (platform == "n64" || platform == "n64-t-en") {
     return "14";
   } else if (platform == "naomi") {
     return "75";

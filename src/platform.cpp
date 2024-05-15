@@ -119,6 +119,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("msx2+");
   platforms.append("msxturbor");
   platforms.append("n64");
+  platforms.append("n64-t-en");
   platforms.append("naomi");
   platforms.append("naomi2");
   platforms.append("nds");
@@ -352,7 +353,7 @@ QStringList Platform::getScrapers(QString platform) {
     scrapers.append("screenscraper");
   } else if (platform == "msx2+") {
     scrapers.append("screenscraper");
-  } else if (platform == "n64") {
+  } else if (platform == "n64" || platform == "n64-t-en") {
     scrapers.append("screenscraper");
   } else if (platform == "naomi") {
     scrapers.append("screenscraper");
@@ -655,7 +656,7 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("*.rom *.ri *.mx1 *.mx2 *.col *.dsk *.cas *.sg *.sc *.m3u");
   } else if (platform == "msxturbor") {
     formats.append("*.rom *.ri *.mx1 *.mx2 *.col *.dsk *.cas *.wav *.ogv *.sg *.sc *.m3u");
-  } else if (platform == "n64") {
+  } else if (platform == "n64" || platform == "n64-t-en") {
     formats.append("*.z64 *.n64 *.v64");
   } else if (platform == "naomi") {
     formats.append("*.cue *.bin *.dat *.chd");
