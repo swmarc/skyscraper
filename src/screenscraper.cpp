@@ -806,7 +806,7 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "61";
   } else if (platform == "psvita") {
     return "62";
-  } else if (platform == "psx") {
+  } else if (platform == "psx" || platform == "psx-t-en") {
     return "57";
   } else if (platform == "pv1000") {
     return "74";

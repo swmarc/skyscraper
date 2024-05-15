@@ -147,6 +147,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("psp");
   platforms.append("psvita");
   platforms.append("psx");
+  platforms.append("psx-t-en");
   platforms.append("pv1000");
   platforms.append("samcoupe");
   platforms.append("satellaview");
@@ -407,7 +408,7 @@ QStringList Platform::getScrapers(QString platform) {
     scrapers.append("screenscraper");
   } else if (platform == "psvita") {
     scrapers.append("screenscraper");
-  } else if (platform == "psx") {
+  } else if (platform == "psx" || platform == "psx-t-en") {
     scrapers.append("screenscraper");
     scrapers.append("thegamesdb");
   } else if (platform == "pv1000") {
@@ -706,7 +707,7 @@ QString Platform::getFormats(QString platform, QString extensions,
         "*.iso *.cue *.img *.mdf *.z *.z2 *.bz2 *.dump *.cso *.ima *.gz *.chd");
   } else if (platform == "psp") {
     formats.append("*.cso *.iso *.pbp");
-  } else if(platform == "psx") {
+  } else if(platform == "psx" || platform == "psx-t-en") {
     formats.append("*.cue *.cbn *.img *.iso *.m3u *.mdf *.pbp *.toc *.z *.znx *.chd");
   } else if(platform == "pv1000") {
     formats.append("*.bin");
