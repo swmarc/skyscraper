@@ -133,6 +133,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("naomi2");
   platforms.append("nds");
   platforms.append("nds-t-en");
+  platforms.append("ndsi-t-en");
   platforms.append("neogeo");
   platforms.append("neogeocd");
   platforms.append("nes");
@@ -379,7 +380,7 @@ QStringList Platform::getScrapers(QString platform) {
     scrapers.append("screenscraper");
   } else if (platform == "naomi2") {
     scrapers.append("screenscraper");
-  } else if (platform == "nds" || platform == "nds-t-en") {
+  } else if (platform == "nds" || platform == "nds-t-en" || platform == "ndsi" || platform == "ndsi-t-en") {
     scrapers.append("screenscraper");
   } else if (platform == "neogeo") {
     scrapers.append("arcadedb");
@@ -684,7 +685,7 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("*.cue *.bin *.dat *.chd");
   } else if (platform == "naomi2") {
     formats.append("*.cue *.bin *.dat *.chd");
-  } else if (platform == "nds" || platform == "nds-t-en") {
+  } else if (platform == "nds" || platform == "nds-t-en" || platform == "ndsi" || platform == "ndsi-t-en") {
     formats.append("*.nds *.dsi *.ids *.srl *.zip *.7z *.rar *.tar *.tar.gz *.tar.xz *.tar.bz2");
   } else if (platform == "neogeo") {
     formats.append("");

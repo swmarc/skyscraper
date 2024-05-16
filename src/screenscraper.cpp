@@ -758,7 +758,7 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "75";
   } else if (platform == "naomi2") {
     return "230";
-  } else if (platform == "nds" || platform == "nds-t-en") {
+  } else if (platform == "nds" || platform == "nds-t-en" || platform == "ndsi" || platform == "ndsi-t-en") {
     return "15";
   } else if (platform == "neogeo") {
     return "142";
