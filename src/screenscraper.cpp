@@ -778,7 +778,7 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "135";
   } else if (platform == "pc88" || platform == "pc88-t-en") {
     return "221";
-  } else if (platform == "pc98") {
+  } else if (platform == "pc98" || platform == "pc98-t-en") {
     return "208";
   } else if (platform == "pcfx") {
     return "72";

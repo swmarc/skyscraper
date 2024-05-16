@@ -137,6 +137,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("pc88");
   platforms.append("pc88-t-en");
   platforms.append("pc98");
+  platforms.append("pc98-t-en");
   platforms.append("pcfx");
   platforms.append("pcengine");
   platforms.append("pcengine-t-en");
@@ -392,7 +393,8 @@ QStringList Platform::getScrapers(QString platform) {
   } else if (platform == "pc88" || platform == "pc88-t-en") {
     scrapers.append("screenscraper");
     scrapers.append("thegamesdb");
-  } else if (platform == "pc98") {
+  } else if (platform == "pc98" || platform == "pc98-t-en") {
+    scrapers.append("screenscraper");
     scrapers.append("thegamesdb");
   } else if (platform == "pcfx") {
     scrapers.append("screenscraper");
@@ -694,7 +696,7 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("*.com *.sh *.bat *.exe *.conf");
   } else if (platform == "pc88" || platform == "pc88-t-en") {
     formats.append("*.d88 *.88d *.cmt *.t88");
-  } else if (platform == "pc98") {
+  } else if (platform == "pc98" || platform == "pc98-t-en") {
     formats.append("*.d88 *.d98 *.88d *.98d *.fdi *.xdf *.hdm *.dup *.2hd "
                    "*.tfd *.hdi *.thd *.nhd *.hdd *.fdd *.cmd *.hdn");
   } else if (platform == "pcfx") {
