@@ -195,6 +195,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("xbox");
   platforms.append("xbox-t-en");
   platforms.append("xbox360");
+  platforms.append("xbox360-t-en");
   platforms.append("xboxone");
   platforms.append("zmachine");
   platforms.append("zx81");
@@ -780,7 +781,7 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("*.iso");
   } else if (platform == "xbox" || platform == "xbox-t-en") {
     formats.append("*.iso");
-  } else if (platform == "xbox360") {
+  } else if (platform == "xbox360" || platform == "xbox360-t-en") {
     formats.append("*.iso");
   } else if (platform == "zmachine") {
     formats.append("*.dat *.z1 *.z2 *.z3 *.z4 *.z5 *.z6 *.z7 *.z8");
