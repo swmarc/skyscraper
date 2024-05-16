@@ -37,6 +37,7 @@ Platform::~Platform() {}
 QStringList Platform::getPlatforms() {
   QStringList platforms;
   platforms.append("3do");
+  platforms.append("3do-t-en");
   platforms.append("3ds");
   platforms.append("3ds-t-en");
   platforms.append("64dd");
@@ -199,6 +200,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("virtualboy-t-en");
   platforms.append("vsmile");
   platforms.append("wii");
+  platforms.append("wii-t-en");
   platforms.append("wiiu");
   platforms.append("windows");
   platforms.append("wonderswan");
@@ -221,7 +223,7 @@ QStringList Platform::getPlatforms() {
 
 QStringList Platform::getScrapers(QString platform) {
   QStringList scrapers;
-  if (platform == "3do") {
+  if (platform == "3do" || platform == "3do-t-en") {
     scrapers.append("screenscraper");
   } else if (platform == "3ds" || platform == "3ds-t-en") {
     scrapers.append("screenscraper");
@@ -490,7 +492,7 @@ QStringList Platform::getScrapers(QString platform) {
     scrapers.append("screenscraper");
   } else if (platform == "vsmile") {
     scrapers.append("screenscraper");
-  } else if (platform == "wii") {
+  } else if (platform == "wii" || platform == "wii-t-en") {
     scrapers.append("thegamesdb");
     scrapers.append("screenscraper");
   } else if (platform == "wiiu") {
@@ -535,7 +537,7 @@ QString Platform::getFormats(QString platform, QString extensions,
   if (formats.right(1) != " ") {
     formats.append(" ");
   }
-  if (platform == "3do") {
+  if (platform == "3do" || platform == "3do-t-en") {
     formats.append("*.iso *.cue *.chd");
   } else if (platform == "3ds" || platform == "3ds-t-en") {
     formats.append("*.3ds");
@@ -779,7 +781,7 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("*.vb");
   } else if (platform == "vsmile") {
     formats.append("*.bin");
-  } else if (platform == "wii") {
+  } else if (platform == "wii" || platform == "wii-t-en") {
     formats.append("*.iso *.cso *.gcz *.wbfs *.rvz");
   } else if (platform == "wiiu") {
     formats.append("*.iso *.cso *.gcz *.wbfs *.wud *.wux *.wua *.rpx *.app");

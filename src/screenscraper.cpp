@@ -598,7 +598,7 @@ QString ScreenScraper::getJsonText(QJsonArray jsonArr, int attr,
 }
 
 QString ScreenScraper::getPlatformId(const QString platform) {
-  if (platform == "3do") {
+  if (platform == "3do" || platform == "3do-t-en") {
     return "29";
   } else if (platform == "3ds" || platform == "3ds-t-en") {
     return "17";
@@ -862,7 +862,7 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "11";
   } else if (platform == "vsmile") {
     return "120";
-  } else if (platform == "wii") {
+  } else if (platform == "wii" || platform == "wii-t-en") {
     return "16";
   } else if (platform == "wiiu") {
     return "18";
