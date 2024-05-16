@@ -193,6 +193,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("x68000");
   platforms.append("x1");
   platforms.append("xbox");
+  platforms.append("xbox-t-en");
   platforms.append("xbox360");
   platforms.append("xboxone");
   platforms.append("zmachine");
@@ -487,7 +488,7 @@ QStringList Platform::getScrapers(QString platform) {
     scrapers.append("screenscraper");
   } else if (platform == "x1") {
     scrapers.append("screenscraper");
-  } else if (platform == "xbox") {
+  } else if (platform == "xbox" || platform == "xbox-t-en") {
     scrapers.append("screenscraper");
   } else if (platform == "zmachine") {
     scrapers.append("thegamesdb");
@@ -777,7 +778,7 @@ QString Platform::getFormats(QString platform, QString extensions,
         "*.dx1 *.2d *.2hd *.tfd *.d88 *.88d *.hdm *.xdf *.dup *.cmd");
   } else if (platform == "x1") {
     formats.append("*.iso");
-  } else if (platform == "xbox") {
+  } else if (platform == "xbox" || platform == "xbox-t-en") {
     formats.append("*.iso");
   } else if (platform == "xbox360") {
     formats.append("*.iso");
