@@ -86,6 +86,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("exl100");
   platforms.append("fbneo");
   platforms.append("fds");
+  platforms.append("fds-t-en");
   platforms.append("fm7");
   platforms.append("fmtowns");
   platforms.append("fmtowns-t-en");
@@ -307,7 +308,7 @@ QStringList Platform::getScrapers(QString platform) {
   } else if (platform == "fbneo") {
     scrapers.append("arcadedb");
     scrapers.append("screenscraper");
-  } else if (platform == "fds") {
+  } else if (platform == "fds" || platform == "fds-t-en") {
     scrapers.append("screenscraper");
   } else if (platform == "fm7") {
     scrapers.append("screenscraper");
@@ -615,7 +616,7 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("*.bin *.k7 *.rom *.wav");
   } else if (platform == "fbneo") {
     formats.append("");
-  } else if (platform == "fds") {
+  } else if (platform == "fds" || platform == "fds-t-en") {
     formats.append("*.fds *.nes");
   } else if (platform == "fm7") {
     formats.append("*.d88 *.d77 *.t77 *.wav");

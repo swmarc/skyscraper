@@ -694,7 +694,7 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "96";
   } else if (platform == "fbneo") {
     return "75";
-  } else if (platform == "fds") {
+  } else if (platform == "fds" || platform == "fds-t-en") {
     return "106";
   } else if (platform == "fm7") {
     return "97";
