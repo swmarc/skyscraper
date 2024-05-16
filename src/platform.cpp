@@ -40,6 +40,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("3ds");
   platforms.append("3ds-t-en");
   platforms.append("64dd");
+  platforms.append("64dd-t-en");
   platforms.append("actionmax");
   platforms.append("adam");
   platforms.append("advision");
@@ -220,7 +221,7 @@ QStringList Platform::getScrapers(QString platform) {
     scrapers.append("screenscraper");
   } else if (platform == "3ds" || platform == "3ds-t-en") {
     scrapers.append("screenscraper");
-  } else if (platform == "64dd") {
+  } else if (platform == "64dd" || platform == "64dd-t-en") {
     scrapers.append("screenscraper");
   } else if (platform == "actionmax") {
     scrapers.append("screenscraper");
@@ -534,7 +535,7 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("*.iso *.cue *.chd");
   } else if (platform == "3ds" || platform == "3ds-t-en") {
     formats.append("*.3ds");
-  } else if (platform == "64dd") {
+  } else if (platform == "64dd" || platform == "64dd-t-en") {
     formats.append("*.ndd");
   } else if (platform == "actionmax") {
     formats.append("*.actionmax");

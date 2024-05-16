@@ -602,7 +602,7 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "29";
   } else if (platform == "3ds" || platform == "3ds-t-en") {
     return "17";
-  } else if (platform == "64dd") {
+  } else if (platform == "64dd" || platform == "64dd-t-en") {
     return "122";
   } else if (platform == "actionmax") {
     return "81";
