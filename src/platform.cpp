@@ -140,6 +140,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("pcengine");
   platforms.append("pcengine-t-en");
   platforms.append("pcenginecd");
+  platforms.append("pcenginecd-t-en");
   platforms.append("pet");
   platforms.append("pico");
   platforms.append("pico8");
@@ -395,7 +396,7 @@ QStringList Platform::getScrapers(QString platform) {
     scrapers.append("screenscraper");
   } else if (platform == "pcengine" || platform == "pcengine-t-en") {
     scrapers.append("screenscraper");
-  } else if (platform == "pcenginecd") {
+  } else if (platform == "pcenginecd" || platform == "pcenginecd-t-en") {
     scrapers.append("screenscraper");
   } else if(platform == "pico") {
     scrapers.append("screenscraper");
@@ -698,7 +699,7 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("*.img *.iso *.ccd *.cue *.chd");
   } else if (platform == "pcengine" || platform == "pcengine-t-en") {
     formats.append("*.pce *.chd *.cue");
-  } else if (platform == "pcenginecd") {
+  } else if (platform == "pcenginecd" || platform == "pcenginecd-t-en") {
     formats.append("*.pce *.chd *.cue");
   } else if (platform == "pet") {
     formats.append("*.a0 *.b0 *.crt *.d64 *.d81 *.prg *.tap *.t64 *.m3u");
