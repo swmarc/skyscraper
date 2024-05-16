@@ -99,6 +99,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("gba");
   platforms.append("gba-t-en");
   platforms.append("gbc");
+  platforms.append("gbc-t-en");
   platforms.append("gc");
   platforms.append("genesis");
   platforms.append("gmaster");
@@ -330,7 +331,7 @@ QStringList Platform::getScrapers(QString platform) {
     scrapers.append("screenscraper");
   } else if (platform == "gba" || platform == "gba-t-en") {
     scrapers.append("screenscraper");
-  } else if (platform == "gbc") {
+  } else if (platform == "gbc" || platform == "gbc-t-en") {
     scrapers.append("screenscraper");
   } else if (platform == "gc") {
     scrapers.append("screenscraper");
@@ -636,7 +637,7 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("*.gb");
   } else if (platform == "gba" || platform == "gba-t-en") {
     formats.append("*.gba");
-  } else if (platform == "gbc") {
+  } else if (platform == "gbc" || platform == "gbc-t-en") {
     formats.append("*.gbc");
   } else if (platform == "gc") {
     formats.append("*.iso *.cso *.gcz *.gcm *.m3u *.rvz");

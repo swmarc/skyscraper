@@ -712,7 +712,7 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "9";
   } else if (platform == "gba" || platform == "gba-t-en") {
     return "12";
-  } else if (platform == "gbc") {
+  } else if (platform == "gbc" || platform == "gbc-t-en") {
     return "10";
   } else if (platform == "gc") {
     return "13";
