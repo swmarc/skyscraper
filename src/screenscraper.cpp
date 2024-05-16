@@ -868,7 +868,7 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "18";
   } else if (platform == "windows") {
     return "138";
-  } else if (platform == "wonderswan") {
+  } else if (platform == "wonderswan" || platform == "wonderswan-t-en") {
     return "45";
   } else if (platform == "wonderswancolor") {
     return "46";

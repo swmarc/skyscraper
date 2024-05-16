@@ -184,6 +184,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("wiiu");
   platforms.append("windows");
   platforms.append("wonderswan");
+  platforms.append("wonderswan-t-en");
   platforms.append("wonderswancolor");
   platforms.append("x68000");
   platforms.append("x1");
@@ -474,7 +475,7 @@ QStringList Platform::getScrapers(QString platform) {
     scrapers.append("screenscraper");
   } else if (platform == "windows") {
     scrapers.append("screenscraper");
-  } else if (platform == "wonderswan") {
+  } else if (platform == "wonderswan" || platform == "wonderswan-t-en") {
     scrapers.append("screenscraper");
   } else if (platform == "wonderswancolor") {
     scrapers.append("screenscraper");
@@ -761,7 +762,7 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("*.iso *.cso *.gcz *.wbfs *.wud *.wux *.wua *.rpx *.app");
   } else if (platform == "windows") {
     formats.append("*.lnk .bat .exe");
-  } else if (platform == "wonderswan") {
+  } else if (platform == "wonderswan" || platform == "wonderswan-t-en") {
     formats.append("*.ws");
   } else if (platform == "wonderswancolor") {
     formats.append("*.wsc");
