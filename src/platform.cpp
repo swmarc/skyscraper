@@ -38,6 +38,7 @@ QStringList Platform::getPlatforms() {
   QStringList platforms;
   platforms.append("3do");
   platforms.append("3ds");
+  platforms.append("3ds-t-en");
   platforms.append("64dd");
   platforms.append("actionmax");
   platforms.append("adam");
@@ -217,7 +218,7 @@ QStringList Platform::getScrapers(QString platform) {
   QStringList scrapers;
   if (platform == "3do") {
     scrapers.append("screenscraper");
-  } else if (platform == "3ds") {
+  } else if (platform == "3ds" || platform == "3ds-t-en") {
     scrapers.append("screenscraper");
   } else if (platform == "64dd") {
     scrapers.append("screenscraper");
@@ -531,7 +532,7 @@ QString Platform::getFormats(QString platform, QString extensions,
   }
   if (platform == "3do") {
     formats.append("*.iso *.cue *.chd");
-  } else if (platform == "3ds") {
+  } else if (platform == "3ds" || platform == "3ds-t-en") {
     formats.append("*.3ds");
   } else if (platform == "64dd") {
     formats.append("*.ndd");
