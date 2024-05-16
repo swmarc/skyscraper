@@ -792,7 +792,7 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "250";
   } else if(platform == "pico8") {
     return "234";
-  } else if(platform == "pokemini") {
+  } else if(platform == "pokemini" || platform == "pokemini-t-en") {
     return "211";
   } else if (platform == "ports") {
     return "135";
@@ -858,7 +858,7 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "73";
   } else if (platform == "videopac" || platform == "odyssey2") {
     return "104";
-  } else if (platform == "virtualboy") {
+  } else if (platform == "virtualboy" || platform == "virtualboy-t-en") {
     return "11";
   } else if (platform == "vsmile") {
     return "120";

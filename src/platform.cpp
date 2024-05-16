@@ -156,6 +156,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("pico");
   platforms.append("pico8");
   platforms.append("pokemini");
+  platforms.append("pokemini-t-en");
   platforms.append("ports");
   platforms.append("ps2");
   platforms.append("ps3");
@@ -195,6 +196,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("videopac");
   platforms.append("odyssey2");
   platforms.append("virtualboy");
+  platforms.append("virtualboy-t-en");
   platforms.append("vsmile");
   platforms.append("wii");
   platforms.append("wiiu");
@@ -415,7 +417,7 @@ QStringList Platform::getScrapers(QString platform) {
     scrapers.append("screenscraper");
   } else if(platform == "pico8") {
     scrapers.append("screenscraper");
-  } else if(platform == "pokemini") {
+  } else if(platform == "pokemini" || platform == "pokemini-t-en") {
     scrapers.append("screenscraper");
   } else if (platform == "ports") {
     scrapers.append("thegamesdb");
@@ -484,7 +486,7 @@ QStringList Platform::getScrapers(QString platform) {
     scrapers.append("screenscraper");
   } else if (platform == "videopac" || platform == "odyssey2") {
     scrapers.append("screenscraper");
-  } else if (platform == "virtualboy") {
+  } else if (platform == "virtualboy" || platform == "virtualboy-t-en") {
     scrapers.append("screenscraper");
   } else if (platform == "vsmile") {
     scrapers.append("screenscraper");
@@ -720,7 +722,7 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("*.md");
   } else if(platform == "pico8") {
     formats.append("*.png *.p8");
-  } else if(platform == "pokemini") {
+  } else if(platform == "pokemini" || platform == "pokemini-t-en") {
     formats.append("*.min");
   } else if (platform == "ports") {
     formats.append("*.com *.sh *.bat *.exe *.conf");
@@ -773,7 +775,7 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("*.crt *.d64 *.prg *.tap *.t64 *.g64 *.x64 *.vsf");
   } else if (platform == "videopac" || platform == "odyssey2") {
     formats.append("*.bin");
-  } else if (platform == "virtualboy") {
+  } else if (platform == "virtualboy" || platform == "virtualboy-t-en") {
     formats.append("*.vb");
   } else if (platform == "vsmile") {
     formats.append("*.bin");
