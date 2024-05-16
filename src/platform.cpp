@@ -186,6 +186,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("wonderswan");
   platforms.append("wonderswan-t-en");
   platforms.append("wonderswancolor");
+  platforms.append("wonderswancolor-t-en");
   platforms.append("x68000");
   platforms.append("x1");
   platforms.append("xbox");
@@ -477,7 +478,7 @@ QStringList Platform::getScrapers(QString platform) {
     scrapers.append("screenscraper");
   } else if (platform == "wonderswan" || platform == "wonderswan-t-en") {
     scrapers.append("screenscraper");
-  } else if (platform == "wonderswancolor") {
+  } else if (platform == "wonderswancolor" || platform == "wonderswancolor-t-en") {
     scrapers.append("screenscraper");
   } else if (platform == "x68000") {
     scrapers.append("screenscraper");
@@ -764,7 +765,7 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("*.lnk .bat .exe");
   } else if (platform == "wonderswan" || platform == "wonderswan-t-en") {
     formats.append("*.ws");
-  } else if (platform == "wonderswancolor") {
+  } else if (platform == "wonderswancolor" || platform == "wonderswancolor-t-en") {
     formats.append("*.wsc");
   } else if (platform == "x68000") {
     formats.append("*.dim *.m3u");
@@ -1583,7 +1584,7 @@ QStringList Platform::getAliases(QString platform) {
     aliases.append("nintendo wii u");
     aliases.append("wii u");
     aliases.append("wiiware");
-  } else if (platform == "wonderswancolor") {
+  } else if (platform == "wonderswancolor" || platform == "wonderswancolor-t-en") {
     aliases.append("wonderswan color");
   } else if (platform == "x68000") {
     aliases.append("sharp x68000");
