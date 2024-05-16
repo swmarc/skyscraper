@@ -117,8 +117,10 @@ QStringList Platform::getPlatforms() {
   platforms.append("msx1");
   platforms.append("msx1-t-en");
   platforms.append("msx2");
+  platforms.append("msx2-t-en");
   platforms.append("msx2+");
   platforms.append("msxturbor");
+  platforms.append("msxturbor-t-en");
   platforms.append("n64");
   platforms.append("n64-t-en");
   platforms.append("naomi");
@@ -353,7 +355,7 @@ QStringList Platform::getScrapers(QString platform) {
     scrapers.append("screenscraper");
   } else if (platform == "msx" || platform == "msx1" || platform == "msx1-t-en") {
     scrapers.append("screenscraper");
-  } else if (platform == "msx2") {
+  } else if (platform == "msx2" || platform == "msx2-t-en") {
     scrapers.append("screenscraper");
   } else if (platform == "msx2+") {
     scrapers.append("screenscraper");
@@ -654,11 +656,11 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("*.fd *.sap *.k7 *.m5 *.m7 *.rom");
   } else if (platform == "msx" || platform == "msx1" || platform == "msx1-t-en") {
     formats.append("*.rom *.mx1 *.mx2 *.col *.dsk");
-  } else if (platform == "msx2") {
+  } else if (platform == "msx2" || platform == "msx2-t-en") {
     formats.append("*.rom *.mx1 *.mx2 *.col *.dsk");
   } else if (platform == "msx2+") {
     formats.append("*.rom *.ri *.mx1 *.mx2 *.col *.dsk *.cas *.sg *.sc *.m3u");
-  } else if (platform == "msxturbor") {
+  } else if (platform == "msxturbor" || platform == "msxturbor-t-en") {
     formats.append("*.rom *.ri *.mx1 *.mx2 *.col *.dsk *.cas *.wav *.ogv *.sg *.sc *.m3u");
   } else if (platform == "n64" || platform == "n64-t-en") {
     formats.append("*.z64 *.n64 *.v64");

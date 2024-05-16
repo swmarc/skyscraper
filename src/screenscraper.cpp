@@ -746,11 +746,11 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "141";
   } else if (platform == "msx" || platform == "msx1" || platform == "msx1-t-en") {
     return "113";
-  } else if (platform == "msx2") {
+  } else if (platform == "msx2" || platform == "msx2-t-en") {
     return "113";
   } else if (platform == "msx2+") {
     return "117";
-  } else if (platform == "msxturbor") {
+  } else if (platform == "msxturbor" || platform == "msxturbor-t-en") {
     return "118";
   } else if (platform == "n64" || platform == "n64-t-en") {
     return "14";
