@@ -115,6 +115,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("moto");
   platforms.append("msx");
   platforms.append("msx1");
+  platforms.append("msx1-t-en");
   platforms.append("msx2");
   platforms.append("msx2+");
   platforms.append("msxturbor");
@@ -350,7 +351,7 @@ QStringList Platform::getScrapers(QString platform) {
     scrapers.append("screenscraper");
   } else if (platform == "moto") {
     scrapers.append("screenscraper");
-  } else if (platform == "msx" || platform == "msx1") {
+  } else if (platform == "msx" || platform == "msx1" || platform == "msx1-t-en") {
     scrapers.append("screenscraper");
   } else if (platform == "msx2") {
     scrapers.append("screenscraper");
@@ -651,7 +652,7 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("*.bin");
   } else if (platform == "moto") {
     formats.append("*.fd *.sap *.k7 *.m5 *.m7 *.rom");
-  } else if (platform == "msx" || platform == "msx1") {
+  } else if (platform == "msx" || platform == "msx1" || platform == "msx1-t-en") {
     formats.append("*.rom *.mx1 *.mx2 *.col *.dsk");
   } else if (platform == "msx2") {
     formats.append("*.rom *.mx1 *.mx2 *.col *.dsk");
