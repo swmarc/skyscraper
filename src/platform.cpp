@@ -97,6 +97,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("gb");
   platforms.append("gb-t-en");
   platforms.append("gba");
+  platforms.append("gba-t-en");
   platforms.append("gbc");
   platforms.append("gc");
   platforms.append("genesis");
@@ -327,7 +328,7 @@ QStringList Platform::getScrapers(QString platform) {
     scrapers.append("screenscraper");
   } else if (platform == "gb" || platform == "gb-t-en") {
     scrapers.append("screenscraper");
-  } else if (platform == "gba") {
+  } else if (platform == "gba" || platform == "gba-t-en") {
     scrapers.append("screenscraper");
   } else if (platform == "gbc") {
     scrapers.append("screenscraper");
@@ -633,7 +634,7 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("*.bin");
   } else if (platform == "gb" || platform == "gb-t-en") {
     formats.append("*.gb");
-  } else if (platform == "gba") {
+  } else if (platform == "gba" || platform == "gba-t-en") {
     formats.append("*.gba");
   } else if (platform == "gbc") {
     formats.append("*.gbc");
