@@ -95,6 +95,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("gamegear");
   platforms.append("gamepock");
   platforms.append("gb");
+  platforms.append("gb-t-en");
   platforms.append("gba");
   platforms.append("gbc");
   platforms.append("gc");
@@ -324,7 +325,7 @@ QStringList Platform::getScrapers(QString platform) {
     scrapers.append("screenscraper");
   } else if (platform == "gamepock") {
     scrapers.append("screenscraper");
-  } else if (platform == "gb") {
+  } else if (platform == "gb" || platform == "gb-t-en") {
     scrapers.append("screenscraper");
   } else if (platform == "gba") {
     scrapers.append("screenscraper");
@@ -630,7 +631,7 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("*.gg");
   } else if (platform == "gamepock") {
     formats.append("*.bin");
-  } else if (platform == "gb") {
+  } else if (platform == "gb" || platform == "gb-t-en") {
     formats.append("*.gb");
   } else if (platform == "gba") {
     formats.append("*.gba");

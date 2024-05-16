@@ -708,7 +708,7 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "21";
   } else if (platform == "gamepock") {
     return "95";
-  } else if (platform == "gb") {
+  } else if (platform == "gb" || platform == "gb-t-en") {
     return "9";
   } else if (platform == "gba") {
     return "12";
