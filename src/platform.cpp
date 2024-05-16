@@ -135,6 +135,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("oric");
   platforms.append("oricatmos");
   platforms.append("pc88");
+  platforms.append("pc88-t-en");
   platforms.append("pc98");
   platforms.append("pcfx");
   platforms.append("pcengine");
@@ -388,7 +389,8 @@ QStringList Platform::getScrapers(QString platform) {
     scrapers.append("screenscraper");
   } else if (platform == "pc") {
     scrapers.append("thegamesdb");
-  } else if (platform == "pc88") {
+  } else if (platform == "pc88" || platform == "pc88-t-en") {
+    scrapers.append("screenscraper");
     scrapers.append("thegamesdb");
   } else if (platform == "pc98") {
     scrapers.append("thegamesdb");
@@ -690,7 +692,7 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append(" *.dsk *.tap");
   } else if (platform == "pc") {
     formats.append("*.com *.sh *.bat *.exe *.conf");
-  } else if (platform == "pc88") {
+  } else if (platform == "pc88" || platform == "pc88-t-en") {
     formats.append("*.d88 *.88d *.cmt *.t88");
   } else if (platform == "pc98") {
     formats.append("*.d88 *.d98 *.88d *.98d *.fdi *.xdf *.hdm *.dup *.2hd "
