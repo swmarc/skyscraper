@@ -704,7 +704,7 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "52";
   } else if (platform == "gamecom") {
     return "121";
-  } else if (platform == "gamegear") {
+  } else if (platform == "gamegear" || platform == "gamegear-t-en") {
     return "21";
   } else if (platform == "gamepock") {
     return "95";
