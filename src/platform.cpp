@@ -115,6 +115,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("mame-libretro");
   platforms.append("mame-mame4all");
   platforms.append("mastersystem");
+  platforms.append("mastersystem-t-en");
   platforms.append("megacd");
   platforms.append("megadrive");
   platforms.append("megadrive-msu");
@@ -363,7 +364,7 @@ QStringList Platform::getScrapers(QString platform) {
   } else if (platform == "mame-mame4all") {
     scrapers.append("arcadedb");
     scrapers.append("screenscraper");
-  } else if (platform == "mastersystem") {
+  } else if (platform == "mastersystem" || platform == "mastersystem-t-en") {
     scrapers.append("screenscraper");
   } else if (platform == "megacd") {
     scrapers.append("screenscraper");
@@ -666,7 +667,7 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("");
   } else if (platform == "mame-mame4all") {
     formats.append("");
-  } else if (platform == "mastersystem") {
+  } else if (platform == "mastersystem" || platform == "mastersystem-t-en") {
     formats.append("*.sms");
   } else if (platform == "megacd") {
     formats.append("*.cue *.iso *.chd");

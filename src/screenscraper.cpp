@@ -734,7 +734,7 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "75";
   } else if (platform == "mame-mame4all") {
     return "75";
-  } else if (platform == "mastersystem") {
+  } else if (platform == "mastersystem" || platform == "mastersystem-t-en") {
     return "2";
   } else if (platform == "megacd") {
     return "20";
