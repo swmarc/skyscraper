@@ -206,6 +206,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("odyssey2");
   platforms.append("virtualboy");
   platforms.append("virtualboy-t-en");
+  platforms.append("vpinball");
   platforms.append("vsmile");
   platforms.append("wii");
   platforms.append("wii-t-en");
@@ -500,6 +501,8 @@ QStringList Platform::getScrapers(QString platform) {
     scrapers.append("screenscraper");
   } else if (platform == "virtualboy" || platform == "virtualboy-t-en") {
     scrapers.append("screenscraper");
+  } else if (platform == "vpinball") {
+    scrapers.append("screenscraper");
   } else if (platform == "vsmile") {
     scrapers.append("screenscraper");
   } else if (platform == "wii" || platform == "wii-t-en") {
@@ -789,6 +792,8 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("*.bin");
   } else if (platform == "virtualboy" || platform == "virtualboy-t-en") {
     formats.append("*.vb");
+  } else if (platform == "vpinball") {
+    formats.append("*.bin");
   } else if (platform == "vsmile") {
     formats.append("*.bin");
   } else if (platform == "wii" || platform == "wii-t-en") {

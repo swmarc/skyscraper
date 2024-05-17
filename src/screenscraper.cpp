@@ -860,6 +860,8 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "104";
   } else if (platform == "virtualboy" || platform == "virtualboy-t-en") {
     return "11";
+  } else if (platform == "vpinball") {
+    return "198";
   } else if (platform == "vsmile") {
     return "120";
   } else if (platform == "wii" || platform == "wii-t-en") {
