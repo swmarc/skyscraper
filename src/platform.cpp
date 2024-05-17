@@ -181,6 +181,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("segacd");
   platforms.append("segacd-t-en");
   platforms.append("sg-1000");
+  platforms.append("sg-1000-t-en");
   platforms.append("snes");
   platforms.append("snes-msu");
   platforms.append("snes-t-en");
@@ -458,7 +459,7 @@ QStringList Platform::getScrapers(QString platform) {
     scrapers.append("screenscraper");
   } else if (platform == "segacd" || platform == "segacd-t-en") {
     scrapers.append("screenscraper");
-  } else if (platform == "sg-1000") {
+  } else if (platform == "sg-1000" || platform == "sg-1000-t-en") {
     scrapers.append("screenscraper");
   } else if (platform == "snes" || platform == "snes-t-en") {
     scrapers.append("screenscraper");
@@ -751,7 +752,7 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("*.32x *.bin *.md *.smd");
   } else if(platform == "segacd" || platform == "segacd-t-en") {
     formats.append("*.cue *.iso *.chd *.m3u");
-  } else if(platform == "sg-1000") {
+  } else if(platform == "sg-1000" || platform == "sg-1000-t-en") {
     formats.append("*.bin *.sg");
   } else if (platform == "snes" || platform == "snes-t-en") {
     formats.append("*.smc *.sfc *.fig *.swc *.mgd *.bin");

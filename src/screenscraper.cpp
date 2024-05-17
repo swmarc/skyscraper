@@ -828,7 +828,7 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "55";
   } else if (platform == "segacd" || platform == "segacd-t-en") {
     return "20";
-  } else if (platform == "sg-1000") {
+  } else if (platform == "sg-1000" || platform == "sg-1000-t-en") {
     return "109";
   } else if (platform == "snes" || platform == "snes-t-en") {
     return "4";
