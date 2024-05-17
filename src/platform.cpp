@@ -166,6 +166,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("ps2");
   platforms.append("ps2-t-en");
   platforms.append("ps3");
+  platforms.append("ps3-t-en");
   platforms.append("ps4");
   platforms.append("psp");
   platforms.append("psvita");
@@ -434,7 +435,7 @@ QStringList Platform::getScrapers(QString platform) {
   } else if (platform == "ps2" || platform == "ps2-t-en") {
     scrapers.append("screenscraper");
     scrapers.append("thegamesdb");
-  } else if (platform == "ps3") {
+  } else if (platform == "ps3" || platform == "ps3-t-en") {
     scrapers.append("screenscraper");
   } else if (platform == "ps4") {
     scrapers.append("screenscraper");
