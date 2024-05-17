@@ -164,6 +164,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("pokemini-t-en");
   platforms.append("ports");
   platforms.append("ps2");
+  platforms.append("ps2-t-en");
   platforms.append("ps3");
   platforms.append("ps4");
   platforms.append("psp");
@@ -430,7 +431,7 @@ QStringList Platform::getScrapers(QString platform) {
     scrapers.append("screenscraper");
   } else if (platform == "ports") {
     scrapers.append("thegamesdb");
-  } else if (platform == "ps2") {
+  } else if (platform == "ps2" || platform == "ps2-t-en") {
     scrapers.append("screenscraper");
     scrapers.append("thegamesdb");
   } else if (platform == "ps3") {
@@ -735,7 +736,7 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("*.min");
   } else if (platform == "ports") {
     formats.append("*.com *.sh *.bat *.exe *.conf");
-  } else if (platform == "ps2") {
+  } else if (platform == "ps2" || platform == "ps2-t-en") {
     formats.append(
         "*.iso *.cue *.img *.mdf *.z *.z2 *.bz2 *.dump *.cso *.ima *.gz *.chd");
   } else if (platform == "psp") {
