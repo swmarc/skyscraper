@@ -169,6 +169,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("ps3-t-en");
   platforms.append("ps4");
   platforms.append("psp");
+  platforms.append("psp-t-en");
   platforms.append("psvita");
   platforms.append("psx");
   platforms.append("psx-t-en");
@@ -439,7 +440,7 @@ QStringList Platform::getScrapers(QString platform) {
     scrapers.append("screenscraper");
   } else if (platform == "ps4") {
     scrapers.append("screenscraper");
-  } else if (platform == "psp") {
+  } else if (platform == "psp" || platform == "psp-t-en") {
     scrapers.append("screenscraper");
   } else if (platform == "psvita") {
     scrapers.append("screenscraper");
@@ -740,7 +741,7 @@ QString Platform::getFormats(QString platform, QString extensions,
   } else if (platform == "ps2" || platform == "ps2-t-en") {
     formats.append(
         "*.iso *.cue *.img *.mdf *.z *.z2 *.bz2 *.dump *.cso *.ima *.gz *.chd");
-  } else if (platform == "psp") {
+  } else if (platform == "psp" || platform == "psp-t-en") {
     formats.append("*.cso *.iso *.pbp");
   } else if(platform == "psx" || platform == "psx-t-en") {
     formats.append("*.cue *.cbn *.img *.iso *.m3u *.mdf *.pbp *.toc *.z *.znx *.chd");

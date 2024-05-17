@@ -802,7 +802,7 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "59";
   } else if (platform == "ps4") {
     return "60";
-  } else if (platform == "psp") {
+  } else if (platform == "psp" || platform == "psp-t-en") {
     return "61";
   } else if (platform == "psvita") {
     return "62";
