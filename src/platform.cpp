@@ -212,6 +212,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("wonderswancolor-t-en");
   platforms.append("x68000");
   platforms.append("x1");
+  platforms.append("x1-t-en");
   platforms.append("xbox");
   platforms.append("xbox-t-en");
   platforms.append("xbox360");
@@ -509,7 +510,7 @@ QStringList Platform::getScrapers(QString platform) {
     scrapers.append("screenscraper");
   } else if (platform == "x68000") {
     scrapers.append("screenscraper");
-  } else if (platform == "x1") {
+  } else if (platform == "x1" || platform == "x1-t-en") {
     scrapers.append("screenscraper");
   } else if (platform == "xbox" || platform == "xbox-t-en") {
     scrapers.append("screenscraper");
@@ -796,7 +797,7 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("*.wsc");
   } else if (platform == "x68000") {
     formats.append("*.dim *.m3u");
-  } else if (platform == "x1") {
+  } else if (platform == "x1" || platform == "x1-t-en") {
     formats.append(
         "*.dx1 *.2d *.2hd *.tfd *.d88 *.88d *.hdm *.xdf *.dup *.cmd");
   } else if (platform == "x1") {

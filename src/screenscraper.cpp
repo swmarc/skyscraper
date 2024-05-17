@@ -874,7 +874,7 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "46";
   } else if (platform == "x68000") {
     return "79";
-  } else if (platform == "x1") {
+  } else if (platform == "x1" || platform == "x1-t-en") {
     return "220";
   } else if (platform == "xbox" || platform == "xbox-t-en") {
     return "32";
