@@ -139,6 +139,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("ndsi-t-en");
   platforms.append("neogeo");
   platforms.append("neogeocd");
+  platforms.append("neogeocd-t-en");
   platforms.append("nes");
   platforms.append("ngp");
   platforms.append("ngpc");
@@ -211,6 +212,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("wonderswancolor");
   platforms.append("wonderswancolor-t-en");
   platforms.append("x68000");
+  platforms.append("x68000-t-en");
   platforms.append("x1");
   platforms.append("x1-t-en");
   platforms.append("xbox");
@@ -393,7 +395,7 @@ QStringList Platform::getScrapers(QString platform) {
   } else if (platform == "neogeo") {
     scrapers.append("arcadedb");
     scrapers.append("screenscraper");
-  } else if (platform == "neogeocd") {
+  } else if (platform == "neogeocd" || platform == "neogeocd-t-en") {
     scrapers.append("screenscraper");
   } else if (platform == "nes") {
     scrapers.append("screenscraper");
@@ -508,7 +510,7 @@ QStringList Platform::getScrapers(QString platform) {
     scrapers.append("screenscraper");
   } else if (platform == "wonderswancolor" || platform == "wonderswancolor-t-en") {
     scrapers.append("screenscraper");
-  } else if (platform == "x68000") {
+  } else if (platform == "x68000" || platform == "x68000-t-en") {
     scrapers.append("screenscraper");
   } else if (platform == "x1" || platform == "x1-t-en") {
     scrapers.append("screenscraper");
@@ -697,7 +699,7 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("*.nds *.dsi *.ids *.srl *.zip *.7z *.rar *.tar *.tar.gz *.tar.xz *.tar.bz2");
   } else if (platform == "neogeo") {
     formats.append("");
-  } else if (platform == "neogeocd") {
+  } else if (platform == "neogeocd" || platform == "neogeocd-t-en") {
     formats.append("*.cue *.chd *.iso");
   } else if (platform == "nes") {
     formats.append("*.nes *.smc *.sfc *.fig *.swc *.mgd");
@@ -795,7 +797,7 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("*.ws");
   } else if (platform == "wonderswancolor" || platform == "wonderswancolor-t-en") {
     formats.append("*.wsc");
-  } else if (platform == "x68000") {
+  } else if (platform == "x68000" || platform == "x68000-t-en") {
     formats.append("*.dim *.m3u");
   } else if (platform == "x1" || platform == "x1-t-en") {
     formats.append(

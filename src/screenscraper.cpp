@@ -762,7 +762,7 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "15";
   } else if (platform == "neogeo") {
     return "142";
-  } else if (platform == "neogeocd") {
+  } else if (platform == "neogeocd" || platform == "neogeocd-t-en") {
     return "70";
   } else if (platform == "nes") {
     return "3";
@@ -872,7 +872,7 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "45";
   } else if (platform == "wonderswancolor" || platform == "wonderswancolor-t-en") {
     return "46";
-  } else if (platform == "x68000") {
+  } else if (platform == "x68000" || platform == "x68000-t-en") {
     return "79";
   } else if (platform == "x1" || platform == "x1-t-en") {
     return "220";
