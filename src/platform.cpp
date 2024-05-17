@@ -143,6 +143,7 @@ QStringList Platform::getPlatforms() {
   platforms.append("nes");
   platforms.append("ngp");
   platforms.append("ngpc");
+  platforms.append("ngpc-t-en");
   platforms.append("openbor");
   platforms.append("oric");
   platforms.append("oricatmos");
@@ -401,7 +402,7 @@ QStringList Platform::getScrapers(QString platform) {
     scrapers.append("screenscraper");
   } else if (platform == "ngp") {
     scrapers.append("screenscraper");
-  } else if (platform == "ngpc") {
+  } else if (platform == "ngpc" || platform == "ngpc-t-en") {
     scrapers.append("screenscraper");
   } else if (platform == "openbor") {
     scrapers.append("screenscraper");
@@ -705,7 +706,7 @@ QString Platform::getFormats(QString platform, QString extensions,
     formats.append("*.nes *.smc *.sfc *.fig *.swc *.mgd");
   } else if (platform == "ngp") {
     formats.append(" *.ngp");
-  } else if (platform == "ngpc") {
+  } else if (platform == "ngpc" || platform == "ngpc-t-en") {
     formats.append(" *.ngc");
   } else if (platform == "openbor") {
     formats.append(" *.pak");

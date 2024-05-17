@@ -768,7 +768,7 @@ QString ScreenScraper::getPlatformId(const QString platform) {
     return "3";
   } else if (platform == "ngp") {
     return "25";
-  } else if (platform == "ngpc") {
+  } else if (platform == "ngpc" || platform == "ngpc-t-en") {
     return "82";
   } else if (platform == "openbor") {
     return "214";
